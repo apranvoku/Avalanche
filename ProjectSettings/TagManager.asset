@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Obstacles
+    uniqueID: 3460751535
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1212501101
+    locked: 0
