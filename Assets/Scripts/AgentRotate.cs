@@ -28,6 +28,21 @@ public class AgentRotate : MonoBehaviour
         PlayerScreenToCameraSpace = new Vector3(WorldToScreenPointVector.x, WorldToScreenPointVector.y, 0f);
         PlayerToMouse = MouseScreenToCameraSpace - PlayerScreenToCameraSpace;
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, PlayerToMouse); //DO NOT TOUCH THE ANCIENT MAGIC!!!
+        if(PlayerToMouse.x > 0)
+        {
+            if(transform.localScale.x < 0) 
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
+        if (PlayerToMouse.x < 0)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
+
+        //transform.rotation = Quaternion.LookRotation(Vector3.forward, PlayerToMouse); This code rotates sprite to mouse.
     }
 }

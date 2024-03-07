@@ -28,7 +28,7 @@ public class Shoot : MonoBehaviour
 
     public IEnumerator FireDelay()
     {
-        yield return new WaitForSecondsRealtime(0.03f);
+        yield return new WaitForSecondsRealtime(0.06f);
         readyToFire = true;
     }
 }
