@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f2a56e2998f549b8884ced7e1693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 100
+  bulletSpeed: 300
   ar: {fileID: 0}
   velocityVector: {x: 0, y: 0, z: 0}
   JitterOffset: {x: 0, y: 0, z: 0}

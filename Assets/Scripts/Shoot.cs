@@ -18,7 +18,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed && readyToFire)
+        if (Mouse.current.leftButton.wasPressedThisFrame && readyToFire)
         {
             readyToFire = false;
             Instantiate(projectile, transform.position, Quaternion.identity, projectileParent.transform);
@@ -28,7 +28,7 @@ public class Shoot : MonoBehaviour
 
     public IEnumerator FireDelay()
     {
-        yield return new WaitForSecondsRealtime(0.06f);
+        yield return new WaitForSecondsRealtime(0.1f);
         readyToFire = true;
     }
 }

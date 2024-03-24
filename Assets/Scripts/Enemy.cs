@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        hp = 100;
+        hp = 30;
         total_hp = hp;
         player = GameObject.Find("Agent");
         coinDropParent = GameObject.Find("coinDropParent");
