@@ -396,7 +396,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.27
-  m_Speed: 35
+  m_Speed: 15
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -422,8 +422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   hp: 0
-  expDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
-  expDropParent: {fileID: 0}
+  coinDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
+  coinDropParent: {fileID: 0}
 --- !u!50 &4944163353856491241
 Rigidbody2D:
   serializedVersion: 4

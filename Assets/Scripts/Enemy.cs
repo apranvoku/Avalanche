@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
     public float hp;
     private float total_hp;
-    public GameObject expDrop;
-    public GameObject expDropParent;
+    public GameObject coinDrop;
+    public GameObject coinDropParent;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         hp = 100;
         total_hp = hp;
         player = GameObject.Find("Agent");
-        expDropParent = GameObject.Find("expDropParent");
+        coinDropParent = GameObject.Find("coinDropParent");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -50,8 +50,8 @@ public class Enemy : MonoBehaviour
         slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
-            GameObject expdrop = GameObject.Instantiate(expDrop, transform.position, Quaternion.identity, expDropParent.transform);
-            //We can use the expdrop GO to set exp values.
+            GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
+            //We can use the coindrop GO to set coin values.
             Destroy(transform.gameObject);
         }
     }
