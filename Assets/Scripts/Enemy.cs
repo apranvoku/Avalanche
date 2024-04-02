@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public GameObject player;
+    public Player playerScript;
     Slider slider;
     NavMeshAgent agent;
     public float hp;
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
         hp = 30;
         total_hp = hp;
         player = GameObject.Find("Agent");
+        playerScript = player.GetComponentInChildren<Player>();
         coinDropParent = GameObject.Find("coinDropParent");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -39,9 +41,13 @@ public class Enemy : MonoBehaviour
         GameObject bullet = collision.gameObject;
         if (bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Projectiles")
         {
+            Destroy(bullet);
             TakeDamage(10); //Pass bullet damage here.
         }
-        Destroy(bullet);
+        else if(bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Player")
+        {
+            playerScript.TakeDamage(1);
+        }
     }
 
     public void TakeDamage(float damage)

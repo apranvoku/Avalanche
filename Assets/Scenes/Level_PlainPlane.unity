@@ -22666,6 +22666,86 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1568495075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4246149641866063170, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+  m_PrefabInstance: {fileID: 1931900645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1568495077
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568495075}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &1568495078
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568495075}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.08
+--- !u!114 &1568495081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568495075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5a83400b525764da87750aab8da8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
 --- !u!1 &1590548079
 GameObject:
   m_ObjectHideFlags: 0
@@ -26986,7 +27066,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3259340106304086121, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445214251676222266, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445214251676222266, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1344917305
       objectReference: {fileID: 0}
     - target: {fileID: 7724385975281193383, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27036,10 +27124,23 @@ PrefabInstance:
       propertyPath: projectileParent
       value: 
       objectReference: {fileID: 249901499}
+    - target: {fileID: 9182606095449975052, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: m_Acceleration
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4246149641866063170, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1568495078}
+    - targetCorrespondingSourceObject: {fileID: 4246149641866063170, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1568495077}
+    - targetCorrespondingSourceObject: {fileID: 4246149641866063170, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1568495081}
   m_SourcePrefab: {fileID: 100100000, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
 --- !u!1 &1931900646 stripped
 GameObject:
