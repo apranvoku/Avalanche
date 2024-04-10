@@ -11,8 +11,8 @@ TagManager:
   - Items
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Exit
   - 
   - 
   - 
@@ -55,4 +55,7 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 114323665
+    locked: 0
+  - name: Exit
+    uniqueID: 192996589
     locked: 0

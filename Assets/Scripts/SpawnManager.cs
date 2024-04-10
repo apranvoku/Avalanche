@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> enemies;
     public List<int> toSpawn;
     public int enemiesCount;
+    public GameObject exit;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,13 +63,20 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void EnemyDestroyed()
+    public void EnemyDestroyed(Vector3 pos)
     {
         enemiesCount--;
         if (enemiesCount == 0)
         {
             //Do whatever needs to be done to end level.
+            StartCoroutine(SpawnExit(pos));
         }
+    }
+
+    public IEnumerator SpawnExit(Vector3 pos)
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        Instantiate(exit, pos, Quaternion.identity);
     }
 
     // Update is called once per frame
