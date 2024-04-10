@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
+            SpawnManager.Instance.EnemyDestroyed();
             Destroy(transform.gameObject);
         }
     }
