@@ -76,7 +76,7 @@ public class SpawnManager : MonoBehaviour
     public IEnumerator SpawnExit(Vector3 pos)
     {
         yield return new WaitForSecondsRealtime(3f);
-        Instantiate(exit, pos, Quaternion.identity);
+        Instantiate(exit, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
     }
 
     // Update is called once per frame
