@@ -7,11 +7,23 @@ public class Shoot : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject projectileParent;
+    public Gun currentGun;
+
+    public Sprite pistolSprite;
+    public Sprite machineGunSprite;
+    public Sprite shotgunSprite;
+    public Sprite rocketLauncherSprite;
 
     public bool readyToFire;
     // Start is called before the first frame update
     void Start()
     {
+        Pistol pistol = new Pistol();
+        Machinegun machinegun = new Machinegun();
+        Shotgun shotgun = new Shotgun();
+        Rocketlauncher rocketlauncher = new Rocketlauncher();
+
+        currentGun = pistol;
         readyToFire = true;
     }
 
