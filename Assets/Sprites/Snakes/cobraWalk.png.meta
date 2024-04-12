@@ -100,10 +100,10 @@ TextureImporter:
       name: cobraWalk_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 4
-        width: 64
-        height: 60
+        x: 0
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +121,10 @@ TextureImporter:
       name: cobraWalk_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 4
-        width: 64
-        height: 64
+        x: 120
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: cobraWalk_2
       rect:
         serializedVersion: 2
-        x: 264
-        y: 4
-        width: 60
-        height: 64
+        x: 240
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: cobraWalk_3
       rect:
         serializedVersion: 2
-        x: 388
-        y: 4
-        width: 56
-        height: 64
+        x: 360
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: cobraWalk_4
       rect:
         serializedVersion: 2
-        x: 504
-        y: 4
-        width: 80
-        height: 60
+        x: 480
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: cobraWalk_5
       rect:
         serializedVersion: 2
-        x: 620
-        y: 4
-        width: 72
-        height: 56
+        x: 600
+        y: 0
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: be505262d9a636449839a838dedb4bc1
+guid: 0659fef8ad1313c408d1f2117a0887aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 8, y: 4, z: 8, w: 4}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cobreSprite_0
+      name: cobraHitstun_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 68
+        width: 120
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb3a2e9b15b2fb448cba4f28b9f0577
-      internalID: -873338282
+      spriteID: 81c9ea94d5e832347992177ed038a7c4
+      internalID: 1775116979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cobraHitstun_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 120
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efbad726cd0e902458eff14d68a29377
+      internalID: -2122075891
       vertices: []
       indices: 
       edges: []
@@ -120,15 +141,16 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: fb073b2a7fb7a3541976fe317e0911a6
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cobreSprite_0: -873338282
+      cobraHitstun_0: 1775116979
+      cobraHitstun_1: -2122075891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
