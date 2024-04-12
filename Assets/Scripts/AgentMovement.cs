@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class AgentMovement : MonoBehaviour
 {
@@ -116,8 +117,8 @@ public class AgentMovement : MonoBehaviour
         // Move the child back to its original global position
         transform.Find("Character").transform.position = transform.position + difference;
 
-        StartCoroutine(RotateObject(200.0f, 10f));
-        StartCoroutine(ScaleToZero(2f, 3f));
+        StartCoroutine(RotateObject(500.0f, 5f));
+        StartCoroutine(ScaleToZero(0.5f, 1.5f));
 
     }
 
@@ -138,6 +139,9 @@ public class AgentMovement : MonoBehaviour
 
         // Ensure the object reaches exactly the target scale
         transform.localScale = targetScale;
+
+        //load next scene after spin animation ends
+        SceneManager.LoadScene("Intro");
     }
 
     private IEnumerator RotateObject(float rotationSpeed, float duration)
