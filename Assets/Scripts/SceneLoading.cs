@@ -21,7 +21,7 @@ public class SceneLoading : MonoBehaviour
     {
         if (level == 1)
         {
-            SceneManager.LoadScene("LevelOne");
+            SceneManager.LoadScene("Level_PlainPlane");
         }
     }
 

@@ -47,6 +47,9 @@ TagManager:
   - name: Enemy
     uniqueID: 4090512161
     locked: 0
+  - name: Exit
+    uniqueID: 192996589
+    locked: 0
   - name: Player
     uniqueID: 2950049991
     locked: 0
@@ -55,7 +58,4 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 114323665
-    locked: 0
-  - name: Exit
-    uniqueID: 192996589
     locked: 0

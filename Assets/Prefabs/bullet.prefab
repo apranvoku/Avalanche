@@ -103,9 +103,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1212501101
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -544764143, guid: 8bccaab2f96128e4fb2b06785db2d705, type: 3}
+  m_Sprite: {fileID: 364325424, guid: 89f21457af15e9a4492bbcab6dddfe2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,6 +167,7 @@ MonoBehaviour:
   velocityVector: {x: 0, y: 0, z: 0}
   JitterOffset: {x: 0, y: 0, z: 0}
   Jitter: 0
+  startMovement: 0
 --- !u!58 &2678377315573011179
 CircleCollider2D:
   m_ObjectHideFlags: 0
