@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6970864933635849911}
   - component: {fileID: 3124155459673351373}
   - component: {fileID: 558052030400507355}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3547240049062739615}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 395636270638002082}
   - component: {fileID: 293669353836345729}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 3846528400824854370}
   - component: {fileID: 3581002274789758214}
   - component: {fileID: 4120236254907530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 5422109512672821832}
   - component: {fileID: 4999012565079158569}
   - component: {fileID: 2004805615526326821}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 7926201055358798631}
   - component: {fileID: 4944163353856491241}
   - component: {fileID: 4352735366590469208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GardenSnake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 3989951380994026377}
   - component: {fileID: 3932552005787522028}
   - component: {fileID: 8906819310735931936}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
