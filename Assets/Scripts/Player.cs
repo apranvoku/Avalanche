@@ -46,7 +46,9 @@ public class Player : MonoBehaviour
         }
         else if (entity.GetComponent<SpriteRenderer>().sortingLayerName == "Exit") {
             //Do action to exit level
-            SceneManager.LoadScene("Intro");
+            //SceneManager.LoadScene("Intro");
+            GetComponent<CircleCollider2D>().enabled = false;
+            transform.parent.GetComponent<AgentMovement>().ExitAnimation(entity.transform.position);
         }
 
 
