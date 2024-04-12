@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf1e4b243eecdbb49bb387a6a8e2dd8f
+guid: 3fb724ddd7b30b94487797188866a267
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExitSign_0
+      name: ExitSign_v2_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 64
-        height: 108
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cca8c5f458b8eda499af07277176638b
-      internalID: 1325010299
+      spriteID: 5ac1249d3dfe6aa40852866e2d244d7e
+      internalID: -1960009392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitSign_v2_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f23911f8583364986f65e6f519c623
+      internalID: -1453046934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitSign_v2_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5fb48e997068d447a997bf4a7f86cef
+      internalID: 1546126139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitSign_v2_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b3cc44f5799134d9c068edfdcec05c
+      internalID: 454766979
       vertices: []
       indices: 
       edges: []
@@ -120,7 +183,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1dfa80d5a1adca342b5f350446af13ba
+    spriteID: 991160a057de61e4c8f5af9957a5b1d9
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ExitSign_0: 1325010299
+      ExitSign_v2_0: -1960009392
+      ExitSign_v2_1: -1453046934
+      ExitSign_v2_2: 1546126139
+      ExitSign_v2_3: 454766979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

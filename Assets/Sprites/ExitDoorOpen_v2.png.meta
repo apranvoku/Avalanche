@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1cb37beddc66374ea2913366a1fa0d5
+guid: 13001a09f4ae153478bf9a63297e5f26
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ExitDoorOpen_0
+      name: ExitDoorOpen_v2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e7734991699b144ba3f1839daba362
-      internalID: 615728668
+      spriteID: 55a590338d56f5d47a864a7749a7a24d
+      internalID: 656386750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_1
+      name: ExitDoorOpen_v2_1
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 932f2357999f01148a3ba3f466f2382b
-      internalID: 1052546674
+      spriteID: 823fbf7e66506b541b3406d9de2f032e
+      internalID: -1316269162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_2
+      name: ExitDoorOpen_v2_2
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063f6f1ab99fc754e907589568bcb6bf
-      internalID: 838361259
+      spriteID: e4d96489a1d4b074f982e8ff85ff8ad6
+      internalID: 912542175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_3
+      name: ExitDoorOpen_v2_3
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ff9935c18de9349ab0e6aaf96aa1fd
-      internalID: -1636946850
+      spriteID: f787f028d01c00347b809244ed8bc8d3
+      internalID: -1860122813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_4
+      name: ExitDoorOpen_v2_4
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8808f295659589498db9e341fe33c39
-      internalID: 302292170
+      spriteID: 6f99b81af97fdf042b5a1d79be90093a
+      internalID: 818451128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_5
+      name: ExitDoorOpen_v2_5
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,83 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 824cfd38f83e1cc4d82d2687c2cafd57
-      internalID: -1720321038
+      spriteID: 584ba5c02f08d764b9ea43cb26268072
+      internalID: -881578498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_7
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 256
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82e2e6a0f42aa494591fc9aea629f75f
-      internalID: 992020316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExitDoorOpen_10
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 256
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1a698a9f13946143943af8f7a981956
-      internalID: 943247332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExitDoorOpen_12
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 256
-        height: 188
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2270d94e5ab71c9478b54274ead29bc7
-      internalID: 870401322
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ExitDoorOpen_6
+      name: ExitDoorOpen_v2_6
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +237,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67f2de0eb54ac9940acab23873b96126
-      internalID: -695595650
+      spriteID: 77467ddee65967a4d8b46f1e0cc6f515
+      internalID: 494878076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_8
+      name: ExitDoorOpen_v2_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8aaffbe8605e704faa71c3c1461d36f
+      internalID: -554417861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_8
       rect:
         serializedVersion: 2
         x: 2048
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19284fb0062b8494190f1838ad5b59a7
-      internalID: -1957374858
+      spriteID: 79bf8330b566b6d45a97cb0706469ea1
+      internalID: 1336422897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_9
+      name: ExitDoorOpen_v2_9
       rect:
         serializedVersion: 2
         x: 2304
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcfc5964b9933ce4bbc319b7a66f1330
-      internalID: -1231484607
+      spriteID: 848dc6e85048ba9459bbee95a4369b24
+      internalID: -1965965722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ExitDoorOpen_11
+      name: ExitDoorOpen_v2_10
       rect:
         serializedVersion: 2
-        x: 2816
+        x: 2560
         y: 0
         width: 256
-        height: 188
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,8 +321,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8dafc6f5e8c3bc45a9e87124458a0d0
-      internalID: -305056582
+      spriteID: 92f040fbee81acf4091f51b3d8619fac
+      internalID: 135439214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_11
+      rect:
+        serializedVersion: 2
+        x: 2816
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e47c12b21631e9c4a8c26feff124da3f
+      internalID: -175422030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_12
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2019a7e99a0524a819be77ccd6ee94
+      internalID: 1224126142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_13
+      rect:
+        serializedVersion: 2
+        x: 3328
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293569dde264a4e4c951cef04549601c
+      internalID: -1411553124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_14
+      rect:
+        serializedVersion: 2
+        x: 3584
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca98136000a26af4daae812b3b9d587f
+      internalID: -1889836898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2378b338d0b61364a9ef25404931c7b6
+      internalID: -942265639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_16
+      rect:
+        serializedVersion: 2
+        x: 4096
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31dd9c2feee8a874b9fb6b64e30e3811
+      internalID: -177173896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_17
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f328a5f51d66774db4b8f1d3ce45e65
+      internalID: -1428498568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_18
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17ae59332e41a94092928a40f2ae8b4
+      internalID: -1625171862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitDoorOpen_v2_19
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e7563e7ff5e6a42ac8fa5df05ba7da
+      internalID: -489986092
       vertices: []
       indices: 
       edges: []
@@ -372,7 +519,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 365b317f6ab354a4bb6803859554db9c
+    spriteID: 2e92402dfc9e34943995f9382ca48ca0
     internalID: 0
     vertices: []
     indices: 
@@ -380,19 +527,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ExitDoorOpen_0: 615728668
-      ExitDoorOpen_1: 1052546674
-      ExitDoorOpen_10: 943247332
-      ExitDoorOpen_11: -305056582
-      ExitDoorOpen_12: 870401322
-      ExitDoorOpen_2: 838361259
-      ExitDoorOpen_3: -1636946850
-      ExitDoorOpen_4: 302292170
-      ExitDoorOpen_5: -1720321038
-      ExitDoorOpen_6: -695595650
-      ExitDoorOpen_7: 992020316
-      ExitDoorOpen_8: -1957374858
-      ExitDoorOpen_9: -1231484607
+      ExitDoorOpen_v2_0: 656386750
+      ExitDoorOpen_v2_1: -1316269162
+      ExitDoorOpen_v2_10: 135439214
+      ExitDoorOpen_v2_11: -175422030
+      ExitDoorOpen_v2_12: 1224126142
+      ExitDoorOpen_v2_13: -1411553124
+      ExitDoorOpen_v2_14: -1889836898
+      ExitDoorOpen_v2_15: -942265639
+      ExitDoorOpen_v2_16: -177173896
+      ExitDoorOpen_v2_17: -1428498568
+      ExitDoorOpen_v2_18: -1625171862
+      ExitDoorOpen_v2_19: -489986092
+      ExitDoorOpen_v2_2: 912542175
+      ExitDoorOpen_v2_3: -1860122813
+      ExitDoorOpen_v2_4: 818451128
+      ExitDoorOpen_v2_5: -881578498
+      ExitDoorOpen_v2_6: 494878076
+      ExitDoorOpen_v2_7: -554417861
+      ExitDoorOpen_v2_8: 1336422897
+      ExitDoorOpen_v2_9: -1965965722
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
