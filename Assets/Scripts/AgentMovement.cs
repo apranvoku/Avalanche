@@ -141,7 +141,7 @@ public class AgentMovement : MonoBehaviour
         transform.localScale = targetScale;
 
         //load next scene after spin animation ends
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene("Level_2_Rooms");
     }
 
     private IEnumerator RotateObject(float rotationSpeed, float duration)
