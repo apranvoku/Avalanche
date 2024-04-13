@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public GameObject coinDrop;
     public GameObject coinDropParent;
     private Animator animator;
+    public GameObject bulletFrag;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
         GameObject bullet = collision.gameObject;
         if (bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Projectiles")
         {
+            Instantiate(bulletFrag, new Vector3(collision.GetContact(0).point.x, collision.GetContact(0).point.y, 0f), Quaternion.AngleAxis(180f, Vector3.up));
             Destroy(bullet);
             TakeDamage(10); //Pass bullet damage here.
         }

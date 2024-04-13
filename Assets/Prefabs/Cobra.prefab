@@ -351,6 +351,7 @@ MonoBehaviour:
   hp: 0
   coinDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
   coinDropParent: {fileID: 0}
+  bulletFrag: {fileID: 467536615812118136, guid: 52b966a75086dc44c8ee51e17f66747a, type: 3}
 --- !u!50 &4944163353856491241
 Rigidbody2D:
   serializedVersion: 4
