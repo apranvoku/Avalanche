@@ -69,18 +69,22 @@ public class Shoot : MonoBehaviour
         {
             case Guns.Pistol: 
                 currentGun = pistol;
+                currentGunSprite.sprite = pistolSprite;
             break;
 
             case Guns.Rocketlauncher: 
                 currentGun=rocketlauncher;
+                currentGunSprite.sprite = rocketLauncherSprite;
             break;
 
             case Guns.Machinegun:
                 currentGun = machinegun;
+                currentGunSprite.sprite = machineGunSprite;
             break;
 
             case Guns.Shotgun:
                 currentGun = shotgun;
+                currentGunSprite.sprite = shotgunSprite;
             break;
         }
     }

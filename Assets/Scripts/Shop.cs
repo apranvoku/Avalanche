@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    public Image blackScreen;
     public GameObject moneyDisplay;
     private CanvasGroup myGroup;
     private static int m_referenceCount = 0;
@@ -45,9 +46,13 @@ public class Shop : MonoBehaviour
 
         machinegunBought = false;
         shotgunBought = false;
-        rocketLauncherBought = false;   
+        rocketLauncherBought = false;
 
-        money = 0;
+        //temp for testing.
+        money = 900;
+        UpdateMoney();
+        //temp for testing.
+        OpenShop();
     }
 
     public bool SpendMoney(int moneySpent) { 
@@ -97,20 +102,30 @@ public class Shop : MonoBehaviour
 
     public IEnumerator FadeToBlack(float duration)
     {
+        Color screencolor = blackScreen.color; 
         for (float i = 0; i < duration; i += Time.deltaTime) 
         {
+            blackScreen.color = new Color(screencolor.r, screencolor.g, screencolor.b, i);
             myGroup.alpha = i;
             yield return null;
         }
+        blackScreen.color = new Color(screencolor.r, screencolor.g, screencolor.b, 1f);
+        myGroup.alpha = 1f;
+        myGroup.interactable = true;
     }
 
     public IEnumerator FadeToWhite(float duration)
     {
+        Color screencolor = blackScreen.color;
         for (float i = 0; i < duration; i += Time.deltaTime)
         {
+            blackScreen.color = new Color(screencolor.r, screencolor.g, screencolor.b, 1f - i);
             myGroup.alpha = 1f-i;
             yield return null;
         }
+        blackScreen.color = new Color(screencolor.r, screencolor.g, screencolor.b, 0f);
+        myGroup.alpha = 0f;
+        myGroup.interactable = false;
     }
     public void UpgradeDamage(int cost)
     {

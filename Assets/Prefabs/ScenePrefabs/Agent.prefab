@@ -196,10 +196,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 7877430575380500638, guid: 3fee9ffb39d26914fb3ede9fd73ff572, type: 3}
   projectileParent: {fileID: 0}
-  pistolSprite: {fileID: 0}
-  machineGunSprite: {fileID: 0}
-  shotgunSprite: {fileID: 0}
-  rocketLauncherSprite: {fileID: 0}
+  currentGunSprite: {fileID: 3952591641919975615}
+  pistolSprite: {fileID: 973820023, guid: 1e21ccecdf7135a448a680d4c08e5073, type: 3}
+  machineGunSprite: {fileID: 334322355, guid: 4b6c862a61dd08446a9591d8c404b1c2, type: 3}
+  shotgunSprite: {fileID: -485243293, guid: f76c749950386d2489bce29482eb7d03, type: 3}
+  rocketLauncherSprite: {fileID: -53349299, guid: af6e7a7fdb642ea48845b341a49a07de, type: 3}
   readyToFire: 0
 --- !u!58 &5372320227510175816
 CircleCollider2D:
