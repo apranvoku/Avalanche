@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
 
         instance = this;
         // Use this line if you need the object to persist across scenes
-        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
     }
 
     public List<GameObject> enemies;

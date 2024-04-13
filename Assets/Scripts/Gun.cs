@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Gun : MonoBehaviour
+public abstract class Gun
 {
     public abstract float damage { get; }
     public abstract float fireRate { get; }

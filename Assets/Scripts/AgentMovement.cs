@@ -42,22 +42,6 @@ public class AgentMovement : MonoBehaviour
 
     private void SetTargetPosition()
     {
-        /*if(Keyboard.current.wKey.isPressed)
-        { 
-             target = target + new Vector3(0, Time.deltaTime * agentTargetSpeed, 0);
-        }
-        if (Keyboard.current.sKey.isPressed)
-        {
-            target = target + new Vector3(0f, -Time.deltaTime * agentTargetSpeed, 0);
-        }
-        if (Keyboard.current.aKey.isPressed)
-        {
-            target = target + new Vector3(-Time.deltaTime * agentTargetSpeed, 0, 0);
-        }
-        if (Keyboard.current.dKey.isPressed)
-        {
-            target = target + new Vector3(Time.deltaTime * agentTargetSpeed, 0, 0);
-        }*/
         Vector3 targetDelta = new Vector3();
         bool moving = false;
         if (Keyboard.current.wKey.isPressed)
@@ -141,7 +125,8 @@ public class AgentMovement : MonoBehaviour
         transform.localScale = targetScale;
 
         //load next scene after spin animation ends
-        SceneManager.LoadScene("Level_2_Rooms");
+        Shop.Instance.OpenShop();
+        //SceneManager.LoadScene("Level_2_Rooms");
     }
 
     private IEnumerator RotateObject(float rotationSpeed, float duration)
