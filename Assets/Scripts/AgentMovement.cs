@@ -91,6 +91,7 @@ public class AgentMovement : MonoBehaviour
         enableInputs = false;
         agent.enabled = false;
         GetComponentInChildren<AgentRotate>().enabled = false;
+        GetComponentInChildren<Shoot>().DisableFire();
         animator.Play("Base Layer.Walk", 0);
 
         Vector3 difference = transform.Find("Character").transform.position - doorPos;

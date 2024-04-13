@@ -1080,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5232249593095365068, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 22.673998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5232249593095365068, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16062,7 +16062,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 7322891469467274923, guid: c93fc028cdf05c145812475ae09603c3, type: 3}
   - {fileID: 7322891469467274923, guid: 2e7f269d9da924b48903e13ad69f1b1d, type: 3}
-  toSpawn: 0a0000000a000000
+  toSpawn: 0100000001000000
   enemiesCount: 0
   exit: {fileID: 2233241044596234567, guid: a8134daf1d447604aa78989d5b767774, type: 3}
 --- !u!1 &1188977747
@@ -27294,7 +27294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5445214251676222266, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5445214251676222266, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: m_SortingLayerID

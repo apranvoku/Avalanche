@@ -38,6 +38,11 @@ public class Shoot : MonoBehaviour
         }
     }
 
+    public void DisableFire()
+    {
+        readyToFire = false;
+    }
+
     public IEnumerator FireDelay()
     {
         yield return new WaitForSecondsRealtime(0.1f);
