@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8950851764538488956}
   - component: {fileID: 6423181898260083696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunRotationOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,8 +56,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3892287959536418309}
   - component: {fileID: 3952591641919975615}
-  m_Layer: 0
-  m_Name: Pistol
+  m_Layer: 6
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,10 @@ GameObject:
   - component: {fileID: 3259340106304086121}
   - component: {fileID: 475633025861552667}
   - component: {fileID: 8944945834777411613}
-  m_Layer: 0
+  - component: {fileID: 5372320227510175816}
+  - component: {fileID: 567183514194047029}
+  - component: {fileID: 1571331115292935723}
+  m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 4246149641866063170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5000005, z: 0}
+  m_LocalPosition: {x: 0, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,7 +196,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 7877430575380500638, guid: 3fee9ffb39d26914fb3ede9fd73ff572, type: 3}
   projectileParent: {fileID: 0}
+  pistolSprite: {fileID: 0}
+  machineGunSprite: {fileID: 0}
+  shotgunSprite: {fileID: 0}
+  rocketLauncherSprite: {fileID: 0}
   readyToFire: 0
+--- !u!58 &5372320227510175816
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246149641866063170}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.08
+--- !u!50 &567183514194047029
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246149641866063170}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1571331115292935723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246149641866063170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5a83400b525764da87750aab8da8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
 --- !u!1 &6996378283735077393
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +287,7 @@ GameObject:
   - component: {fileID: 7397095680330605557}
   - component: {fileID: 5445214251676222266}
   - component: {fileID: 6191214376561945839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sJacksonSprite_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,8 +347,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -834215761
-  m_SortingLayer: 1
+  m_SortingLayerID: -1344917305
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 962861624, guid: 9490f7bdc5dca944593660dc1081c0af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -309,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5225037451489470579}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +425,7 @@ GameObject:
   - component: {fileID: 7724385975281193383}
   - component: {fileID: 9182606095449975052}
   - component: {fileID: 6930178489024314645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}

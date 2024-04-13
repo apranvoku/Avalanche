@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -13,11 +14,31 @@ public class AgentMovement : MonoBehaviour
     private NavMeshAgent agent;
     public float agentTargetSpeed;
     private Animator animator;
+    private static AgentMovement instance;
+
     private bool enableInputs;
+
+    private static int m_referenceCount = 0;
+
+    public static AgentMovement Instance
+    {
+        get { return instance; }
+    }
 
     // Start is called before the first frame update
     void Awake()
     {
+        m_referenceCount++;
+        if (m_referenceCount > 1)
+        {
+            DestroyImmediate(this.gameObject);
+            return;
+        }
+
+        instance = this;
+        // Use this line if you need the object to persist across scenes
+        DontDestroyOnLoad(this.gameObject);
+
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         target = transform.position;
