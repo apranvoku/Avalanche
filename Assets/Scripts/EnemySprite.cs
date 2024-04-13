@@ -14,4 +14,9 @@ public class EnemySprite : MonoBehaviour
     {
         transform.parent.GetComponent<Enemy>().ResumeMoving();
     }
+
+    public void SelfDestroy()
+    {
+        transform.parent.GetComponent<Enemy>().SelfDestroy();
+    }
 }

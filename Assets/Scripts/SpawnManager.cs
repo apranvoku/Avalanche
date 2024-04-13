@@ -75,7 +75,7 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator SpawnExit(Vector3 pos)
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return null;
         Instantiate(exit, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
     }
 

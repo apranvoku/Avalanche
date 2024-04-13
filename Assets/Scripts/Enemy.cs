@@ -59,11 +59,17 @@ public class Enemy : MonoBehaviour
         slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
+            GetComponent<CircleCollider2D>().enabled = false;
+            animator.Play("Base Layer.Death", 0);
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
             SpawnManager.Instance.EnemyDestroyed(transform.position);
-            Destroy(transform.gameObject);
         }
+    }
+
+    public void SelfDestroy()
+    {
+        Destroy(transform.gameObject);
     }
 
     public void StopMoving()
