@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 987f99ad866d1b24d997bc4f91802b7d
+guid: 862c36021ebc85d48a0fd641db9a6ff6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sJacksonWalk_0
+      name: sJacksonDeath_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eb53967853f3f34ea2aab0f923170be
-      internalID: -823355177
+      spriteID: 9536017acd2967740b8f574b705f8f81
+      internalID: 2076172342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sJacksonWalk_1
+      name: sJacksonDeath_1
       rect:
         serializedVersion: 2
         x: 108
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ca4134b5fcf13458585cdf6535fae6
-      internalID: -256154288
+      spriteID: 5958a3310e52652469e9133836bed9ba
+      internalID: 44083660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sJacksonWalk_2
+      name: sJacksonDeath_2
       rect:
         serializedVersion: 2
         x: 216
@@ -153,113 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9331c56675a573488cebf6ee0d9e316
-      internalID: 1327187393
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sJacksonWalk_3
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 0
-        width: 108
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 720ca44ff52f51e469fb31d35ee308a7
-      internalID: 1170714303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sJacksonWalk_4
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 108
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f2a02e640fff0d49bab5a9afbf92cde
-      internalID: -1477036752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sJacksonWalk_5
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 108
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 247760b7912e27c4c8a3efb7acb2252a
-      internalID: 1619464741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sJacksonWalk_6
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 0
-        width: 108
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1afd9473262836e4ba3e8ade54696b80
-      internalID: -382116147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sJacksonWalk_7
-      rect:
-        serializedVersion: 2
-        x: 756
-        y: 0
-        width: 108
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cfd4e823e97f8046ab08db7670547c4
-      internalID: 1434787290
+      spriteID: d51d951a294d68a45881e7e4cd6a604c
+      internalID: -378608770
       vertices: []
       indices: 
       edges: []
@@ -267,7 +162,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ee749d0a2019da3478ca5208b1f3c33f
+    spriteID: 5c21e0f162f016246b23034bb43f61df
     internalID: 0
     vertices: []
     indices: 
@@ -275,14 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sJacksonWalk_0: -823355177
-      sJacksonWalk_1: -256154288
-      sJacksonWalk_2: 1327187393
-      sJacksonWalk_3: 1170714303
-      sJacksonWalk_4: -1477036752
-      sJacksonWalk_5: 1619464741
-      sJacksonWalk_6: -382116147
-      sJacksonWalk_7: 1434787290
+      sJacksonDeath_0: 2076172342
+      sJacksonDeath_1: 44083660
+      sJacksonDeath_2: -378608770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
