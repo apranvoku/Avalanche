@@ -15,6 +15,8 @@ public class Shoot : MonoBehaviour
 {
     public GameObject projectile;
     public GameObject projectileParent;
+    public GameObject muzzleFlash;
+    public GameObject muzzleFlashLocation;
     public Gun currentGun;
 
     public SpriteRenderer currentGunSprite;
@@ -39,6 +41,8 @@ public class Shoot : MonoBehaviour
 
         currentGun = pistol;
         readyToFire = true;
+
+        muzzleFlashLocation = GameObject.Find("MuzzleFlashLocation");
     }
 
     // Update is called once per frame
@@ -47,6 +51,7 @@ public class Shoot : MonoBehaviour
         if (Mouse.current.leftButton.wasPressedThisFrame && readyToFire)
         {
             readyToFire = false;
+            Instantiate(muzzleFlash, muzzleFlashLocation.transform.position, Quaternion.identity);
             Instantiate(projectile, transform.position, Quaternion.identity, projectileParent.transform);
             StartCoroutine(FireDelay());
         }
