@@ -115,6 +115,9 @@ public class AgentMovement : MonoBehaviour
 
     public void OnEnable()
     {
+        transform.position = Vector3.zero; 
+        transform.rotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
         enableInputs = true;
         agent.enabled = true;
         GetComponentInChildren<AgentRotate>().enabled = true;
@@ -125,10 +128,7 @@ public class AgentMovement : MonoBehaviour
     public void ExitAnimation(Vector3 doorPos)
     {
         //Stop movements and player inputs;
-        enableInputs = false;
-        agent.enabled = false;
-        GetComponentInChildren<AgentRotate>().enabled = false;
-        GetComponentInChildren<Shoot>().DisableFire();
+        OnDisable();
         animator.Play("Base Layer.Walk", 0);
 
         Vector3 difference = transform.Find("Character").transform.position - doorPos;
@@ -139,7 +139,7 @@ public class AgentMovement : MonoBehaviour
         // Move the child back to its original global position
         transform.Find("Character").transform.position = transform.position + difference;
 
-        StartCoroutine(RotateObject(500.0f, 5f));
+        StartCoroutine(RotateObject(500.0f, 1.5f));
         StartCoroutine(ScaleToZero(0.5f, 1.5f));
 
     }

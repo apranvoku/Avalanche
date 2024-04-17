@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
@@ -14,6 +15,9 @@ public class Shop : MonoBehaviour
     private static Shop instance;
     public Shoot shootScript;
     public int money;
+
+    public List<string> levels;
+    public int currentLevel;
 
     private bool machinegunBought;
     private bool shotgunBought;
@@ -41,6 +45,8 @@ public class Shop : MonoBehaviour
 
     public void Start()
     {
+        currentLevel = 1; //Start menu handles first level.
+
         myGroup = GameObject.Find("ShopCanvas").GetComponent<CanvasGroup>();
         moneyDisplay = GameObject.Find("MoneyText");
 
@@ -50,10 +56,10 @@ public class Shop : MonoBehaviour
 
         //temp for testing.
         money = 900;
-        UpdateMoney();
+        //UpdateMoney();
         //temp for testing.
         //OpenShop();
-        CloseShop();
+        //CloseShop();
     }
 
     public bool SpendMoney(int moneySpent) { 
@@ -99,6 +105,9 @@ public class Shop : MonoBehaviour
     public void CloseShop()
     {
         StartCoroutine(FadeToWhite(1f));
+        SceneManager.LoadScene(levels[currentLevel]);
+        currentLevel++; 
+        AgentMovement.Instance.OnEnable();
     }
 
     public IEnumerator FadeToBlack(float duration)
