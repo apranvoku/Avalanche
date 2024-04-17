@@ -52,7 +52,8 @@ public class Shop : MonoBehaviour
         money = 900;
         UpdateMoney();
         //temp for testing.
-        OpenShop();
+        //OpenShop();
+        CloseShop();
     }
 
     public bool SpendMoney(int moneySpent) { 

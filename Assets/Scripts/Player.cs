@@ -10,13 +10,14 @@ public class Player : MonoBehaviour
 {
     public float hp;
     private float max_hp;
-
+    private Animator animator;
 
     // Start is called before the first frame update
     void Awake()
     {
         hp = 5;
         max_hp = hp;
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -46,16 +47,18 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        transform.parent.GetComponent<AgentMovement>().enabled = false;
+        animator.Play("Base Layer.Hitstun", 0);
         hp -= damage;
         if(hp <= 0)
         {
-            Die();
+            GetComponent<CircleCollider2D>().enabled = false;
+            animator.Play("Base Layer.Death", 0);
         }
     }
 
     public void Die()
     {
-        Debug.Log("DEATH");
-        transform.parent.gameObject.SetActive(false);
+        
     }
 }

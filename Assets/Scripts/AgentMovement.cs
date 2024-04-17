@@ -105,6 +105,22 @@ public class AgentMovement : MonoBehaviour
         //Debug.Log(target);
     }
 
+    public void OnDisable()
+    {
+        enableInputs = false;
+        agent.enabled = false;
+        GetComponentInChildren<AgentRotate>().enabled = false;
+        GetComponentInChildren<Shoot>().DisableFire();
+    }
+
+    public void OnEnable()
+    {
+        enableInputs = true;
+        agent.enabled = true;
+        GetComponentInChildren<AgentRotate>().enabled = true;
+        GetComponentInChildren<Shoot>().EnableFire();
+    }
+
     //Stuff for exit level animation
     public void ExitAnimation(Vector3 doorPos)
     {
