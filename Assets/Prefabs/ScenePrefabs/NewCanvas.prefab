@@ -1940,7 +1940,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2361433276681413466}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -2208,7 +2208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25.00032}
+  m_AnchoredPosition: {x: 0, y: -25.000366}
   m_SizeDelta: {x: -200, y: -349.99936}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2809310534352946474
@@ -6274,6 +6274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6822aeef8ec0d5499eda5431c09af13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels:
+  - Level_1_PlainPlane
+  - Level_2_Rooms
+  - LevelOneBackup
+  currentLevel: 0
   blackScreen: {fileID: 1632194472081054735}
   moneyDisplay: {fileID: 0}
   shootScript: {fileID: 0}
