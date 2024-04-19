@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
             animator.Play("Base Layer.Death", 0);
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
-            SpawnManager.Instance.EnemyDestroyed(transform.position);
+            GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
         }
     }
 

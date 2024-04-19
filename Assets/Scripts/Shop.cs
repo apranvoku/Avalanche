@@ -126,6 +126,7 @@ public class Shop : MonoBehaviour
 
     public IEnumerator FadeToWhite(float duration)
     {
+        myGroup.interactable = false;
         Color screencolor = blackScreen.color;
         for (float i = 0; i < duration; i += Time.deltaTime)
         {
@@ -135,7 +136,6 @@ public class Shop : MonoBehaviour
         }
         blackScreen.color = new Color(screencolor.r, screencolor.g, screencolor.b, 0f);
         myGroup.alpha = 0f;
-        myGroup.interactable = false;
     }
     public void UpgradeDamage(int cost)
     {

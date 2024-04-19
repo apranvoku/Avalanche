@@ -6,28 +6,6 @@ using static UnityEditor.PlayerSettings;
 
 public class SpawnManager : MonoBehaviour
 {
-    private static int m_referenceCount = 0;
-    private static SpawnManager instance;
-
-    public static SpawnManager Instance
-    {
-        get { return instance; }
-    }
-
-    void Awake()
-    {
-        m_referenceCount++;
-        if (m_referenceCount > 1)
-        {
-            DestroyImmediate(this.gameObject);
-            return;
-        }
-
-        instance = this;
-        // Use this line if you need the object to persist across scenes
-        // DontDestroyOnLoad(this.gameObject);
-    }
-
     public List<GameObject> enemies;
     public List<int> toSpawn;
     public int enemiesCount;
