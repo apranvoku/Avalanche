@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
         else if (LayerMask.LayerToName(entity.gameObject.layer) == "Exit") {
             //Do action to exit level
             //SceneManager.LoadScene("Intro");
-            GetComponent<CircleCollider2D>().enabled = false;
             transform.parent.GetComponent<AgentMovement>().ExitAnimation(entity.transform.position);
         }
 

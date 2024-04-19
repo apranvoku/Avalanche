@@ -53,6 +53,8 @@ public class Shop : MonoBehaviour
         machinegunBought = false;
         shotgunBought = false;
         rocketLauncherBought = false;
+        myGroup.interactable = false;
+
 
         //temp for testing.
         money = 900;
