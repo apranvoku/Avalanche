@@ -58,16 +58,6 @@ public class Player : MonoBehaviour
             animator.Play("Base Layer.Death", 0);
             //Die stuff
         }
-        else
-        {
-            StartCoroutine(HitStunDelay(0.2f));
-        }
-    }
-
-    public IEnumerator HitStunDelay(float delay)
-    {
-        yield return new WaitForSecondsRealtime(delay);
-        transform.parent.GetComponent<AgentMovement>().enabled = true;
     }
 
     public void Die()
