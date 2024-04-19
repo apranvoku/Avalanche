@@ -115,7 +115,6 @@ public class AgentMovement : MonoBehaviour
 
     public void OnEnable()
     {
-        transform.position = Vector3.zero; 
         transform.rotation = Quaternion.identity;
         transform.localScale = Vector3.one;
         enableInputs = true;

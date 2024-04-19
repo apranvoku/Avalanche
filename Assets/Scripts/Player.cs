@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Diagnostics.CodeAnalysis;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
 {
     public float hp;
     private float max_hp;
+    public Transform heartContainer;
     private Animator animator;
 
     // Start is called before the first frame update
@@ -50,15 +52,43 @@ public class Player : MonoBehaviour
         transform.parent.GetComponent<AgentMovement>().enabled = false;
         animator.Play("Base Layer.Hitstun", 0);
         hp -= damage;
+        UpdateHearts((int)hp);
         if(hp <= 0)
         {
             GetComponent<CircleCollider2D>().enabled = false;
             animator.Play("Base Layer.Death", 0);
+            //Die stuff
         }
+        else
+        {
+            StartCoroutine(HitStunDelay(0.2f));
+        }
+    }
+
+    public IEnumerator HitStunDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        transform.parent.GetComponent<AgentMovement>().enabled = true;
     }
 
     public void Die()
     {
         
+    }
+
+    public void UpdateHearts(int heartsRemaining)
+    {
+        foreach(Transform heart in heartContainer) 
+        { 
+            if(heartsRemaining > 0)
+            {
+                heart.gameObject.SetActive(true);
+            }
+            else
+            {
+                heart.gameObject.SetActive(false);
+            }
+            heartsRemaining--;
+        }
     }
 }
