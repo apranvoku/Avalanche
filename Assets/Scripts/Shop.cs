@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
     public Image blackScreen;
+
+    public Sprite pistolSprite;
+    public Sprite machineGunSprite;
+    public Sprite shotGunSprite;
+    public Sprite rocketLauncherSprite;
+
+    public Image primaryGunBG;
+    public Image secondaryGunBG;
+
+
     public GameObject moneyDisplay;
     private CanvasGroup myGroup;
     private static int m_referenceCount = 0;
@@ -22,6 +33,9 @@ public class Shop : MonoBehaviour
     private bool machinegunBought;
     private bool shotgunBought;
     private bool rocketLauncherBought;
+
+    public Guns primaryGun;
+    public Guns secondaryGun;
 
 
     public static Shop Instance
@@ -45,10 +59,17 @@ public class Shop : MonoBehaviour
 
     public void Start()
     {
+        primaryGun = Guns.Pistol;
+        primaryGunBG.GetComponent<Image>().color = Color.green;
+
+        secondaryGun = Guns.None;
+
         currentLevel = 1; //Start menu handles first level.
 
         myGroup = GameObject.Find("ShopCanvas").GetComponent<CanvasGroup>();
         moneyDisplay = GameObject.Find("MoneyText");
+
+        shootScript = GameObject.Find("Character").GetComponent<Shoot>();
 
         machinegunBought = false;
         shotgunBought = false;
@@ -62,6 +83,44 @@ public class Shop : MonoBehaviour
         //temp for testing.
         //OpenShop();
         //CloseShop();
+    }
+
+    public void Update()
+    {
+        if(secondaryGun != Guns.None) //Don't allow a swap when no gun is selected.
+        {
+            if (Mouse.current.scroll.ReadValue() != Vector2.zero)
+            {
+                if (primaryGunBG.GetComponent<Image>().color == Color.green) //We need to swap to secondary. (green means selected)
+                {
+                    shootScript.SwitchGun(secondaryGun);
+                    primaryGunBG.GetComponent<Image>().color = Color.white;
+                    secondaryGunBG.GetComponent<Image>().color = Color.green;
+                }
+                else //We need to swap back to primary.
+                {
+                    shootScript.SwitchGun(primaryGun);
+                    primaryGunBG.GetComponent<Image>().color = Color.green;
+                    secondaryGunBG.GetComponent<Image>().color = Color.white;
+                }
+
+            }
+            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            {
+                Debug.Log("Swapping to primary!");
+                shootScript.SwitchGun(primaryGun);
+                primaryGunBG.GetComponent<Image>().color = Color.green;
+                secondaryGunBG.GetComponent<Image>().color = Color.white;
+
+            }
+            if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            {
+                Debug.Log("Swapping to secondary!");
+                shootScript.SwitchGun(secondaryGun);
+                primaryGunBG.GetComponent<Image>().color = Color.white;
+                secondaryGunBG.GetComponent<Image>().color = Color.green;
+            }
+        }
     }
 
     public bool SpendMoney(int moneySpent) { 
@@ -110,6 +169,7 @@ public class Shop : MonoBehaviour
         SceneManager.LoadScene(levels[currentLevel]);
         currentLevel++; 
         AgentMovement.Instance.OnEnable();
+        AgentMovement.Instance.transform.position = Vector3.zero;
     }
 
     public IEnumerator FadeToBlack(float duration)
@@ -141,18 +201,18 @@ public class Shop : MonoBehaviour
     }
     public void UpgradeDamage(int cost)
     {
-        shootScript.currentGun.upgradeDamage();
+        shootScript.selectedGun.upgradeDamage();
         SpendMoney(cost);
     }
     public void UpgradePenetration(int cost)
     {
-        shootScript.currentGun.upgradePenetration();
+        shootScript.selectedGun.upgradePenetration();
         SpendMoney(cost);
     }
 
     public void upgradeReload(int cost)
     {
-        shootScript.currentGun.upgradeReload();
+        shootScript.selectedGun.upgradeReload();
         SpendMoney(cost);
     }
 
@@ -163,7 +223,15 @@ public class Shop : MonoBehaviour
             machinegunBought = true;
             SpendMoney(cost);
         }
-        shootScript.SwitchGun(Guns.Machinegun);
+        if(primaryGun != Guns.Machinegun) 
+        {
+            secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
+            primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = machineGunSprite;
+            secondaryGun = primaryGun;
+        }
+
+        primaryGun = Guns.Machinegun;
+        shootScript.SwitchGun(primaryGun);
     }
 
     public void BuyShotGun(int cost)
@@ -173,7 +241,16 @@ public class Shop : MonoBehaviour
             shotgunBought = true;
             SpendMoney(cost);
         }
-        shootScript.SwitchGun(Guns.Shotgun);
+        if (primaryGun != Guns.Shotgun)
+        {
+            secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
+            primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = shotGunSprite;
+            secondaryGun = primaryGun;
+
+        }
+        primaryGun = Guns.Shotgun;
+        shootScript.SwitchGun(primaryGun);
+
     }
 
     public void BuyRocketLauncher(int cost)
@@ -183,11 +260,25 @@ public class Shop : MonoBehaviour
             rocketLauncherBought = true;
             SpendMoney(cost);
         }
-        shootScript.SwitchGun(Guns.Rocketlauncher);
+        if (primaryGun != Guns.Rocketlauncher)
+        {
+            secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
+            primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = rocketLauncherSprite;
+            secondaryGun = primaryGun;
+        }
+        primaryGun = Guns.Rocketlauncher;
+        shootScript.SwitchGun(primaryGun);
     }
 
     public void BuyPistol() //this just swaps.
     {
-        shootScript.SwitchGun(Guns.Pistol);
+        if (primaryGun != Guns.Pistol)
+        {
+            secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
+            primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = pistolSprite;
+            secondaryGun = primaryGun;
+        }
+        primaryGun = Guns.Pistol;
+        shootScript.SwitchGun(primaryGun);
     }
 }

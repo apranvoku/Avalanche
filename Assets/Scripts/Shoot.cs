@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public enum Guns
 {
+    None,
     Pistol,
     Machinegun,
     Shotgun,
@@ -17,29 +19,28 @@ public class Shoot : MonoBehaviour
     public GameObject projectileParent;
     public GameObject muzzleFlash;
     public GameObject muzzleFlashLocation;
-    public Gun currentGun;
+    public Gun selectedGun;
 
-    public SpriteRenderer currentGunSprite;
-    public Sprite pistolSprite;
-    public Sprite machineGunSprite;
-    public Sprite shotgunSprite;
-    public Sprite rocketLauncherSprite;
+    public GameObject gunOrigin;
 
     public Pistol pistol;
     public Machinegun machinegun;
     public Shotgun shotgun;
     public Rocketlauncher rocketlauncher;
 
+
     public bool readyToFire;
     // Start is called before the first frame update
     void Start()
     {
+        
+
         pistol = new Pistol();
         machinegun = new Machinegun();
         shotgun = new Shotgun();
         rocketlauncher = new Rocketlauncher();
 
-        currentGun = pistol;
+        selectedGun = pistol;
         readyToFire = true;
 
         muzzleFlashLocation = GameObject.Find("MuzzleFlashLocation");
@@ -48,13 +49,15 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && readyToFire)
+        if (Mouse.current.leftButton.isPressed && readyToFire)
         {
+
             readyToFire = false;
             Instantiate(muzzleFlash, muzzleFlashLocation.transform.position, Quaternion.identity);
             Instantiate(projectile, transform.position, Quaternion.identity, projectileParent.transform);
             StartCoroutine(FireDelay());
         }
+        
     }
 
     public void DisableFire()
@@ -69,7 +72,7 @@ public class Shoot : MonoBehaviour
 
     public IEnumerator FireDelay()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+        yield return new WaitForSecondsRealtime(1f/selectedGun.fireRate);
         readyToFire = true;
     }
 
@@ -78,24 +81,40 @@ public class Shoot : MonoBehaviour
         switch(gun)
         {
             case Guns.Pistol: 
-                currentGun = pistol;
-                currentGunSprite.sprite = pistolSprite;
+                selectedGun = pistol;
+                ActivateGunGO(Guns.Pistol);
             break;
 
             case Guns.Rocketlauncher: 
-                currentGun=rocketlauncher;
-                currentGunSprite.sprite = rocketLauncherSprite;
-            break;
+                selectedGun=rocketlauncher;
+                ActivateGunGO(Guns.Rocketlauncher);
+                break;
 
             case Guns.Machinegun:
-                currentGun = machinegun;
-                currentGunSprite.sprite = machineGunSprite;
-            break;
+                selectedGun = machinegun;
+                ActivateGunGO(Guns.Machinegun);
+                break;
 
             case Guns.Shotgun:
-                currentGun = shotgun;
-                currentGunSprite.sprite = shotgunSprite;
-            break;
+                selectedGun = shotgun;
+                ActivateGunGO(Guns.Shotgun);
+                break;
+        }
+    }
+
+    public void ActivateGunGO(Guns gun)
+    {
+        foreach(Transform child in gunOrigin.transform)
+        {
+            if(child.gameObject.name != gun.ToString())
+            {
+                child.gameObject.SetActive(false);
+            }
+            else
+            {
+                child.gameObject.SetActive(true);
+                muzzleFlashLocation = child.GetChild(0).gameObject;
+            }
         }
     }
 }

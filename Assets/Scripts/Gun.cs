@@ -27,21 +27,25 @@ public class Pistol : Gun
     public override float reloadTime => 1f - (0.1f * reloadUpgradeLevel); //10% per level
     public override int penetration => 1 + penetrationUpgradeLevel;
     public override int clip => 12;
+    private int _damageUpgradeLevel;
+    private int _reloadUpgradeLevel;
+    private int _penetrationUpgradeLevel;
+
     public override int damageUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _damageUpgradeLevel; }
+        set { _damageUpgradeLevel = value; }
     }
     
     public override int reloadUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { reloadUpgradeLevel = value; }
+        get { return _reloadUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set {  damageUpgradeLevel= value; }
+        get { return _penetrationUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
 
     public override void upgradeDamage()
@@ -67,21 +71,25 @@ public class Machinegun : Gun
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 1 + penetrationUpgradeLevel;
     public override int clip => 24;
+    private int _damageUpgradeLevel;
+    private int _reloadUpgradeLevel;
+    private int _penetrationUpgradeLevel;
+
     public override int damageUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _damageUpgradeLevel; }
+        set { _damageUpgradeLevel = value; }
     }
 
     public override int reloadUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { reloadUpgradeLevel = value; }
+        get { return _reloadUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _penetrationUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
 
     public override void upgradeDamage()
@@ -107,21 +115,25 @@ public class Shotgun : Gun
     public override float reloadTime => 3f - (0.3f * reloadUpgradeLevel);
     public override int penetration => 2 + penetrationUpgradeLevel;
     public override int clip => 4;
+    private int _damageUpgradeLevel;
+    private int _reloadUpgradeLevel;
+    private int _penetrationUpgradeLevel;
+
     public override int damageUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _damageUpgradeLevel; }
+        set { _damageUpgradeLevel = value; }
     }
 
     public override int reloadUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { reloadUpgradeLevel = value; }
+        get { return _reloadUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _penetrationUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
 
     public override void upgradeDamage()
@@ -147,23 +159,26 @@ public class Rocketlauncher : Gun
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 1;
     public override int clip => 3;
+    private int _damageUpgradeLevel;
+    private int _reloadUpgradeLevel;
+    private int _penetrationUpgradeLevel;
+
     public override int damageUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _damageUpgradeLevel; }
+        set { _damageUpgradeLevel = value; }
     }
 
     public override int reloadUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { reloadUpgradeLevel = value; }
+        get { return _reloadUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
-        get { return damageUpgradeLevel; }
-        set { damageUpgradeLevel = value; }
+        get { return _penetrationUpgradeLevel; }
+        set { _penetrationUpgradeLevel = value; }
     }
-
     public override void upgradeDamage()
     {
         damageUpgradeLevel += 1;
