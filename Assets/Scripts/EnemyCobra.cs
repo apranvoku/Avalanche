@@ -136,8 +136,7 @@ public class EnemyCobra : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject bull = Instantiate(poisonBullet, EnemyProjectileParent.transform.position, Quaternion.identity, EnemyProjectileParent.transform);
-        bull.transform.rotation = transform.rotation * GetRotationToTarget(player);
+        Instantiate(poisonBullet, EnemyProjectileParent.transform.position, transform.rotation * GetRotationToTarget(player), EnemyProjectileParent.transform);
         StartCoroutine(FireDelay());
     }
 
