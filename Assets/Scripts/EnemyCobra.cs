@@ -82,7 +82,8 @@ public class EnemyCobra : MonoBehaviour
         {
             Instantiate(bulletFrag, new Vector3(collision.GetContact(0).point.x, collision.GetContact(0).point.y, 0f), Quaternion.AngleAxis(180f, Vector3.up));
             Destroy(bullet);
-            TakeDamage(10); //Pass bullet damage here.
+            TakeDamage(AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun.damage); //Pass bullet damage here.
+            Debug.Log(AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun.damage);
         }
         else if(bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Player")
         {
