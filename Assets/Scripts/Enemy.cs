@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject coinDropParent;
     private Animator animator;
     public GameObject bulletFrag;
+    private Vector3 distToPlayer;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,6 +38,21 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         agent.destination = player.transform.position;
+        distToPlayer = player.transform.position - transform.position;
+        if (distToPlayer.x > 0)
+        {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
+        if (distToPlayer.x < 0)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

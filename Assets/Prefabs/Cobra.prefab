@@ -354,10 +354,11 @@ MonoBehaviour:
   firing: 0
   coinDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
   coinDropParent: {fileID: 0}
+  enemyProjectilleParent: {fileID: 0}
   bulletFrag: {fileID: 467536615812118136, guid: 52b966a75086dc44c8ee51e17f66747a, type: 3}
   attackRange: 0
   poisonBullet: {fileID: 4785919997761992006, guid: 8b33d77b083fc9642954a707f0e09a66, type: 3}
-  EnemyProjectileParent: {fileID: 8138517220027278579}
+  enemyProjectileOrigin: {fileID: 8138517220027278579}
 --- !u!50 &4944163353856491241
 Rigidbody2D:
   serializedVersion: 4
@@ -430,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2046206153898324515}
   m_Layer: 8
-  m_Name: EnemyProjectileParent
+  m_Name: EnemyProjectileOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

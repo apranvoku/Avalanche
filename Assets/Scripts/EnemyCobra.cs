@@ -20,12 +20,14 @@ public class EnemyCobra : MonoBehaviour
     private bool attacking;
     public GameObject coinDrop;
     public GameObject coinDropParent;
+    public GameObject enemyProjectilleParent;
     private Animator animator;
     public GameObject bulletFrag;
     public float attackRange;
+    private Vector3 distToPlayer;
     //needs to be set in editor
     public GameObject poisonBullet;
-    public GameObject EnemyProjectileParent;
+    public GameObject enemyProjectileOrigin;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,6 +37,7 @@ public class EnemyCobra : MonoBehaviour
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
         coinDropParent = GameObject.Find("coinDropParent");
+        enemyProjectilleParent = GameObject.Find("EnemyProjectilleParent");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -72,6 +75,21 @@ public class EnemyCobra : MonoBehaviour
         {
             readyToFire = false;
             Shoot();
+        }
+        distToPlayer = player.transform.position - transform.position;
+        if (distToPlayer.x > 0)
+        {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
+        if (distToPlayer.x < 0)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
         }
     }
 
@@ -137,7 +155,7 @@ public class EnemyCobra : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(poisonBullet, EnemyProjectileParent.transform.position, transform.rotation * GetRotationToTarget(player), EnemyProjectileParent.transform);
+        Instantiate(poisonBullet, enemyProjectileOrigin.transform.position, transform.rotation * GetRotationToTarget(player), enemyProjectilleParent.transform);
         StartCoroutine(FireDelay());
     }
 
