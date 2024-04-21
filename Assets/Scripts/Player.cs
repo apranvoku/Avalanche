@@ -6,13 +6,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public float hp;
     private float max_hp;
     public Transform heartContainer;
+    public Transform redVignette;
     private Animator animator;
+    private float flashDuration;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour
         hp = 5;
         max_hp = hp;
         animator = GetComponentInChildren<Animator>();
+        flashDuration = 0.2f;
     }
 
     // Update is called once per frame
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         transform.parent.GetComponent<AgentMovement>().enabled = false;
+        StartCoroutine(FlashRed());
         animator.Play("Base Layer.Hitstun", 0);
         hp -= damage;
         UpdateHearts((int)hp);
@@ -79,5 +84,37 @@ public class Player : MonoBehaviour
             }
             heartsRemaining--;
         }
+    }
+
+    public IEnumerator FlashRed()
+    {
+        float elapsedTime = 0f;
+        Color red = redVignette.GetComponent<Image>().color;
+        Color targetRed = new Color(red.r, red.g, red.b, 130f / 255f);
+
+        while (elapsedTime < flashDuration)
+        {
+            float t = elapsedTime / flashDuration;
+            redVignette.GetComponent<Image>().color = Color.Lerp(red, targetRed, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        //yield return new WaitForSeconds(0.1f);
+
+        elapsedTime = 0f;
+
+        while (elapsedTime < flashDuration)
+        {
+            float t = elapsedTime / flashDuration;
+            redVignette.GetComponent<Image>().color = Color.Lerp(targetRed, red, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure final alpha value
+        redVignette.GetComponent<Image>().color = red;
+
+
     }
 }

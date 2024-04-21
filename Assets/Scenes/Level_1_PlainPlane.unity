@@ -1055,6 +1055,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
+--- !u!224 &18155750 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3373744337050850084, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
+  m_PrefabInstance: {fileID: 18155749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &25451280
 GameObject:
   m_ObjectHideFlags: 0
@@ -8354,6 +8359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1571331115292935723, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: redVignette
+      value: 
+      objectReference: {fileID: 18155750}
     - target: {fileID: 1571331115292935723, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: heartContainer
       value: 
