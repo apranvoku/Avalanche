@@ -285,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6686077728964852737}
   - component: {fileID: 741548031282390069}
-  - component: {fileID: 7926201055358798631}
+  - component: {fileID: 3784205110543934183}
   - component: {fileID: 4944163353856491241}
   - component: {fileID: 4352735366590469208}
   m_Layer: 8
@@ -334,7 +334,7 @@ NavMeshAgent:
   m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7926201055358798631
+--- !u!114 &3784205110543934183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,15 +343,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7322891469467274923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e14adacc9f9fd42af466a04b767a76, type: 3}
+  m_Script: {fileID: 11500000, guid: d55788335ea3e8e4395d7600727e71bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerScript: {fileID: 0}
   hp: 0
+  canAttack: 0
+  readyToFire: 0
+  firing: 0
   coinDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
   coinDropParent: {fileID: 0}
   bulletFrag: {fileID: 467536615812118136, guid: 52b966a75086dc44c8ee51e17f66747a, type: 3}
+  attackRange: 0
+  poisonBullet: {fileID: 4785919997761992006, guid: 8b33d77b083fc9642954a707f0e09a66, type: 3}
+  EnemyProjectileParent: {fileID: 8138517220027278579}
 --- !u!50 &4944163353856491241
 Rigidbody2D:
   serializedVersion: 4
@@ -414,6 +420,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.24
+--- !u!1 &8138517220027278579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046206153898324515}
+  m_Layer: 8
+  m_Name: EnemyProjectileParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2046206153898324515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138517220027278579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.37, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296948487857733900}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8403896185614147133
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +462,7 @@ GameObject:
   - component: {fileID: 296948487857733900}
   - component: {fileID: 939205021755901408}
   - component: {fileID: 3329891750521507185}
-  - component: {fileID: 642572139968994189}
+  - component: {fileID: 265950467951276514}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -445,7 +482,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.122, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2046206153898324515}
   m_Father: {fileID: 6686077728964852737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &939205021755901408
@@ -521,7 +559,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &642572139968994189
+--- !u!114 &265950467951276514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,7 +568,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8403896185614147133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea91d61bf7f860a41ab5a88412bcefef, type: 3}
+  m_Script: {fileID: 11500000, guid: 62b58a3d93b295b429acb4dd0b584ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8490316577987014497
