@@ -21,8 +21,11 @@ public class EnemyViper : MonoBehaviour
     private Vector3 distToPlayer;
     public float attackRange;
     private float attackDelay;
+    private float attackLungelength;
     private bool attacking;
     public bool canAttack;
+    public CapsuleCollider2D idleHitbox;
+    public CapsuleCollider2D lungeHitbox;
 
     // Start is called before the first frame update
     void Awake()
@@ -41,24 +44,42 @@ public class EnemyViper : MonoBehaviour
         canAttack = true;
         attackRange = 50f;
         attackDelay = 5f;
+        attackLungelength = 2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!attacking && canAttack)
+        if (!attacking)
         {
-            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+            distToPlayer = player.transform.position - transform.position;
+            if (distToPlayer.x > 0)
+            {
+                if (transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                }
+            }
+            else if (distToPlayer.x < 0)
+            {
+                if (transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                }
+            }
+
+            if ((Vector3.Distance(transform.position, player.transform.position) <= attackRange) && canAttack)
             {
                 animator.SetTrigger("Awake");
                 canAttack = false;
                 StartCoroutine(AttackDelay());
             }
         }
-        else if (attacking && !agent.isStopped)
+        else if (!canAttack && !agent.isStopped)
         {
             agent.destination = player.transform.position;
         }
+        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -84,7 +105,8 @@ public class EnemyViper : MonoBehaviour
         slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
-            GetComponentInChildren<CapsuleCollider2D>().enabled = false;
+            idleHitbox.enabled = false;
+            lungeHitbox.enabled = false;
             animator.Play("Base Layer.Death", 0);
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
@@ -99,12 +121,14 @@ public class EnemyViper : MonoBehaviour
 
     public void StopMoving()
     {
+        lungeHitbox.enabled = false;
         agent.isStopped = true;
     }
 
     public void ResumeMoving()
     {
         agent.isStopped = false;
+        lungeHitbox.enabled = true;
     }
 
     public void StartAttacking()
@@ -127,7 +151,7 @@ public class EnemyViper : MonoBehaviour
 
     public IEnumerator AttackStopTimer()
     {
-        yield return new WaitForSecondsRealtime(attackDelay);
+        yield return new WaitForSecondsRealtime(attackLungelength);
         animator.ResetTrigger("Looping");
     }
 }

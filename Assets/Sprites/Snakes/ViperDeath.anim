@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ViperAttackAnticipation
+  m_Name: ViperDeath
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,17 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 287035794, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
+      value: {fileID: 1345056310, guid: e85ab869f87a8c244b4d3860bac4681a, type: 3}
     - time: 0.083333336
-      value: {fileID: 1646832209, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
+      value: {fileID: 1148070699, guid: e85ab869f87a8c244b4d3860bac4681a, type: 3}
     - time: 0.16666667
-      value: {fileID: -153014633, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
-    - time: 0.25
-      value: {fileID: 275604941, guid: 0d01d22e686cc434fa2283f9324bca8b, type: 3}
-    - time: 0.33333334
-      value: {fileID: -1852654681, guid: 0d01d22e686cc434fa2283f9324bca8b, type: 3}
-    - time: 0.41666666
-      value: {fileID: -208050382, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
+      value: {fileID: 1702769066, guid: e85ab869f87a8c244b4d3860bac4681a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,18 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 287035794, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
-    - {fileID: 1646832209, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
-    - {fileID: -153014633, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
-    - {fileID: 275604941, guid: 0d01d22e686cc434fa2283f9324bca8b, type: 3}
-    - {fileID: -1852654681, guid: 0d01d22e686cc434fa2283f9324bca8b, type: 3}
-    - {fileID: -208050382, guid: cb7663113403e4b4fa7324b1b391005e, type: 3}
+    - {fileID: 1345056310, guid: e85ab869f87a8c244b4d3860bac4681a, type: 3}
+    - {fileID: 1148070699, guid: e85ab869f87a8c244b4d3860bac4681a, type: 3}
+    - {fileID: 1702769066, guid: e85ab869f87a8c244b4d3860bac4681a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -86,14 +77,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: StartAttacking
+    functionName: StopMoving
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.41666666
-    functionName: ResumeMoving
+  - time: 0
+    functionName: StopAttacking
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: SelfDestroy
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -411,7 +411,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hitstun
-  m_Speed: 5
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4317081200415656548}
@@ -424,7 +424,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8cea590d3859db54fb15f9cc603f34ad, type: 2}
+  m_Motion: {fileID: 7400000, guid: 682ee4e9592c08d429d66eb62a606846, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -475,7 +475,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ce6e4d5ea57be6942a8e16f066061c44, type: 2}
+  m_Motion: {fileID: 7400000, guid: 512bd03a63fa4834a8f13d53b9388931, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -43,13 +43,13 @@ public class EnemyCobra : MonoBehaviour
         agent.updateUpAxis = false;
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
-        fireDelay = 0.2f;
+        fireDelay = 0.1f;
         readyToFire = false;
         firing = false;
         attacking = false;
         canAttack = true;
         attackRange = 100f;
-        attackDelay = 2f;
+        attackDelay = 5f;
     }
 
 
