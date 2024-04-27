@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3019379535504366999}
   - component: {fileID: 28681013922646447}
-  - component: {fileID: 2678377315573011179}
+  - component: {fileID: 8212979720846910584}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -167,9 +167,8 @@ MonoBehaviour:
   velocityVector: {x: 0, y: 0, z: 0}
   JitterOffset: {x: 0, y: 0, z: 0}
   Jitter: 0
-  startMovement: 0
---- !u!58 &2678377315573011179
-CircleCollider2D:
+--- !u!70 &8212979720846910584
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -200,6 +199,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.65}
-  serializedVersion: 2
-  m_Radius: 1
+  m_Offset: {x: 0, y: 0.51}
+  m_Size: {x: 2.44, y: 5.28}
+  m_Direction: 0

@@ -43,7 +43,7 @@ public class EnemyViper : MonoBehaviour
         attacking = false;
         canAttack = true;
         attackRange = 50f;
-        attackDelay = 5f;
+        attackDelay = 3f;
         attackLungelength = 2f;
     }
 
