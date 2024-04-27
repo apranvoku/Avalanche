@@ -186,7 +186,10 @@ public class EnemyCobra : MonoBehaviour
     public IEnumerator AttackDelay()
     {
         yield return new WaitForSecondsRealtime(attackDelay);
-        canAttack = true;
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            canAttack = true;
+        }
     }
 
 }

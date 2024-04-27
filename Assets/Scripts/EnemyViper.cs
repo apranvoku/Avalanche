@@ -122,6 +122,7 @@ public class EnemyViper : MonoBehaviour
     public void StopMoving()
     {
         lungeHitbox.enabled = false;
+        agent.destination = transform.position;
         agent.isStopped = true;
     }
 
@@ -146,7 +147,10 @@ public class EnemyViper : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(attackDelay);
         animator.SetTrigger("Looping");
-        animator.Play("Base Layer.AttackAnticipation", 0);
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            animator.Play("Base Layer.AttackAnticipation", 0);
+        }
     }
 
     public IEnumerator AttackStopTimer()

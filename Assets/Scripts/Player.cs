@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public Transform redVignette;
     private Animator animator;
     private float flashDuration;
+    private float invincibilityLength;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
         max_hp = hp;
         animator = GetComponentInChildren<Animator>();
         flashDuration = 0.2f;
+        invincibilityLength = .75f;
     }
 
     // Update is called once per frame
@@ -62,6 +64,10 @@ public class Player : MonoBehaviour
             GetComponent<CircleCollider2D>().enabled = false;
             animator.Play("Base Layer.Death", 0);
             //Die stuff
+        }
+        else
+        {
+            StartCoroutine(InvincibilityTimer());
         }
     }
 
@@ -116,5 +122,12 @@ public class Player : MonoBehaviour
         redVignette.GetComponent<Image>().color = red;
 
 
+    }
+
+    public IEnumerator InvincibilityTimer()
+    {
+        GetComponent<CircleCollider2D>().enabled = false;
+        yield return new WaitForSecondsRealtime(invincibilityLength);
+        GetComponent<CircleCollider2D>().enabled = true;
     }
 }
