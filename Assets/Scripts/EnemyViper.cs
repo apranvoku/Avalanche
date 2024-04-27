@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class EnemyViper : MonoBehaviour
 {
+
     public GameObject player;
     public Player playerScript;
     Slider slider;
@@ -17,6 +19,10 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     public GameObject bulletFrag;
     private Vector3 distToPlayer;
+    public float attackRange;
+    private float attackDelay;
+    private bool attacking;
+    public bool canAttack;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,27 +37,27 @@ public class Enemy : MonoBehaviour
         agent.updateUpAxis = false;
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
+        attacking = false;
+        canAttack = true;
+        attackRange = 50f;
+        attackDelay = 5f;
     }
-
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = player.transform.position;
-        distToPlayer = player.transform.position - transform.position;
-        if (distToPlayer.x > 0)
+        if (!attacking && canAttack)
         {
-            if (transform.localScale.x < 0)
+            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                animator.SetTrigger("Awake");
+                canAttack = false;
+                StartCoroutine(AttackDelay());
             }
         }
-        else if (distToPlayer.x < 0)
+        else if (attacking && !agent.isStopped)
         {
-            if (transform.localScale.x > 0)
-            {
-                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
-            }
+            agent.destination = player.transform.position;
         }
     }
 
@@ -65,7 +71,7 @@ public class Enemy : MonoBehaviour
             TakeDamage(AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun.damage); //Pass bullet damage here.
             Debug.Log(AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun.damage);
         }
-        else if(bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Player")
+        else if (bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Player")
         {
             playerScript.TakeDamage(1);
         }
@@ -78,7 +84,7 @@ public class Enemy : MonoBehaviour
         slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponentInChildren<CapsuleCollider2D>().enabled = false;
             animator.Play("Base Layer.Death", 0);
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
@@ -101,4 +107,27 @@ public class Enemy : MonoBehaviour
         agent.isStopped = false;
     }
 
+    public void StartAttacking()
+    {
+        attacking = true;
+        StartCoroutine(AttackStopTimer());
+    }
+    public void StopAttacking()
+    {
+        attacking = false;
+        canAttack = true;
+    }
+
+    public IEnumerator AttackDelay()
+    {
+        yield return new WaitForSecondsRealtime(attackDelay);
+        animator.SetTrigger("Looping");
+        animator.Play("Base Layer.AttackAnticipation", 0);
+    }
+
+    public IEnumerator AttackStopTimer()
+    {
+        yield return new WaitForSecondsRealtime(attackDelay);
+        animator.ResetTrigger("Looping");
+    }
 }

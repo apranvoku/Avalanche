@@ -43,13 +43,13 @@ public class EnemyCobra : MonoBehaviour
         agent.updateUpAxis = false;
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
-        fireDelay = 0.5f;
+        fireDelay = 0.2f;
         readyToFire = false;
         firing = false;
         attacking = false;
         canAttack = true;
         attackRange = 100f;
-        attackDelay = 5f;
+        attackDelay = 2f;
     }
 
 
@@ -84,7 +84,7 @@ public class EnemyCobra : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
             }
         }
-        if (distToPlayer.x < 0)
+        else if (distToPlayer.x < 0)
         {
             if (transform.localScale.x > 0)
             {
