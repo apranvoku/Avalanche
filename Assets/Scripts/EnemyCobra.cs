@@ -180,7 +180,10 @@ public class EnemyCobra : MonoBehaviour
     public IEnumerator FireDelay()
     {
         yield return new WaitForSecondsRealtime(fireDelay);
-        readyToFire = true;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            readyToFire = true;
+        }
     }
 
     public IEnumerator AttackDelay()

@@ -6320,7 +6320,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6993137442346202667}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &5166009834800996019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6335,7 +6335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6760,6 +6760,7 @@ MonoBehaviour:
   levels:
   - Level_1_PlainPlane
   - Level_2_Rooms
+  - Level_3_JumboJet
   - LevelOneBackup
   currentLevel: 0
   primaryGun: 0

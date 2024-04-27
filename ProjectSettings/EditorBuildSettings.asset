@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1_PlainPlane.unity
     guid: 9af35b33d6136b94ead82128de3e9672
+  - enabled: 1
+    path: Assets/Scenes/Level_3_JumboJet.unity
+    guid: 70ec3a0fb866f75419d231a0cf220f34
   m_configObjects: {}
