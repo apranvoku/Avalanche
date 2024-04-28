@@ -58,7 +58,7 @@ public class EnemyCobra : MonoBehaviour
     {
         if (!attacking)
         {
-            if (canAttack && (Vector3.Distance(transform.position, player.transform.position) <= attackRange))
+            if (canAttack && (Vector3.Distance(transform.position, player.transform.position) <= attackRange) && (hp>0))
             {
                 canAttack = false;
                 StartCoroutine(AttackDelay());
@@ -120,12 +120,12 @@ public class EnemyCobra : MonoBehaviour
             animator.Play("Base Layer.Death", 0);
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
-            GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
         }
     }
 
     public void SelfDestroy()
     {
+        GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
         Destroy(transform.gameObject);
     }
 
@@ -180,7 +180,7 @@ public class EnemyCobra : MonoBehaviour
     public IEnumerator FireDelay()
     {
         yield return new WaitForSecondsRealtime(fireDelay);
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        if (hp > 0)
         {
             readyToFire = true;
         }
@@ -189,7 +189,7 @@ public class EnemyCobra : MonoBehaviour
     public IEnumerator AttackDelay()
     {
         yield return new WaitForSecondsRealtime(attackDelay);
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        if(hp > 0)
         {
             canAttack = true;
         }

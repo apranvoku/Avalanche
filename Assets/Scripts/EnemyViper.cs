@@ -110,12 +110,12 @@ public class EnemyViper : MonoBehaviour
             animator.Play("Base Layer.Death", 0);
             GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
             //We can use the coindrop GO to set coin values.
-            GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
         }
     }
 
     public void SelfDestroy()
     {
+        GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
         Destroy(transform.gameObject);
     }
 

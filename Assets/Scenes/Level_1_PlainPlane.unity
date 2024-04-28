@@ -8372,6 +8372,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1571331115292935723, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: devMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571331115292935723, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: redVignette
       value: 
       objectReference: {fileID: 18155750}

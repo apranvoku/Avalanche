@@ -17,11 +17,16 @@ public class Player : MonoBehaviour
     private Animator animator;
     private float flashDuration;
     private float invincibilityLength;
+    public bool devMode;
 
     // Start is called before the first frame update
     void Awake()
     {
         hp = 5;
+        if (devMode)
+        {
+            hp = 100;
+        }
         max_hp = hp;
         animator = GetComponentInChildren<Animator>();
         flashDuration = 0.2f;
