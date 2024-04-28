@@ -28,6 +28,8 @@ public class Shoot : MonoBehaviour
     public Shotgun shotgun;
     public Rocketlauncher rocketlauncher;
 
+    private float fireTimeStamp;
+
 
     public bool readyToFire;
     // Start is called before the first frame update
@@ -44,20 +46,25 @@ public class Shoot : MonoBehaviour
         readyToFire = true;
 
         muzzleFlashLocation = GameObject.Find("MuzzleFlashLocation");
+
+        fireTimeStamp = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed && readyToFire)
+
+        float timePassed = Time.time - fireTimeStamp;
+
+        if (Mouse.current.leftButton.isPressed && timePassed >= (1f / selectedGun.fireRate))
         {
 
-            readyToFire = false;
+            //readyToFire = false;
             Instantiate(muzzleFlash, muzzleFlashLocation.transform.position, Quaternion.identity);
             Instantiate(projectile, transform.position, Quaternion.identity, projectileParent.transform);
-            StartCoroutine(FireDelay());
+            fireTimeStamp = Time.time;
+            //StartCoroutine(FireDelay());
         }
-        
     }
 
     public void DisableFire()

@@ -110,7 +110,7 @@ public class AgentMovement : MonoBehaviour
         enableInputs = false;
         agent.enabled = false;
         GetComponentInChildren<AgentRotate>().enabled = false;
-        GetComponentInChildren<Shoot>().DisableFire();
+        GetComponentInChildren<Shoot>().enabled = false;
     }
 
     public void OnEnable()
@@ -120,7 +120,7 @@ public class AgentMovement : MonoBehaviour
         enableInputs = true;
         agent.enabled = true;
         GetComponentInChildren<AgentRotate>().enabled = true;
-        GetComponentInChildren<Shoot>().EnableFire();
+        GetComponentInChildren<Shoot>().enabled = true;
     }
 
     //Stuff for exit level animation

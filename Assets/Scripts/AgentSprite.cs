@@ -8,4 +8,9 @@ public class AgentSprite : MonoBehaviour
     {
         transform.parent.parent.GetComponent<AgentMovement>().enabled = true;
     }
+
+    public void StopMovement()
+    {
+        transform.parent.parent.GetComponent<AgentMovement>().enabled = false;
+    }
 }

@@ -167,9 +167,9 @@ public class Shop : MonoBehaviour
     {
         StartCoroutine(FadeToWhite(1f));
         SceneManager.LoadScene(levels[currentLevel]);
-        currentLevel++; 
-        AgentMovement.Instance.OnEnable();
+        currentLevel++;
         AgentMovement.Instance.transform.position = Vector3.zero;
+        AgentMovement.Instance.OnEnable();
     }
 
     public IEnumerator FadeToBlack(float duration)
