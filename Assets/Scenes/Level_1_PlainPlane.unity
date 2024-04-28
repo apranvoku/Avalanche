@@ -866,6 +866,18 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5536344858662341628, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
+      propertyPath: levels.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536344858662341628, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
+      propertyPath: levels.Array.data[3]
+      value: Level_4_Crossing
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536344858662341628, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
+      propertyPath: levels.Array.data[4]
+      value: Intro
+      objectReference: {fileID: 0}
     - target: {fileID: 5926196423028511484, guid: d4ea3b76ae4ee9c458c355f0acf9ae86, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -15730,7 +15742,7 @@ MonoBehaviour:
   - {fileID: 7322891469467274923, guid: c93fc028cdf05c145812475ae09603c3, type: 3}
   - {fileID: 7322891469467274923, guid: 2e7f269d9da924b48903e13ad69f1b1d, type: 3}
   - {fileID: 7322891469467274923, guid: 99ea72a844770d545ad6877a6c5503a6, type: 3}
-  toSpawn: 010000000000000000000000
+  toSpawn: 050000000700000000000000
   enemiesCount: 0
   exit: {fileID: 2233241044596234567, guid: a8134daf1d447604aa78989d5b767774, type: 3}
 --- !u!1 &1188977747

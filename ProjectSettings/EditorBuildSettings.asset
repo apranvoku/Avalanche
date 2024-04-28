@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_3_JumboJet.unity
     guid: 70ec3a0fb866f75419d231a0cf220f34
+  - enabled: 1
+    path: Assets/Scenes/Level_4_Crossing.unity
+    guid: da7e0a77c7dcfb04da33ace65eac6186
   m_configObjects: {}
