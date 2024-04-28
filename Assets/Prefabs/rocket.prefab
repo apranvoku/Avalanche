@@ -61,7 +61,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.79, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 236132301617594805}
@@ -4890,7 +4890,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 236132301617594805}
@@ -4993,11 +4993,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f2a56e2998f549b8884ced7e1693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletFrag: {fileID: 5266228030191771837, guid: ccfb2bdd237ff934c9bd7823066caaed, type: 3}
   bulletSpeed: 300
   ar: {fileID: 0}
   velocityVector: {x: 0, y: 0, z: 0}
   JitterOffset: {x: 0, y: 0, z: 0}
   Jitter: 0
+  rocketBullet: 0
+  bulletTimeStamp: 0
 --- !u!58 &2678377315573011179
 CircleCollider2D:
   m_ObjectHideFlags: 0

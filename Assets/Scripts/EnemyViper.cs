@@ -17,7 +17,6 @@ public class EnemyViper : MonoBehaviour
     public GameObject coinDrop;
     public GameObject coinDropParent;
     private Animator animator;
-    public GameObject bulletFrag;
     private Vector3 distToPlayer;
     public float attackRange;
     private float attackDelay;
@@ -84,15 +83,7 @@ public class EnemyViper : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject bullet = collision.gameObject;
-        if (bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Projectiles")
-        {
-            Instantiate(bulletFrag, new Vector3(collision.GetContact(0).point.x, collision.GetContact(0).point.y, 0f), Quaternion.AngleAxis(180f, Vector3.up));
-            Destroy(bullet);
-            TakeDamage(AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun.damage); //Pass bullet damage here.
-            Debug.Log(AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun.damage);
-        }
-        else if (bullet.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Player")
+        if (collision.gameObject.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Player")
         {
             playerScript.TakeDamage(1);
         }
