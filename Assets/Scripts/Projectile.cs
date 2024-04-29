@@ -61,7 +61,7 @@ public class Projectile : MonoBehaviour
                 //int CircleCast(Vector2 origin, float radius, Vector2 direction, ContactFilter2D contactFilter, List<RaycastHit2D> results, float distance = Mathf.Infinity); 
                 List<RaycastHit2D> hitResults = new List<RaycastHit2D>();
                 ContactFilter2D filter = new ContactFilter2D();
-                Physics2D.CircleCast(transform.position, 30f, Vector2.right, filter.NoFilter(), hitResults);
+                Physics2D.CircleCast(transform.position, 15f, Vector2.right, filter.NoFilter(), hitResults);
 
                 foreach (RaycastHit2D hitResult in hitResults)
                 {
@@ -97,7 +97,7 @@ public class Projectile : MonoBehaviour
                 }
             }
             Debug.Log(firedGun.damage);
+            Destroy(transform.gameObject);
         }
-        Destroy(transform.gameObject);
     }
 }
