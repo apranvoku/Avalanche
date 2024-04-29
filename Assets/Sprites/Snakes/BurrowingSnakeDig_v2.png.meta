@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 20e3ae769fe159048b7b45dd96abd697
+guid: b26b9156244acff46a0c4eb587bda46c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BurrowingSnakeDig_0
+      name: BurrowingSnakeDig_v2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96d280c8604d62448bdaa2ea9cbb9bdc
-      internalID: -1888161014
+      spriteID: 4783d4e0c9690604198e836beb235aea
+      internalID: 777765323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_1
+      name: BurrowingSnakeDig_v2_1
       rect:
         serializedVersion: 2
         x: 248
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26a5826e46808494aa66a22c728b7aed
-      internalID: 160155291
+      spriteID: 6406300270634024b9483a5c1390e819
+      internalID: -1401814489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_2
+      name: BurrowingSnakeDig_v2_2
       rect:
         serializedVersion: 2
         x: 496
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce2e201a8a864c479f8d392b034355b
-      internalID: -915894817
+      spriteID: 7fc6c7a404430f342bac07e0bf1cc439
+      internalID: 162226338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_3
+      name: BurrowingSnakeDig_v2_3
       rect:
         serializedVersion: 2
         x: 744
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a39c2ce3fbf4a74f94c81c5a6e1fe9e
-      internalID: 878164245
+      spriteID: 57987f3620442ac45b56c7292ea8867f
+      internalID: 1300540824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_4
+      name: BurrowingSnakeDig_v2_4
       rect:
         serializedVersion: 2
         x: 992
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac3f787197f02394f9edc88976771dc6
-      internalID: -1113834489
+      spriteID: 67b19c9ecc00702488aed6014d52a50c
+      internalID: -1501887794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_5
+      name: BurrowingSnakeDig_v2_5
       rect:
         serializedVersion: 2
         x: 1240
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c09cffd3ff52f7b47aa08a9ef0a0a946
-      internalID: -372966225
+      spriteID: 67499eb2ec88f6d4abb480b44959d9bb
+      internalID: 601676246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_6
+      name: BurrowingSnakeDig_v2_6
       rect:
         serializedVersion: 2
         x: 1488
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce50a9c255a3011469a3295ea500d120
-      internalID: 473512829
+      spriteID: 37c6881f625fde247a267213192d2353
+      internalID: -1896482749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeDig_7
+      name: BurrowingSnakeDig_v2_7
       rect:
         serializedVersion: 2
         x: 1736
@@ -258,8 +258,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a02faa1ecf4c627459cdfe94f9aa9ff3
-      internalID: 821916232
+      spriteID: 7e3707254ca816946a569a70a8e3b972
+      internalID: -1426006053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurrowingSnakeDig_v2_8
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 248
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e85166bea7ac147b845464a79729ac
+      internalID: -903643170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurrowingSnakeDig_v2_9
+      rect:
+        serializedVersion: 2
+        x: 2232
+        y: 0
+        width: 248
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b072142fa1de9044a75e4ac8947fa51
+      internalID: 1590522521
       vertices: []
       indices: 
       edges: []
@@ -267,7 +309,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b845005c8eafec04d93f1e2b3bda88dd
+    spriteID: 7b486e87c9809c54c8dd73309fc27dfc
     internalID: 0
     vertices: []
     indices: 
@@ -275,14 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BurrowingSnakeDig_0: -1888161014
-      BurrowingSnakeDig_1: 160155291
-      BurrowingSnakeDig_2: -915894817
-      BurrowingSnakeDig_3: 878164245
-      BurrowingSnakeDig_4: -1113834489
-      BurrowingSnakeDig_5: -372966225
-      BurrowingSnakeDig_6: 473512829
-      BurrowingSnakeDig_7: 821916232
+      BurrowingSnakeDig_v2_0: 777765323
+      BurrowingSnakeDig_v2_1: -1401814489
+      BurrowingSnakeDig_v2_2: 162226338
+      BurrowingSnakeDig_v2_3: 1300540824
+      BurrowingSnakeDig_v2_4: -1501887794
+      BurrowingSnakeDig_v2_5: 601676246
+      BurrowingSnakeDig_v2_6: -1896482749
+      BurrowingSnakeDig_v2_7: -1426006053
+      BurrowingSnakeDig_v2_8: -903643170
+      BurrowingSnakeDig_v2_9: 1590522521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

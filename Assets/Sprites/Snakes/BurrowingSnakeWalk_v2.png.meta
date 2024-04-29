@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 382e8925b5df61446a95cf39c51c55d2
+guid: 0e9a7c628ddb5d24bb9cbc7fa8abc7f0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BurrowingSnakeWalk_0
+      name: BurrowingSnakeWalk_v2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 162cd99a099c0a442bfca171d6d80545
-      internalID: -1666176254
+      spriteID: ac96ac8ba3b35c343be95a30f898039d
+      internalID: -1108151392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeWalk_1
+      name: BurrowingSnakeWalk_v2_1
       rect:
         serializedVersion: 2
         x: 248
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7404ee4fd10ee764f87ba69cb168f8cf
-      internalID: -614836906
+      spriteID: a8c12875f9035ed498a7b29c6d34d6a2
+      internalID: -1744810778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeWalk_2
+      name: BurrowingSnakeWalk_v2_2
       rect:
         serializedVersion: 2
         x: 496
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4c0c0c5502d29f4581d04c6f9e9ff26
-      internalID: -1568000743
+      spriteID: c4a49f3d5aa78ab42a36b9ac64f983c8
+      internalID: -184698211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeWalk_3
+      name: BurrowingSnakeWalk_v2_3
       rect:
         serializedVersion: 2
         x: 744
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a33e78a2efcd1948b746db4d6defc5c
-      internalID: -570145030
+      spriteID: 543e4ab00b772064096a4951103546fe
+      internalID: 1577366408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeWalk_4
+      name: BurrowingSnakeWalk_v2_4
       rect:
         serializedVersion: 2
         x: 992
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8df04d55050ae7439cfb3d34228ea98
-      internalID: -522293561
+      spriteID: e4473613c1bd69f429e9acbda41d1b22
+      internalID: -1474617862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurrowingSnakeWalk_5
+      name: BurrowingSnakeWalk_v2_5
       rect:
         serializedVersion: 2
         x: 1240
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38ed8dc9171e8f64cb87964e4e4512f1
-      internalID: 180229022
+      spriteID: 2eb993ec3c1f26f409d79161531e1afa
+      internalID: 265875780
       vertices: []
       indices: 
       edges: []
@@ -225,7 +225,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 069a7305ed805974080684f0371edc28
+    spriteID: ab9ddfed8002df647b8dd2ab0a4dab3c
     internalID: 0
     vertices: []
     indices: 
@@ -233,12 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BurrowingSnakeWalk_0: -1666176254
-      BurrowingSnakeWalk_1: -614836906
-      BurrowingSnakeWalk_2: -1568000743
-      BurrowingSnakeWalk_3: -570145030
-      BurrowingSnakeWalk_4: -522293561
-      BurrowingSnakeWalk_5: 180229022
+      BurrowingSnakeWalk_v2_0: -1108151392
+      BurrowingSnakeWalk_v2_1: -1744810778
+      BurrowingSnakeWalk_v2_2: -184698211
+      BurrowingSnakeWalk_v2_3: 1577366408
+      BurrowingSnakeWalk_v2_4: -1474617862
+      BurrowingSnakeWalk_v2_5: 265875780
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
