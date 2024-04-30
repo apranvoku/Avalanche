@@ -9,4 +9,14 @@ public class ExitDoor : MonoBehaviour
     {
         transform.GetComponent<CircleCollider2D>().enabled = true;
     }
+
+    private void OnBecameInvisible()
+    {
+        GameObject.Find("ExitIcon").GetComponent<ExitUI>().SetTarget(transform);
+    }
+
+    private void OnBecameVisible()
+    {
+        GameObject.Find("ExitIcon").GetComponent<ExitUI>().ResetTarget();
+    }
 }
