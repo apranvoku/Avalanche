@@ -13,7 +13,7 @@ public class ExitUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startUI)
+        if(startUI && (target != null))
         { 
             float minX = img.GetPixelAdjustedRect().width / 1.5f;
             float maxX = Screen.width - minX;
@@ -39,6 +39,10 @@ public class ExitUI : MonoBehaviour
 
             img.transform.position = pos;
         }
+        else
+        {
+            img.enabled = false;
+        }
     }
 
     public void SetTarget(Transform targetToSet)
@@ -52,5 +56,6 @@ public class ExitUI : MonoBehaviour
     {
         img.enabled = false;
         startUI = false;
+        target = null;
     }
 }
