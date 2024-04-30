@@ -7,16 +7,16 @@ public class EnemySprite : MonoBehaviour
 
     public void StopMoving()
     {
-        transform.parent.GetComponent<Enemy>().StopMoving();
+        transform.parent.GetComponent<EnemyGardenSnake>().StopMoving();
     }
 
     public void ResumeMoving()
     {
-        transform.parent.GetComponent<Enemy>().ResumeMoving();
+        transform.parent.GetComponent<EnemyGardenSnake>().ResumeMoving();
     }
 
     public void SelfDestroy()
     {
-        transform.parent.GetComponent<Enemy>().SelfDestroy();
+        transform.parent.GetComponent<EnemyGardenSnake>().SelfDestroy();
     }
 }

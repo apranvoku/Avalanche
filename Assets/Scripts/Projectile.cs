@@ -71,14 +71,6 @@ public class Projectile : MonoBehaviour
                     {
                         hitResult.transform.GetComponentInChildren<Enemy>().TakeDamage(firedGun.damage);
                     }
-                    if (hitResult.transform.GetComponentInChildren<EnemyCobra>() != null)
-                    {
-                        hitResult.transform.GetComponentInChildren<EnemyCobra>().TakeDamage(firedGun.damage);
-                    }
-                    if (hitResult.transform.GetComponentInChildren<EnemyViper>() != null)
-                    {
-                        hitResult.transform.GetComponentInChildren<EnemyViper>().TakeDamage(firedGun.damage);
-                    }
                 }
             }
             else
@@ -86,14 +78,6 @@ public class Projectile : MonoBehaviour
                 if (enemy.transform.GetComponentInChildren<Enemy>() != null)
                 {
                     enemy.transform.GetComponentInChildren<Enemy>().TakeDamage(firedGun.damage);
-                }
-                if (enemy.transform.GetComponentInChildren<EnemyCobra>() != null)
-                {
-                    enemy.transform.GetComponentInChildren<EnemyCobra>().TakeDamage(firedGun.damage);
-                }
-                if (enemy.transform.GetComponentInChildren<EnemyViper>() != null)
-                {
-                    enemy.transform.GetComponentInChildren<EnemyViper>().TakeDamage(firedGun.damage);
                 }
             }
             Debug.Log(firedGun.damage);

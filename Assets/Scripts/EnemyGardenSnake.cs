@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyCobra : Enemy
+public class EnemyGardenSnake : Enemy
 {
     public GameObject player;
     public Player playerScript;
@@ -12,21 +12,10 @@ public class EnemyCobra : Enemy
     NavMeshAgent agent;
     public float hp;
     private float total_hp;
-    private float fireDelay;
-    private float attackDelay;
-    public bool canAttack;
-    public bool readyToFire;
-    public bool firing;
-    private bool attacking;
     public GameObject coinDrop;
     public GameObject coinDropParent;
-    public GameObject enemyProjectilleParent;
     private Animator animator;
-    public float attackRange;
     private Vector3 distToPlayer;
-    //needs to be set in editor
-    public GameObject poisonBullet;
-    public GameObject enemyProjectileOrigin;
 
     // Start is called before the first frame update
     void Awake()
@@ -36,45 +25,18 @@ public class EnemyCobra : Enemy
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
         coinDropParent = GameObject.Find("coinDropParent");
-        enemyProjectilleParent = GameObject.Find("EnemyProjectilleParent");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
-        fireDelay = 0.1f;
-        readyToFire = false;
-        firing = false;
-        attacking = false;
-        canAttack = true;
-        attackRange = 100f;
-        attackDelay = 5f;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!attacking)
-        {
-            if (canAttack && (Vector3.Distance(transform.position, player.transform.position) <= attackRange) && (hp>0))
-            {
-                canAttack = false;
-                StartCoroutine(AttackDelay());
-                attacking = true;
-                StopMoving();
-                animator.Play("Base Layer.AttackAnticipation", 0);
-            }
-            else
-            {
-                agent.destination = player.transform.position;
-            }
-        }
-        else if (firing && readyToFire)
-        {
-            readyToFire = false;
-            Shoot();
-        }
+        agent.destination = player.transform.position;
         distToPlayer = player.transform.position - transform.position;
         if (distToPlayer.x > 0)
         {
@@ -128,62 +90,6 @@ public class EnemyCobra : Enemy
     public override void ResumeMoving()
     {
         agent.isStopped = false;
-    }
-
-    Quaternion GetRotationToTarget(GameObject targetObject)
-    {
-        // Calculate the direction vector from this GameObject to the targetObject
-        Vector3 direction = targetObject.transform.position - transform.position;
-
-        // Calculate the angle in degrees around the z-axis
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Create a quaternion that rotates around the z-axis by the calculated angle
-        Quaternion rotation = Quaternion.Euler(0, 0, angle);
-
-        return rotation;
-    }
-
-    public void Shoot()
-    {
-        Instantiate(poisonBullet, enemyProjectileOrigin.transform.position, transform.rotation * GetRotationToTarget(player), enemyProjectilleParent.transform);
-        StartCoroutine(FireDelay());
-    }
-
-    public void BeginShoot()
-    {
-        readyToFire = true;
-        firing = true;
-    }
-    public void StopShoot()
-    {
-        readyToFire = false;
-        firing = false;
-    }
-
-    public void StopAttacking()
-    {
-        readyToFire = false;
-        firing = false;
-        attacking = false;
-    }
-
-    public IEnumerator FireDelay()
-    {
-        yield return new WaitForSecondsRealtime(fireDelay);
-        if (hp > 0)
-        {
-            readyToFire = true;
-        }
-    }
-
-    public IEnumerator AttackDelay()
-    {
-        yield return new WaitForSecondsRealtime(attackDelay);
-        if(hp > 0)
-        {
-            canAttack = true;
-        }
     }
 
 }

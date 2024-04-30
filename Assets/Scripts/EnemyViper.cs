@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyViper : MonoBehaviour
+public class EnemyViper : Enemy
 {
 
     public GameObject player;
@@ -89,7 +89,7 @@ public class EnemyViper : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         animator.Play("Base Layer.Hitstun", 0);
         hp -= damage;
@@ -104,20 +104,20 @@ public class EnemyViper : MonoBehaviour
         }
     }
 
-    public void SelfDestroy()
+    public override void SelfDestroy()
     {
         GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
         Destroy(transform.gameObject);
     }
 
-    public void StopMoving()
+    public override void StopMoving()
     {
         lungeHitbox.enabled = false;
         agent.destination = transform.position;
         agent.isStopped = true;
     }
 
-    public void ResumeMoving()
+    public override void ResumeMoving()
     {
         agent.isStopped = false;
         lungeHitbox.enabled = true;
