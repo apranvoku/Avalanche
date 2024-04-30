@@ -17,6 +17,13 @@ public class EnemyBurrowingSnake : Enemy
     public GameObject coinDropParent;
     private Animator animator;
     private Vector3 distToPlayer;
+    private float speed;
+    private float dashSpeed;
+    private float digRange;
+    private float surfaceRange;
+    private bool canDig;
+    private float digDelay;
+    public GameObject dirtParticles;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +38,13 @@ public class EnemyBurrowingSnake : Enemy
         agent.updateUpAxis = false;
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
+
+        speed = 10f;
+        dashSpeed = 70f;
+        digRange = 50f;
+        surfaceRange = 30f;
+        canDig = true;
+        digDelay = 1f;
     }
 
     // Update is called once per frame
@@ -38,6 +52,16 @@ public class EnemyBurrowingSnake : Enemy
     {
         agent.destination = player.transform.position;
         distToPlayer = player.transform.position - transform.position;
+        if ((distToPlayer.magnitude > digRange) && (hp > 0) && canDig)
+        {
+            animator.ResetTrigger("Surface");
+        }
+        if ((distToPlayer.magnitude < surfaceRange) && (hp > 0))
+        {
+            canDig = false;
+            animator.SetTrigger("Surface");
+            StartCoroutine(DigDelay());
+        }
         if (distToPlayer.x > 0)
         {
             if (transform.localScale.x < 0)
@@ -90,5 +114,45 @@ public class EnemyBurrowingSnake : Enemy
     public override void ResumeMoving()
     {
         agent.isStopped = false;
+    }
+
+    public void SpeedUp()
+    {
+        agent.speed = dashSpeed;
+    }
+
+    public void SlowDown()
+    {
+        agent.speed = speed;
+    }
+
+    public void StartInvulnerable()
+    {
+        GetComponent<CircleCollider2D>().enabled = false;
+    }
+
+    public void StopInvulnerable()
+    {
+
+        GetComponent<CircleCollider2D>().enabled = true;
+    }
+
+    public void StartParticles()
+    {
+        dirtParticles.SetActive(true);
+    }
+
+    public void StopParticles()
+    {
+        dirtParticles.SetActive(false);
+    }
+
+    public IEnumerator DigDelay()
+    {
+        yield return new WaitForSecondsRealtime(digDelay);
+        if (hp > 0)
+        {
+            canDig = true;
+        }
     }
 }
