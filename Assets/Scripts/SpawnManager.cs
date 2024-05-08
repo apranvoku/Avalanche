@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
                 foreach (Transform portal in transform)
                 {
                     Instantiate(enemies[i], portal.position, Quaternion.identity, portal);
-                    yield return new WaitForSecondsRealtime(1f);
+                    yield return new WaitForSecondsRealtime(0.2f);
                     j -= 1;
                     if (j <= 0)
                     {
@@ -49,6 +49,11 @@ public class SpawnManager : MonoBehaviour
             //Do whatever needs to be done to end level.
             StartCoroutine(SpawnExit(pos));
         }
+    }
+
+    public void EnemySpawned()
+    {
+        enemiesCount ++;
     }
 
     public IEnumerator SpawnExit(Vector3 pos)

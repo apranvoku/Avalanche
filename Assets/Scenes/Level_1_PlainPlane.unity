@@ -8383,6 +8383,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567183514194047029, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 567183514194047029, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1571331115292935723, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: redVignette
       value: 
@@ -15759,7 +15767,8 @@ MonoBehaviour:
   - {fileID: 7322891469467274923, guid: 2e7f269d9da924b48903e13ad69f1b1d, type: 3}
   - {fileID: 7322891469467274923, guid: 99ea72a844770d545ad6877a6c5503a6, type: 3}
   - {fileID: 7322891469467274923, guid: c2a0da11930603d48ada2a9aaf6d350b, type: 3}
-  toSpawn: 02000000000000000000000003000000
+  - {fileID: 7322891469467274923, guid: fd46d6607f870c74f8729fecf13b8336, type: 3}
+  toSpawn: 0200000000000000000000000000000002000000
   enemiesCount: 0
   exit: {fileID: 2233241044596234567, guid: a8134daf1d447604aa78989d5b767774, type: 3}
 --- !u!1 &1188977747

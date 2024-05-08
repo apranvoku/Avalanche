@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f98fc6dac3c4d40a1ea5abef208080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 50
+  bulletSpeed: 20
   player: {fileID: 0}
   velocityVector: {x: 0, y: 0, z: 0}
   JitterOffset: {x: 0, y: 0, z: 0}
