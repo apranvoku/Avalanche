@@ -9,6 +9,8 @@ public class CameraFollow : MonoBehaviour
     private GameObject player;
     private Vector3 defaultOffset;
     private Vector3 zoomOffset;
+    private bool cutscene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,16 @@ public class CameraFollow : MonoBehaviour
         offset = transform.position - player.transform.position;
         defaultOffset = new Vector3(offset.x, offset.y, offset.z);
         zoomOffset = new Vector3(offset.x, offset.y, -40);
+        cutscene = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + offset;
+        if (!cutscene)
+        {
+            transform.position = player.transform.position + offset;
+        }
     }
 
     public void ZoomToPlayer()
@@ -33,6 +39,25 @@ public class CameraFollow : MonoBehaviour
     public void ZoomToDefault()
     {
         offset = defaultOffset;
+    }
+
+    public void ZoomToExit(Vector3 exitPos)
+    {
+        cutscene = true;
+        StartCoroutine(ZoomToExit(exitPos, 0.5f));
+    }
+
+    public IEnumerator ZoomToExit(Vector3 exitPos, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(transform.position, exitPos + offset, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = exitPos + offset;
+        cutscene = false;
     }
 
     public IEnumerator ZoomCamera(float duration)

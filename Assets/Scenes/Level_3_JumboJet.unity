@@ -42227,7 +42227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1886664678056302342, guid: 319220a4064b7354d9e0d6a79fd46026, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1886664678056302342, guid: 319220a4064b7354d9e0d6a79fd46026, type: 3}
       propertyPath: m_SortingLayerID
@@ -42760,7 +42760,7 @@ MonoBehaviour:
   - {fileID: 7322891469467274923, guid: 99ea72a844770d545ad6877a6c5503a6, type: 3}
   - {fileID: 7322891469467274923, guid: c2a0da11930603d48ada2a9aaf6d350b, type: 3}
   - {fileID: 7322891469467274923, guid: fd46d6607f870c74f8729fecf13b8336, type: 3}
-  toSpawn: 140000000f000000060000000a00000005000000
+  toSpawn: 0f0000000a000000000000000500000002000000
   enemiesCount: 0
   exit: {fileID: 2233241044596234567, guid: a8134daf1d447604aa78989d5b767774, type: 3}
 --- !u!4 &2003751296 stripped

@@ -168,6 +168,12 @@ public class Shop : MonoBehaviour
         StartCoroutine(FadeToWhite(1f));
         SceneManager.LoadScene(levels[currentLevel]);
         currentLevel++;
+        if (currentLevel >= levels.Count)
+        {
+            currentLevel = 1;
+            GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
+            GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
+        }
         AgentMovement.Instance.transform.position = Vector3.zero;
         AgentMovement.Instance.OnEnable();
     }

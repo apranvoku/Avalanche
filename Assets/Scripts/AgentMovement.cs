@@ -139,13 +139,16 @@ public class AgentMovement : MonoBehaviour
 
         Vector3 difference = transform.Find("Character").transform.position - doorPos;
 
+        //Start the exit camera animation (lerp to Door)
+        GameObject.Find("Main Camera").GetComponent<CameraFollow>().ZoomToExit(doorPos);
+
         // Set the parent's position to the target position
         transform.position = doorPos;
 
         // Move the child back to its original global position
         transform.Find("Character").transform.position = transform.position + difference;
 
-        StartCoroutine(RotateObject(500.0f, 1.5f));
+        StartCoroutine(RotateObject(500.0f, 2f));
         StartCoroutine(ScaleToZero(0.5f, 1.5f));
 
     }
