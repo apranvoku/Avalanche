@@ -172,6 +172,14 @@ public class Shop : MonoBehaviour
         AgentMovement.Instance.OnEnable();
     }
 
+    public void ResetLevel()
+    {
+        //money = 0;
+        //UpdateMoney();
+        SceneManager.LoadScene("Intro");
+        currentLevel = 1;
+    }
+
     public IEnumerator FadeToBlack(float duration)
     {
         Color screencolor = blackScreen.color; 

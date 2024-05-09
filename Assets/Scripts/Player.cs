@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         {
             GetComponent<CircleCollider2D>().enabled = false;
             animator.Play("Base Layer.Death", 0);
-            //Die stuff
+            //Die();
         }
         else
         {
@@ -78,7 +78,23 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        
+        GameObject.Find("NewCanvas").GetComponent<GameOverScreen>().OpenGameOverScreen();
+    }
+
+    public void ResetAllStats()
+    {
+        hp = 5;
+        if (devMode)
+        {
+            hp = 100;
+        }
+        UpdateHearts((int)hp);
+
+        animator.Play("Base Layer.Idle", 0);
+        GetComponent<CircleCollider2D>().enabled = true;
+        AgentMovement.Instance.transform.position = Vector3.zero;
+        AgentMovement.Instance.enabled = true;
+        AgentMovement.Instance.OnEnable();
     }
 
     public void UpdateHearts(int heartsRemaining)
@@ -133,6 +149,9 @@ public class Player : MonoBehaviour
     {
         GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSecondsRealtime(invincibilityLength);
-        GetComponent<CircleCollider2D>().enabled = true;
+        if (hp > 0)
+        {
+            GetComponent<CircleCollider2D>().enabled = true;
+        }
     }
 }

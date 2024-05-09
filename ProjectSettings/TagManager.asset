@@ -14,7 +14,7 @@ TagManager:
   - Player
   - Exit
   - Enemy
-  - 
+  - UI Behind Player
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Exit
     uniqueID: 192996589
+    locked: 0
+  - name: UI Behind Player
+    uniqueID: 2814653317
     locked: 0
   - name: Player
     uniqueID: 2950049991

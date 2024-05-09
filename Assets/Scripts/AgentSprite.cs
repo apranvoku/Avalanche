@@ -13,4 +13,13 @@ public class AgentSprite : MonoBehaviour
     {
         transform.parent.parent.GetComponent<AgentMovement>().enabled = false;
     }
+
+    public void Die()
+    {
+        transform.parent.GetComponent<Player>().Die();
+    }
+    public void ZoomCamera()
+    {
+        GameObject.Find("Main Camera").GetComponent<CameraFollow>().ZoomToPlayer();
+    }
 }

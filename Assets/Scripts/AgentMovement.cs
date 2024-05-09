@@ -17,6 +17,7 @@ public class AgentMovement : MonoBehaviour
     private static AgentMovement instance;
 
     private bool enableInputs;
+    private bool isDestroying;
 
     private static int m_referenceCount = 0;
 
@@ -28,9 +29,11 @@ public class AgentMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        isDestroying = false;
         m_referenceCount++;
         if (m_referenceCount > 1)
         {
+            isDestroying = true;
             DestroyImmediate(this.gameObject);
             return;
         }
@@ -107,10 +110,14 @@ public class AgentMovement : MonoBehaviour
 
     public void OnDisable()
     {
-        enableInputs = false;
-        agent.enabled = false;
-        GetComponentInChildren<AgentRotate>().enabled = false;
-        GetComponentInChildren<Shoot>().enabled = false;
+        if (!isDestroying)
+        {
+            enableInputs = false;
+            agent.enabled = false;
+            GetComponentInChildren<AgentRotate>().enabled = false;
+            GetComponentInChildren<Shoot>().enabled = false;
+        }
+
     }
 
     public void OnEnable()

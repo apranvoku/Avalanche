@@ -17,7 +17,7 @@ public class EnemyMommaSnake : Enemy
     private Animator animator;
     private Vector3 distToPlayer;
     public GameObject baby;
-    public  GameObject babySpawns;
+    public GameObject babySpawns;
 
     // Start is called before the first frame update
     void Awake()
