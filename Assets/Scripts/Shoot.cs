@@ -59,29 +59,31 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float timePassed = Time.time - fireTimeStamp;
-
-        if (Mouse.current.leftButton.isPressed && timePassed >= (1f / selectedGun.fireRate))
+        if (!PauseScreen.isPaused)
         {
-            if(selectedGun != shotgun)
+            float timePassed = Time.time - fireTimeStamp;
+
+            if (Mouse.current.leftButton.isPressed && timePassed >= (1f / selectedGun.fireRate))
             {
-                Instantiate(muzzleFlash, muzzleFlashLocation.transform.position, Quaternion.identity);
-                Instantiate(projectile, transform.position, Quaternion.identity, null);
-                fireTimeStamp = Time.time;
-            }
-            else
-            {
-                float rotation = -50;
-                for(int i = 0; i < 6; i++)
+                if (selectedGun != shotgun)
                 {
                     Instantiate(muzzleFlash, muzzleFlashLocation.transform.position, Quaternion.identity);
-                    GameObject pellet = Instantiate(projectile, transform.position, Quaternion.identity, null);
-
-                    pellet.transform.Rotate(new Vector3(0f, 0f, rotation));
-                    rotation += 20f;
+                    Instantiate(projectile, transform.position, Quaternion.identity, null);
+                    fireTimeStamp = Time.time;
                 }
-                fireTimeStamp = Time.time;
+                else
+                {
+                    float rotation = -50;
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Instantiate(muzzleFlash, muzzleFlashLocation.transform.position, Quaternion.identity);
+                        GameObject pellet = Instantiate(projectile, transform.position, Quaternion.identity, null);
+
+                        pellet.transform.Rotate(new Vector3(0f, 0f, rotation));
+                        rotation += 20f;
+                    }
+                    fireTimeStamp = Time.time;
+                }
             }
         }
     }

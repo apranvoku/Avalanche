@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         }
         else if (LayerMask.LayerToName(entity.gameObject.layer) == "Exit") {
             //Do action to exit level
-            //SceneManager.LoadScene("Intro");
+            PauseScreen.canPause = false;
             transform.parent.GetComponent<AgentMovement>().ExitAnimation(entity.transform.position);
         }
 
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        PauseScreen.canPause = false;
         GameObject.Find("NewCanvas").GetComponent<GameOverScreen>().OpenGameOverScreen();
     }
 
@@ -148,7 +149,7 @@ public class Player : MonoBehaviour
     public IEnumerator InvincibilityTimer()
     {
         GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSecondsRealtime(invincibilityLength);
+        yield return new WaitForSeconds(invincibilityLength);
         if (hp > 0)
         {
             GetComponent<CircleCollider2D>().enabled = true;

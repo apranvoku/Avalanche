@@ -53,7 +53,7 @@ public class AgentMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enableInputs)
+        if (enableInputs && !PauseScreen.isPaused)
         {
             SetTargetPosition();
             SetAgentPosition();
@@ -128,6 +128,7 @@ public class AgentMovement : MonoBehaviour
         agent.enabled = true;
         GetComponentInChildren<AgentRotate>().enabled = true;
         GetComponentInChildren<Shoot>().enabled = true;
+        //PauseScreen.canPause = true;
     }
 
     //Stuff for exit level animation

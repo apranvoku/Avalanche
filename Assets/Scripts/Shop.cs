@@ -176,6 +176,7 @@ public class Shop : MonoBehaviour
         }
         AgentMovement.Instance.transform.position = Vector3.zero;
         AgentMovement.Instance.OnEnable();
+        PauseScreen.canPause = true;
     }
 
     public void ResetLevel()

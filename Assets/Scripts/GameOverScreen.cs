@@ -23,6 +23,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void BackToTitleScreen()
     {
+        PauseScreen.canPause = false;
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
         StartCoroutine(FadeOut(.5f));
