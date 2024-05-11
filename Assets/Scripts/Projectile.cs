@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     public GameObject bulletFrag;
     public float bulletSpeed;
+    private int PenetrationsLeft;//Based on penetration upgrade level
     public AgentRotate ar;
     public Vector3 velocityVector;
     public Vector3 JitterOffset;
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 2f);
+
         ar = GameObject.Find("Character").GetComponent<AgentRotate>();
         transform.position += ar.PlayerToMouse.normalized * 6f; //Set the projectile to spawn a bit in front of the player.
         transform.rotation = Quaternion.LookRotation(Vector3.forward, ar.PlayerToMouse); // Set Initial rotation;
@@ -33,7 +35,7 @@ public class Projectile : MonoBehaviour
             rocketBullet = true;
         }
         else { rocketBullet = false; }
-
+        PenetrationsLeft = firedGun.penetration;
     }
 
     // Update is called once per frame
@@ -81,7 +83,11 @@ public class Projectile : MonoBehaviour
                 }
             }
             Debug.Log(firedGun.damage);
-            Destroy(transform.gameObject);
+            PenetrationsLeft -= 1;
+            if(PenetrationsLeft <= 0)
+            {
+                Destroy(transform.gameObject);
+            }
         }
     }
 }
