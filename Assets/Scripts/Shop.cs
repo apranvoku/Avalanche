@@ -19,6 +19,13 @@ public class Shop : MonoBehaviour
     public Image primaryGunBG;
     public Image secondaryGunBG;
 
+    public GameObject PenPips;
+    public GameObject ReloadPips;
+    public GameObject DamagePips;
+    public TextMeshProUGUI PenUpgradePrice;
+    public TextMeshProUGUI ReloadUpgradePrice;
+    public TextMeshProUGUI DamageUpgradePrice;
+
 
     public GameObject moneyDisplay;
     private CanvasGroup myGroup;
@@ -103,6 +110,7 @@ public class Shop : MonoBehaviour
                     primaryGunBG.GetComponent<Image>().color = Color.green;
                     secondaryGunBG.GetComponent<Image>().color = Color.white;
                 }
+                InvalidateShop();
 
             }
             if (Keyboard.current.digit1Key.wasPressedThisFrame)
@@ -111,7 +119,7 @@ public class Shop : MonoBehaviour
                 shootScript.SwitchGun(primaryGun);
                 primaryGunBG.GetComponent<Image>().color = Color.green;
                 secondaryGunBG.GetComponent<Image>().color = Color.white;
-
+                InvalidateShop();
             }
             if (Keyboard.current.digit2Key.wasPressedThisFrame)
             {
@@ -119,6 +127,7 @@ public class Shop : MonoBehaviour
                 shootScript.SwitchGun(secondaryGun);
                 primaryGunBG.GetComponent<Image>().color = Color.white;
                 secondaryGunBG.GetComponent<Image>().color = Color.green;
+                InvalidateShop();
             }
         }
     }
@@ -161,6 +170,57 @@ public class Shop : MonoBehaviour
     public void OpenShop()
     {
         StartCoroutine(FadeToBlack(1f));
+    }
+
+    public void InvalidateShop()
+    {
+        int penPipCounter = shootScript.selectedGun.penetrationUpgradeLevel;
+        int reloadPipCounter = shootScript.selectedGun.reloadUpgradeLevel;
+        int damagePipCounter = shootScript.selectedGun.damageUpgradeLevel;
+        //Maybe pistol gets 50% off prices?
+        PenUpgradePrice.text =    (50 + shootScript.selectedGun.penetrationUpgradeLevel * 25).ToString(); //Price scaling, open to change.
+        ReloadUpgradePrice.text = (50 + shootScript.selectedGun.reloadUpgradeLevel * 25).ToString(); //Price scaling, open to change.
+        DamageUpgradePrice.text = (50 + shootScript.selectedGun.damageUpgradeLevel * 25).ToString(); //Price scaling, open to change.
+
+
+        foreach (Transform pip in PenPips.transform) //
+        {
+            if(penPipCounter > 0)
+            {
+                pip.gameObject.SetActive(true);
+            }
+            else
+            {
+                pip.gameObject.SetActive(false);
+            }
+            penPipCounter--;
+        }
+
+        foreach (Transform pip in ReloadPips.transform) //
+        {
+            if (reloadPipCounter > 0)
+            {
+                pip.gameObject.SetActive(true);
+            }
+            else
+            {
+                pip.gameObject.SetActive(false);
+            }
+            reloadPipCounter--;
+        }
+
+        foreach (Transform pip in DamagePips.transform) //
+        {
+            if (damagePipCounter > 0)
+            {
+                pip.gameObject.SetActive(true);
+            }
+            else
+            {
+                pip.gameObject.SetActive(false);
+            }
+            damagePipCounter--;
+        }
     }
 
     public void CloseShop()
@@ -214,21 +274,35 @@ public class Shop : MonoBehaviour
         blackScreen.color = new Color(screencolor.r, screencolor.g, screencolor.b, 0f);
         myGroup.alpha = 0f;
     }
-    public void UpgradeDamage(int cost)
+
+    public void UpgradePenetration()
     {
-        shootScript.selectedGun.upgradeDamage();
-        SpendMoney(cost);
-    }
-    public void UpgradePenetration(int cost)
-    {
-        shootScript.selectedGun.upgradePenetration();
-        SpendMoney(cost);
+        int cost = 50 + shootScript.selectedGun.penetrationUpgradeLevel * 25;
+        if(SpendMoney(cost))
+        {
+            shootScript.selectedGun.upgradePenetration();
+            InvalidateShop();
+        }
     }
 
-    public void upgradeReload(int cost)
+    public void UpgradeDamage()
     {
-        shootScript.selectedGun.upgradeReload();
-        SpendMoney(cost);
+        int cost = 50 + shootScript.selectedGun.damageUpgradeLevel * 25;
+        if (SpendMoney(cost))
+        {
+            shootScript.selectedGun.upgradeDamage();
+            InvalidateShop();
+        }
+    }
+
+    public void UpgradeReload()
+    {
+        int cost = 50 + shootScript.selectedGun.reloadUpgradeLevel * 25;
+        if (SpendMoney(cost))
+        {
+            shootScript.selectedGun.upgradeReload();
+            InvalidateShop();
+        }
     }
 
     public void BuyMachineGun(int cost)

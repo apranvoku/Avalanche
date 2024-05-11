@@ -40,7 +40,7 @@ public class Pistol : Gun
     public override int reloadUpgradeLevel
     {
         get { return _reloadUpgradeLevel; }
-        set { _penetrationUpgradeLevel = value; }
+        set { _reloadUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
@@ -84,7 +84,7 @@ public class Machinegun : Gun
     public override int reloadUpgradeLevel
     {
         get { return _reloadUpgradeLevel; }
-        set { _penetrationUpgradeLevel = value; }
+        set { _reloadUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
@@ -128,7 +128,7 @@ public class Shotgun : Gun
     public override int reloadUpgradeLevel
     {
         get { return _reloadUpgradeLevel; }
-        set { _penetrationUpgradeLevel = value; }
+        set { _reloadUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
@@ -172,7 +172,7 @@ public class Rocketlauncher : Gun
     public override int reloadUpgradeLevel
     {
         get { return _reloadUpgradeLevel; }
-        set { _penetrationUpgradeLevel = value; }
+        set { _reloadUpgradeLevel = value; }
     }
     public override int penetrationUpgradeLevel
     {
