@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
         ar = GameObject.Find("Character").GetComponent<AgentRotate>();
         transform.position += ar.PlayerToMouse.normalized * 6f; //Set the projectile to spawn a bit in front of the player.
         transform.rotation = Quaternion.LookRotation(Vector3.forward, ar.PlayerToMouse); // Set Initial rotation;
-        Jitter = 0.01f;
+        Jitter = 0.1f;
         JitterOffset = new Vector3(Random.Range(-Jitter, Jitter), Random.Range(-Jitter, Jitter), 0f);
         velocityVector = ar.PlayerToMouse.normalized + JitterOffset;
         firedGun = AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun;

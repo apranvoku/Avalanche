@@ -8,19 +8,24 @@ public class SpawnManager : MonoBehaviour
 {
     public List<GameObject> enemies;
     public List<int> toSpawn;
-    public int enemiesCount;
+    private int maxEnemiesCount;
     public GameObject exit;
+    public int enemiesOnScreenCap;
+    private int currentEnemyCount;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnSnakeBabies());
+        currentEnemyCount = 0;
+        
+        StartCoroutine(SpawnSnakes());
     }
 
-    public IEnumerator SpawnSnakeBabies()
+    public IEnumerator SpawnSnakes()
     {
         foreach (int spawnNumber in toSpawn)
         {
-            enemiesCount += spawnNumber;
+            maxEnemiesCount += spawnNumber;
         }
 
         for (int i = 0; i < enemies.Count; i++)
@@ -29,13 +34,18 @@ public class SpawnManager : MonoBehaviour
             {
                 foreach (Transform portal in transform)
                 {
-                    Instantiate(enemies[i], portal.position, Quaternion.identity, portal);
-                    yield return new WaitForSecondsRealtime(0.2f);
-                    j -= 1;
-                    if (j <= 0)
+                    if ((!portal.GetComponent<Renderer>().isVisible) &&(currentEnemyCount < enemiesOnScreenCap))
                     {
-                        break;
+                        Instantiate(enemies[i], portal.position, Quaternion.identity, portal);
+                        currentEnemyCount++;
+                        j -= 1;
+                        if (j <= 0)
+                        {
+                            break;
+                        }
                     }
+
+                    yield return new WaitForSeconds(0.2f);
                 }
             }
         }
@@ -43,8 +53,9 @@ public class SpawnManager : MonoBehaviour
 
     public void EnemyDestroyed(Vector3 pos)
     {
-        enemiesCount--;
-        if (enemiesCount == 0)
+        maxEnemiesCount--;
+        currentEnemyCount--;
+        if (maxEnemiesCount == 0)
         {
             //Do whatever needs to be done to end level.
             StartCoroutine(SpawnExit(pos));
@@ -53,7 +64,8 @@ public class SpawnManager : MonoBehaviour
 
     public void EnemySpawned()
     {
-        enemiesCount ++;
+        maxEnemiesCount++;
+        currentEnemyCount++;
     }
 
     public IEnumerator SpawnExit(Vector3 pos)
@@ -62,9 +74,4 @@ public class SpawnManager : MonoBehaviour
         Instantiate(exit, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
