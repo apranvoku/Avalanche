@@ -84,11 +84,7 @@ public class Player : MonoBehaviour
 
     public void ResetAllStats()
     {
-        hp = 5;
-        if (devMode)
-        {
-            hp = 100;
-        }
+        hp = max_hp;
         UpdateHearts((int)hp);
 
         animator.Play("Base Layer.Idle", 0);

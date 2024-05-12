@@ -239,12 +239,17 @@ public class Shop : MonoBehaviour
         PauseScreen.canPause = true;
     }
 
-    public void ResetLevel()
+    public void QuitLevel()
     {
         //money = 0;
         //UpdateMoney();
         SceneManager.LoadScene("Intro");
         currentLevel = 1;
+    }
+    public void RetryLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     public IEnumerator FadeToBlack(float duration)

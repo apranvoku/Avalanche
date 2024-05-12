@@ -27,7 +27,7 @@ public class GameOverScreen : MonoBehaviour
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
         StartCoroutine(FadeOut(.5f));
-        shopScript.ResetLevel();
+        shopScript.QuitLevel();
     }
 
     public void OpenGameOverScreen()
@@ -38,8 +38,19 @@ public class GameOverScreen : MonoBehaviour
         StartCoroutine(FadeIn(1f));
     }
 
+    public void RetryLevel()
+    {
+        GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
+        GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
+        StartCoroutine(FadeOut(.5f));
+        PauseScreen.canPause = true;
+        shopScript.RetryLevel();
+    }
+
     public IEnumerator FadeIn(float duration)
     {
+
+        yield return new WaitForSeconds(0.5f); ;
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
