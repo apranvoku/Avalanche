@@ -76,6 +76,7 @@ public class Shop : MonoBehaviour
         myGroup = GameObject.Find("ShopCanvas").GetComponent<CanvasGroup>();
         moneyDisplay = GameObject.Find("MoneyText");
 
+
         shootScript = GameObject.Find("Character").GetComponent<Shoot>();
 
         machinegunBought = false;
@@ -241,18 +242,9 @@ public class Shop : MonoBehaviour
         PauseScreen.canPause = true;
     }
 
-    public void QuitLevel()
+    public void resetCurrentLevel()
     {
-        //money = 0;
-        //UpdateMoney();
-        SceneManager.LoadScene("Intro");
         currentLevel = 1;
-        GameManager.loop = 0;
-    }
-    public void RetryLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 
     public IEnumerator FadeToBlack(float duration)

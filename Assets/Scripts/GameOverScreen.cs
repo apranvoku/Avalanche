@@ -12,6 +12,7 @@ public class GameOverScreen : MonoBehaviour
     private Shop shopScript;
     private CanvasGroup myGroup;
     private CanvasGroup buttonGroup;
+    private Loading loadingManager;
     public Transform textParent;
 
     private void Start()
@@ -19,15 +20,19 @@ public class GameOverScreen : MonoBehaviour
         shopScript = transform.GetComponent<Shop>();
         myGroup = GameObject.Find("GameOverCanvas").GetComponent<CanvasGroup>();
         buttonGroup = GameObject.Find("GameOverTextAndRetry").GetComponent<CanvasGroup>();
+        loadingManager = GameObject.Find("NewCanvas").GetComponent<Loading>();
+
     }
 
     public void BackToTitleScreen()
     {
+        loadingManager.LoadScene("Intro");
         PauseScreen.canPause = false;
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
-        StartCoroutine(FadeOut(.5f));
-        shopScript.QuitLevel();
+        StartCoroutine(FadeOut());
+        GameManager.loop = 0;
+        shopScript.resetCurrentLevel();
     }
 
     public void OpenGameOverScreen()
@@ -40,11 +45,11 @@ public class GameOverScreen : MonoBehaviour
 
     public void RetryLevel()
     {
+        loadingManager.LoadScene(SceneManager.GetActiveScene().name);
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
-        StartCoroutine(FadeOut(.5f));
+        StartCoroutine(FadeOut());
         PauseScreen.canPause = true;
-        shopScript.RetryLevel();
     }
 
     public IEnumerator FadeIn(float duration)
@@ -63,18 +68,11 @@ public class GameOverScreen : MonoBehaviour
         myGroup.blocksRaycasts = true;
     }
 
-    public IEnumerator FadeOut(float duration)
+    public IEnumerator FadeOut()
     {
         GameObject.Find("Main Camera").GetComponent<CameraFollow>().ZoomToDefault();
         myGroup.interactable = false;
         myGroup.blocksRaycasts = false;
-        float elapsedTime = 0f;
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            buttonGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
-            yield return null;
-        }
         myGroup.alpha = 0f;
         buttonGroup.alpha = 0f;
         foreach (Transform child in textParent)
@@ -85,6 +83,7 @@ public class GameOverScreen : MonoBehaviour
                 textObject.text = "";
             }
         }
+        yield return null;
     }
 
     public IEnumerator GameOverAnimationText(float interval)

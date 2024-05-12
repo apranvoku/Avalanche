@@ -10,11 +10,13 @@ public class PauseScreen : MonoBehaviour
     private CanvasGroup myGroup;
     public static bool isPaused;
     public static bool canPause;
+    private Loading loadingManager;
 
     private void Awake()
     {
         shopScript = transform.GetComponent<Shop>();
         myGroup = GameObject.Find("PauseCanvas").GetComponent<CanvasGroup>();
+        loadingManager = GameObject.Find("NewCanvas").GetComponent<Loading>();
         isPaused = false;
         canPause = true;
     }
@@ -68,9 +70,9 @@ public class PauseScreen : MonoBehaviour
 
     public void RetryLevel()
     {
+        loadingManager.LoadScene(SceneManager.GetActiveScene().name);
         TogglePause();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = false;
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
-        shopScript.RetryLevel();
     }
 }
