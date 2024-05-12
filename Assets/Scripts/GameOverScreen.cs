@@ -50,7 +50,7 @@ public class GameOverScreen : MonoBehaviour
     public IEnumerator FadeIn(float duration)
     {
 
-        yield return new WaitForSeconds(0.5f); ;
+        yield return new WaitForSeconds(0.5f);
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {

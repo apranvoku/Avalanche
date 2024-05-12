@@ -27,10 +27,11 @@ public class SpawnManager : MonoBehaviour
         {
             maxEnemiesCount += spawnNumber;
         }
+        maxEnemiesCount = maxEnemiesCount * (GameManager.loop + 1);
 
         for (int i = 0; i < enemies.Count; i++)
         {
-            for (int j = toSpawn[i]; j > 0; j += 0)
+            for (int j = toSpawn[i] * (GameManager.loop + 1); j > 0; j += 0)
             {
                 foreach (Transform portal in transform)
                 {
@@ -44,9 +45,9 @@ public class SpawnManager : MonoBehaviour
                             break;
                         }
                     }
-
-                    yield return new WaitForSeconds(0.2f);
                 }
+
+                yield return new WaitForSeconds(0.2f);
             }
         }
     }

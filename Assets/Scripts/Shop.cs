@@ -83,7 +83,7 @@ public class Shop : MonoBehaviour
         rocketLauncherBought = false;
         myGroup.interactable = false;
 
-
+        money = 0;
         //temp for testing.
         money = 900;
         //UpdateMoney();
@@ -226,14 +226,16 @@ public class Shop : MonoBehaviour
     public void CloseShop()
     {
         StartCoroutine(FadeToWhite(1f));
-        SceneManager.LoadScene(levels[currentLevel]);
+        //I do some weird stuff to make the Looping work
         currentLevel++;
         if (currentLevel >= levels.Count)
         {
             currentLevel = 1;
-            GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
+            GameManager.loop++;
             GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
         }
+        SceneManager.LoadScene(levels[currentLevel-1]);
+        
         AgentMovement.Instance.transform.position = Vector3.zero;
         AgentMovement.Instance.OnEnable();
         PauseScreen.canPause = true;
@@ -245,6 +247,7 @@ public class Shop : MonoBehaviour
         //UpdateMoney();
         SceneManager.LoadScene("Intro");
         currentLevel = 1;
+        GameManager.loop = 0;
     }
     public void RetryLevel()
     {

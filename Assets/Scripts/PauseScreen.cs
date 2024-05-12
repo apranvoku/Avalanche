@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -63,5 +64,13 @@ public class PauseScreen : MonoBehaviour
     {
         TogglePause();
         GameObject.Find("NewCanvas").GetComponent<GameOverScreen>().BackToTitleScreen();
+    }
+
+    public void RetryLevel()
+    {
+        TogglePause();
+        GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = false;
+        GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
+        shopScript.RetryLevel();
     }
 }
