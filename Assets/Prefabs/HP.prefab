@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7903301189763199901}
   - component: {fileID: 3106052436381465810}
   m_Layer: 3
-  m_Name: Coin
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3.03
 --- !u!50 &2345501301166221039
 Rigidbody2D:
   serializedVersion: 4
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  pickupDistance: 30
+  pickupDistance: 20
 --- !u!1 &7938198642540644066
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1555392065935487226}
   - component: {fileID: 2840919271113919068}
   m_Layer: 3
-  m_Name: CoinSprite
+  m_Name: HPSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 40, y: 40, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3019379535504366999}
@@ -208,7 +208,7 @@ SpriteRenderer:
   m_SortingLayerID: 114323665
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 766400106, guid: 3e928475b184e51469941158e156efd2, type: 3}
+  m_Sprite: {fileID: 782650964, guid: e45887dcfcee54f49864591707a0130d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -229,7 +229,7 @@ Animator:
   m_GameObject: {fileID: 7938198642540644066}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4fac5016caf1f69408f65f14a6c8f525, type: 2}
+  m_Controller: {fileID: 9100000, guid: 13cb6e4c11b091c41902722b51904ddd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

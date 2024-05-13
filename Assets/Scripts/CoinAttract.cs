@@ -8,6 +8,7 @@ public class CoinAttract : MonoBehaviour
 {
     public GameObject player;
     NavMeshAgent agent;
+    public float pickupDistance;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,7 +24,7 @@ public class CoinAttract : MonoBehaviour
     void Update()
     {
         //Replace 5f with pickup radius future.
-        if(Vector3.Distance(player.transform.position, agent.transform.position) < 25f)
+        if(Vector3.Distance(player.transform.position, agent.transform.position) < pickupDistance)
         {
             agent.destination = player.transform.position;
         }
