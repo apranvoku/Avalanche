@@ -18,7 +18,6 @@ public class EnemyCobra : Enemy
     public bool readyToFire;
     public bool firing;
     private bool attacking;
-    public GameObject coinDrop;
     public GameObject coinDropParent;
     public GameObject enemyProjectilleParent;
     private Animator animator;
@@ -27,6 +26,9 @@ public class EnemyCobra : Enemy
     //needs to be set in editor
     public GameObject poisonBullet;
     public GameObject enemyProjectileOrigin;
+
+
+    public List<Item> ItemDropList;
 
     // Start is called before the first frame update
     void Awake()
@@ -49,6 +51,8 @@ public class EnemyCobra : Enemy
         canAttack = true;
         attackRange = 100f;
         attackDelay = 5f;
+
+        base.dead = false;
     }
 
 
@@ -109,11 +113,26 @@ public class EnemyCobra : Enemy
         {
             GetComponent<CircleCollider2D>().enabled = false;
             animator.Play("Base Layer.Death", 0);
-            GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
+            if (!base.dead)
+            {
+                DropItem();
+            }
+            base.dead = true;
             //We can use the coindrop GO to set coin values.
         }
     }
+    public void DropItem()
+    {
+        foreach (Item loot in ItemDropList)
+        {
+            if (loot.dropRate > Random.Range(0, 100))
+            {
+                GameObject coindrop = GameObject.Instantiate(loot.drop, transform.position, Quaternion.identity, coinDropParent.transform);
+            }
 
+
+        }
+    }
     public override void SelfDestroy()
     {
         GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);

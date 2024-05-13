@@ -59,6 +59,9 @@ TagManager:
   - name: Projectiles
     uniqueID: 1212501101
     locked: 0
-  - name: Items
+  - name: Coin
     uniqueID: 114323665
+    locked: 0
+  - name: HP
+    uniqueID: 1522239301
     locked: 0

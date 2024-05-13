@@ -42,9 +42,20 @@ public class Player : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject entity = collision.gameObject;
-        if (entity.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Items")
-        {
-            Shop.Instance.GetMoney(10);
+        if (LayerMask.LayerToName(entity.gameObject.layer) == "Items") {
+            if (entity.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Coin")
+            {
+                Shop.Instance.GetMoney(10);
+
+            }
+            else if (entity.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "HP")
+            {
+                if (hp < max_hp)
+                {
+                    hp++;
+                    UpdateHearts((int)hp);
+                }
+            }
 
             Destroy(entity);
         }

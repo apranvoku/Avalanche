@@ -13,7 +13,6 @@ public class EnemyBurrowingSnake : Enemy
     NavMeshAgent agent;
     public float hp;
     private float total_hp;
-    public GameObject coinDrop;
     public GameObject coinDropParent;
     private Animator animator;
     private Vector3 distToPlayer;
@@ -24,6 +23,8 @@ public class EnemyBurrowingSnake : Enemy
     private bool canDig;
     private float digDelay;
     public GameObject dirtParticles;
+
+    public List<Item> ItemDropList;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,6 +46,8 @@ public class EnemyBurrowingSnake : Enemy
         surfaceRange = 30f;
         canDig = true;
         digDelay = 1f;
+
+        base.dead = false;
     }
 
     // Update is called once per frame
@@ -95,8 +98,24 @@ public class EnemyBurrowingSnake : Enemy
         {
             GetComponent<CircleCollider2D>().enabled = false;
             animator.Play("Base Layer.Death", 0);
-            GameObject coindrop = GameObject.Instantiate(coinDrop, transform.position, Quaternion.identity, coinDropParent.transform);
+            if (!base.dead)
+            {
+                DropItem();
+            }
+            base.dead = true;
             //We can use the coindrop GO to set coin values.
+        }
+    }
+    public void DropItem()
+    {
+        foreach (Item loot in ItemDropList)
+        {
+            if (loot.dropRate > Random.Range(0, 100))
+            {
+                GameObject coindrop = GameObject.Instantiate(loot.drop, transform.position, Quaternion.identity, coinDropParent.transform);
+            }
+
+
         }
     }
 

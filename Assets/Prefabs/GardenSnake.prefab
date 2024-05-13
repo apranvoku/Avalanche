@@ -468,8 +468,12 @@ MonoBehaviour:
   player: {fileID: 0}
   playerScript: {fileID: 0}
   hp: 0
-  coinDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
   coinDropParent: {fileID: 0}
+  ItemDropList:
+  - drop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
+    dropRate: 100
+  - drop: {fileID: 7877430575380500638, guid: 8044c98d18c78b24f827f9e6138d73f6, type: 3}
+    dropRate: 5
 --- !u!50 &4944163353856491241
 Rigidbody2D:
   serializedVersion: 4

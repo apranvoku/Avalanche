@@ -630,12 +630,16 @@ MonoBehaviour:
   player: {fileID: 0}
   playerScript: {fileID: 0}
   hp: 0
-  coinDrop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
   coinDropParent: {fileID: 0}
   attackRange: 0
   canAttack: 0
   idleHitbox: {fileID: 5534698718779295831}
   lungeHitbox: {fileID: 6270835864670846278}
+  ItemDropList:
+  - drop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
+    dropRate: 100
+  - drop: {fileID: 7877430575380500638, guid: 8044c98d18c78b24f827f9e6138d73f6, type: 3}
+    dropRate: 5
 --- !u!1 &8490316577987014497
 GameObject:
   m_ObjectHideFlags: 0
