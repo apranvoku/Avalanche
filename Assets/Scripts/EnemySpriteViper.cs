@@ -29,4 +29,19 @@ public class EnemySpriteViper : MonoBehaviour
     {
         transform.parent.GetComponent<EnemyViper>().StopAttacking();
     }
+
+    public void GoToSleep()
+    {
+        transform.parent.GetComponent<EnemyViper>().GoToSleep();
+    }
+    public void SpeedUp()
+    {
+        transform.parent.GetComponent<EnemyViper>().SpeedUp();
+    }
+
+    public void SlowDown()
+    {
+        transform.parent.GetComponent<EnemyViper>().SlowDown();
+
+    }
 }

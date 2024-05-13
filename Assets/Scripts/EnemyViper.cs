@@ -24,12 +24,15 @@ public class EnemyViper : Enemy
     public CapsuleCollider2D idleHitbox;
     public CapsuleCollider2D lungeHitbox;
 
+    private float speed;
+    private float dashSpeed;
+
     public List<Item> ItemDropList;
 
     // Start is called before the first frame update
     void Awake()
     {
-        hp = 30;
+        hp = 40;
         total_hp = hp;
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
@@ -43,7 +46,10 @@ public class EnemyViper : Enemy
         canAttack = true;
         attackRange = 50f;
         attackDelay = 3f;
-        attackLungelength = 2f;
+        attackLungelength = 3f;
+
+        speed = 5f;
+        dashSpeed = 100f;
 
         base.dead = false;
     }
@@ -51,24 +57,24 @@ public class EnemyViper : Enemy
     // Update is called once per frame
     void Update()
     {
+        distToPlayer = player.transform.position - transform.position;
+        if (distToPlayer.x > 0)
+        {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
+        else if (distToPlayer.x < 0)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
+        }
+
         if (!attacking)
         {
-            distToPlayer = player.transform.position - transform.position;
-            if (distToPlayer.x > 0)
-            {
-                if (transform.localScale.x < 0)
-                {
-                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
-                }
-            }
-            else if (distToPlayer.x < 0)
-            {
-                if (transform.localScale.x > 0)
-                {
-                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
-                }
-            }
-
             if ((Vector3.Distance(transform.position, player.transform.position) <= attackRange) && canAttack)
             {
                 animator.SetTrigger("Awake");
@@ -76,7 +82,8 @@ public class EnemyViper : Enemy
                 StartCoroutine(AttackDelay());
             }
         }
-        else if (!canAttack && !agent.isStopped)
+
+        if (!agent.isStopped)
         {
             agent.destination = player.transform.position;
         }
@@ -138,23 +145,38 @@ public class EnemyViper : Enemy
     public override void ResumeMoving()
     {
         agent.isStopped = false;
-        lungeHitbox.enabled = true;
     }
 
     public void StartAttacking()
     {
         attacking = true;
+        lungeHitbox.enabled = true;
         StartCoroutine(AttackStopTimer());
     }
     public void StopAttacking()
     {
+        lungeHitbox.enabled = false;
         attacking = false;
         canAttack = true;
     }
 
+    public void GoToSleep()
+    {
+        animator.ResetTrigger("Awake");
+    }
+    public void SpeedUp()
+    {
+        agent.speed = dashSpeed;
+    }
+
+    public void SlowDown()
+    {
+        agent.speed = speed;
+    }
+
     public IEnumerator AttackDelay()
     {
-        yield return new WaitForSecondsRealtime(attackDelay);
+        yield return new WaitForSeconds(attackDelay);
         animator.SetTrigger("Looping");
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
@@ -164,7 +186,7 @@ public class EnemyViper : Enemy
 
     public IEnumerator AttackStopTimer()
     {
-        yield return new WaitForSecondsRealtime(attackLungelength);
+        yield return new WaitForSeconds(attackLungelength);
         animator.ResetTrigger("Looping");
     }
 }
