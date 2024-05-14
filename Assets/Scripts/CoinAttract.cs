@@ -27,6 +27,7 @@ public class CoinAttract : MonoBehaviour
         if(Vector3.Distance(player.transform.position, agent.transform.position) < pickupDistance)
         {
             agent.destination = player.transform.position;
+            agent.velocity = agent.desiredVelocity;
         }
     }
 

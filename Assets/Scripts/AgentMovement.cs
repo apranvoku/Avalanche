@@ -91,6 +91,7 @@ public class AgentMovement : MonoBehaviour
         if (moving)
         {
             target = target + (targetDelta.normalized * Time.deltaTime * agentTargetSpeed);
+            agent.velocity = agent.desiredVelocity;
             animator.Play("Base Layer.Walk", 0);
         }
         else
