@@ -245,6 +245,7 @@ public class Shop : MonoBehaviour
     public void resetCurrentLevel()
     {
         currentLevel = 1;
+        ResetPurchases();
         money = 0;
         UpdateMoney();
     }
@@ -371,5 +372,29 @@ public class Shop : MonoBehaviour
         }
         primaryGun = Guns.Pistol;
         shootScript.SwitchGun(primaryGun);
+    }
+
+    public void ResetPurchases()
+    {
+        BuyRocketLauncher(0);
+        shootScript.selectedGun.ResetStats();
+        InvalidateShop();
+        BuyShotGun(0);
+        shootScript.selectedGun.ResetStats();
+        InvalidateShop();
+        BuyMachineGun(0);
+        shootScript.selectedGun.ResetStats();
+        InvalidateShop();
+        machinegunBought = false;
+        shotgunBought = false;
+        rocketLauncherBought = false;
+        BuyPistol();
+        shootScript.selectedGun.ResetStats();
+        InvalidateShop();
+        secondaryGun = Guns.None;
+        primaryGunBG.GetComponent<Image>().color = Color.green;
+        secondaryGunBG.GetComponent<Image>().color = Color.white;
+        secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
+
     }
 }

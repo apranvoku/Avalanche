@@ -18,6 +18,8 @@ public abstract class Gun
     public abstract void upgradePenetration();
     public abstract void upgradeReload();
 
+    public abstract void ResetStats();
+
 
 }
 public class Pistol : Gun
@@ -61,6 +63,13 @@ public class Pistol : Gun
     public override void upgradePenetration()
     {
         penetrationUpgradeLevel += 1;
+    }
+
+    public override void ResetStats()
+    {
+        damageUpgradeLevel = 0;
+        reloadUpgradeLevel = 0;
+        penetrationUpgradeLevel = 0;
     }
 }
 
@@ -106,6 +115,13 @@ public class Machinegun : Gun
     {
         penetrationUpgradeLevel += 1;
     }
+
+    public override void ResetStats()
+    {
+        damageUpgradeLevel = 0;
+        reloadUpgradeLevel = 0;
+        penetrationUpgradeLevel = 0;
+    }
 }
 
 public class Shotgun : Gun
@@ -150,6 +166,13 @@ public class Shotgun : Gun
     {
         penetrationUpgradeLevel += 1;
     }
+
+    public override void ResetStats()
+    {
+        damageUpgradeLevel = 0;
+        reloadUpgradeLevel = 0;
+        penetrationUpgradeLevel = 0;
+    }
 }
 
 public class Rocketlauncher : Gun
@@ -192,5 +215,12 @@ public class Rocketlauncher : Gun
     public override void upgradePenetration()
     {
         penetrationUpgradeLevel += 1;
+    }
+
+    public override void ResetStats()
+    {
+        damageUpgradeLevel = 0;
+        reloadUpgradeLevel = 0;
+        penetrationUpgradeLevel = 0;
     }
 }
