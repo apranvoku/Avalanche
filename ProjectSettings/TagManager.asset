@@ -65,3 +65,6 @@ TagManager:
   - name: HP
     uniqueID: 1522239301
     locked: 0
+  - name: Parachute
+    uniqueID: 2377063659
+    locked: 0
