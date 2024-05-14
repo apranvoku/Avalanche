@@ -245,6 +245,8 @@ public class Shop : MonoBehaviour
     public void resetCurrentLevel()
     {
         currentLevel = 1;
+        money = 0;
+        UpdateMoney();
     }
 
     public IEnumerator FadeToBlack(float duration)
