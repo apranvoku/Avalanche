@@ -9,5 +9,6 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene(firstLevelName);
         PauseScreen.canPause = true;
+        TimerController.instance.BeginTimer();
     }
 }

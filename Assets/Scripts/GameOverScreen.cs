@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Net;
 
 public class GameOverScreen : MonoBehaviour
 {
@@ -15,17 +16,23 @@ public class GameOverScreen : MonoBehaviour
     private Loading loadingManager;
     public Transform textParent;
 
+    private TextMeshProUGUI level;
+    private TextMeshProUGUI time;
+
     private void Start()
     {
         shopScript = transform.GetComponent<Shop>();
         myGroup = GameObject.Find("GameOverCanvas").GetComponent<CanvasGroup>();
         buttonGroup = GameObject.Find("GameOverTextAndRetry").GetComponent<CanvasGroup>();
         loadingManager = GameObject.Find("NewCanvas").GetComponent<Loading>();
+        level = GameObject.Find("GameOverLevel").GetComponent<TextMeshProUGUI>();
+        time = GameObject.Find("GameOverTime").GetComponent<TextMeshProUGUI>();
 
     }
 
     public void BackToTitleScreen()
     {
+        TimerController.instance.EndTimer();
         loadingManager.LoadScene("Intro");
         PauseScreen.canPause = false;
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
@@ -37,6 +44,8 @@ public class GameOverScreen : MonoBehaviour
 
     public void OpenGameOverScreen()
     {
+        SetLevel();
+        SetTimer();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = false;
         myGroup.alpha = 1f;
         StartCoroutine(GameOverAnimationText(.01f));
@@ -52,9 +61,17 @@ public class GameOverScreen : MonoBehaviour
         PauseScreen.canPause = true;
     }
 
+    public void SetLevel()
+    {
+        level.text = "Level: " + GameManager.instance.GetLoop() + "-" + shopScript.GetLevel();
+    }
+    public void SetTimer()
+    {
+        time.text = TimerController.instance.GetTimeString();
+    }
+
     public IEnumerator FadeIn(float duration)
     {
-
         yield return new WaitForSeconds(0.5f);
         float elapsedTime = 0f;
         while (elapsedTime < duration)

@@ -242,6 +242,11 @@ public class Shop : MonoBehaviour
         PauseScreen.canPause = true;
     }
 
+    public string GetLevel()
+    {
+        return currentLevel.ToString();
+    }
+
     public void resetCurrentLevel()
     {
         currentLevel = 1;

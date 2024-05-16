@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private static int m_referenceCount = 0;
     public static int loop = 0;
+    public static GameManager instance;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,8 +18,14 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        instance = this;
         // Use this line if you need the object to persist across scenes
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public string GetLoop()
+    {
+        return loop.ToString();
     }
     
 }
