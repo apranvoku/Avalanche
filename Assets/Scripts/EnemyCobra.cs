@@ -6,26 +6,28 @@ using UnityEngine.UI;
 
 public class EnemyCobra : Enemy
 {
-    public GameObject player;
-    public Player playerScript;
+    private GameObject player;
+    private Player playerScript;
     Slider slider;
     NavMeshAgent agent;
-    public float hp;
     private float total_hp;
-    private float fireDelay;
-    private float attackDelay;
-    public bool canAttack;
-    public bool readyToFire;
-    public bool firing;
+
+    private bool canAttack;
+    private bool readyToFire;
+    private bool firing;
     private bool attacking;
-    public GameObject coinDropParent;
-    public GameObject enemyProjectilleParent;
+    private GameObject coinDropParent;
+    private GameObject enemyProjectilleParent;
     private Animator animator;
-    public float attackRange;
     private Vector3 distToPlayer;
+
     //needs to be set in editor
     public GameObject poisonBullet;
     public GameObject enemyProjectileOrigin;
+    public float hp;
+    public float fireDelay;
+    public float attackDelay;
+    public float attackRange;
 
 
     public List<Item> ItemDropList;
@@ -33,7 +35,7 @@ public class EnemyCobra : Enemy
     // Start is called before the first frame update
     void Awake()
     {
-        hp = 40;
+        //hp = 40;
         total_hp = hp;
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
@@ -44,13 +46,13 @@ public class EnemyCobra : Enemy
         agent.updateUpAxis = false;
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
-        fireDelay = 0.1f;
         readyToFire = false;
         firing = false;
         attacking = false;
         canAttack = true;
-        attackRange = 100f;
-        attackDelay = 5f;
+        //fireDelay = 0.1f;
+        //attackRange = 100f;
+        //attackDelay = 5f;
 
         base.dead = false;
     }
@@ -189,7 +191,7 @@ public class EnemyCobra : Enemy
 
     public IEnumerator FireDelay()
     {
-        yield return new WaitForSecondsRealtime(fireDelay);
+        yield return new WaitForSeconds(fireDelay);
         if (hp > 0)
         {
             readyToFire = true;
@@ -198,7 +200,7 @@ public class EnemyCobra : Enemy
 
     public IEnumerator AttackDelay()
     {
-        yield return new WaitForSecondsRealtime(attackDelay);
+        yield return new WaitForSeconds(attackDelay);
         if(hp > 0)
         {
             canAttack = true;

@@ -14,7 +14,7 @@ public class EnemyProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 6f);
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
         Jitter = 0.1f;
