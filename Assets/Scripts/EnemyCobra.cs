@@ -143,6 +143,7 @@ public class EnemyCobra : Enemy
 
     public override void StopMoving()
     {
+        agent.velocity = Vector3.zero;
         agent.isStopped = true;
     }
 
@@ -154,7 +155,7 @@ public class EnemyCobra : Enemy
     Quaternion GetRotationToTarget(GameObject targetObject)
     {
         // Calculate the direction vector from this GameObject to the targetObject
-        Vector3 direction = targetObject.transform.position - transform.position;
+        Vector3 direction = targetObject.transform.position - enemyProjectileOrigin.transform.position;
 
         // Calculate the angle in degrees around the z-axis
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -167,7 +168,7 @@ public class EnemyCobra : Enemy
 
     public void Shoot()
     {
-        Instantiate(poisonBullet, enemyProjectileOrigin.transform.position, transform.rotation * GetRotationToTarget(player), enemyProjectilleParent.transform);
+        Instantiate(poisonBullet, enemyProjectileOrigin.transform.position, enemyProjectileOrigin.transform.rotation * GetRotationToTarget(player), enemyProjectilleParent.transform);
         StartCoroutine(FireDelay());
     }
 

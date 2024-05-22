@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55788335ea3e8e4395d7600727e71bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poisonBullet: {fileID: 4785919997761992006, guid: ddf7bcae46170d240bae9d01ca8eb58c, type: 3}
+  poisonBullet: {fileID: 4785919997761992006, guid: ec26293e15f8db24dae42f586912084d, type: 3}
   enemyProjectileOrigin: {fileID: 8138517220027278579}
   hp: 50
   fireDelay: 0.5
