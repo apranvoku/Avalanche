@@ -95,7 +95,7 @@ public class Shop : MonoBehaviour
 
     public void Update()
     {
-        if(secondaryGun != Guns.None) //Don't allow a swap when no gun is selected.
+        if(secondaryGun != Guns.None && !shootScript.reloading) //Don't allow a swap when no gun is selected or when reloading.
         {
             if (Mouse.current.scroll.ReadValue() != Vector2.zero)
             {

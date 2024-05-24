@@ -8,7 +8,8 @@ public abstract class Gun
     public abstract float fireRate { get; }
     public abstract float reloadTime { get; }
     public abstract int penetration { get; }
-    public abstract int clip { get; }
+    public abstract int maxAmmo { get; }
+    public abstract int ammoRemaining { get; set; }
     public abstract int damageUpgradeLevel { get; set; }
     public abstract int reloadUpgradeLevel { get; set; }
     public abstract int penetrationUpgradeLevel { get; set; }
@@ -28,11 +29,17 @@ public class Pistol : Gun
     public override float fireRate => 3f; //bullets per second?
     public override float reloadTime => 1f - (0.1f * reloadUpgradeLevel); //10% per level
     public override int penetration => 1 + penetrationUpgradeLevel;
-    public override int clip => 12;
+    public override int maxAmmo => 12;
+    private int _ammoRemaining;
     private int _damageUpgradeLevel;
     private int _reloadUpgradeLevel;
     private int _penetrationUpgradeLevel;
 
+    public override int ammoRemaining
+    {
+        get { return _ammoRemaining; }
+        set { _ammoRemaining = value; }
+    }
     public override int damageUpgradeLevel
     {
         get { return _damageUpgradeLevel; }
@@ -79,11 +86,17 @@ public class Machinegun : Gun
     public override float fireRate => 8f;
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 1 + penetrationUpgradeLevel;
-    public override int clip => 24;
+    public override int maxAmmo => 24;
     private int _damageUpgradeLevel;
     private int _reloadUpgradeLevel;
     private int _penetrationUpgradeLevel;
+    private int _ammoRemaining;
 
+    public override int ammoRemaining
+    {
+        get { return _ammoRemaining; }
+        set { _ammoRemaining = value; }
+    }
     public override int damageUpgradeLevel
     {
         get { return _damageUpgradeLevel; }
@@ -130,11 +143,17 @@ public class Shotgun : Gun
     public override float fireRate => 1.5f;
     public override float reloadTime => 3f - (0.3f * reloadUpgradeLevel);
     public override int penetration => 2 + penetrationUpgradeLevel;
-    public override int clip => 4;
+    public override int maxAmmo => 4;
     private int _damageUpgradeLevel;
     private int _reloadUpgradeLevel;
     private int _penetrationUpgradeLevel;
+    private int _ammoRemaining;
 
+    public override int ammoRemaining
+    {
+        get { return _ammoRemaining; }
+        set { _ammoRemaining = value; }
+    }
     public override int damageUpgradeLevel
     {
         get { return _damageUpgradeLevel; }
@@ -181,10 +200,16 @@ public class Rocketlauncher : Gun
     public override float fireRate => 1f;
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 1;
-    public override int clip => 3;
+    public override int maxAmmo => 3;
     private int _damageUpgradeLevel;
     private int _reloadUpgradeLevel;
     private int _penetrationUpgradeLevel;
+    private int _ammoRemaining;
+    public override int ammoRemaining
+    {
+        get { return _ammoRemaining; }
+        set { _ammoRemaining = value; }
+    }
 
     public override int damageUpgradeLevel
     {

@@ -92,8 +92,6 @@ public class EnemyMommaSnake : Enemy
             {
                 GameObject coindrop = GameObject.Instantiate(loot.drop, transform.position, Quaternion.identity, coinDropParent.transform);
             }
-
-
         }
     }
 
