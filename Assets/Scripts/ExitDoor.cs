@@ -20,7 +20,10 @@ public class ExitDoor : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        GameObject.Find("ExitIcon").GetComponent<ExitUI>().SetTarget(transform);
+        if (GameObject.Find("ExitIcon") != null)
+        {
+            GameObject.Find("ExitIcon").GetComponent<ExitUI>().SetTarget(transform);
+        }
     }
 
     private void OnBecameVisible()

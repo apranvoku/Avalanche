@@ -33,6 +33,7 @@ public class Shoot : MonoBehaviour
     public GameObject muzzleFlash;
     public GameObject muzzleFlashLocation;
     public Gun selectedGun;
+    public Guns selectedGuns;
 
     public GameObject gunOrigin;
 
@@ -78,6 +79,7 @@ public class Shoot : MonoBehaviour
         pistol.upgradeDamage();
 
         selectedGun = pistol;
+        selectedGuns = Guns.Pistol;
         activeBulletUI = PistolBullets;
         //SwitchGun(Guns.Rocketlauncher); //WE NEED THE GIGA LAUNCHER!!
 
@@ -116,6 +118,11 @@ public class Shoot : MonoBehaviour
                     fireTimeStamp = Time.time;
                 }
             }
+            else if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                reloading = true;
+                StartCoroutine(Reload());
+            }
             else if(selectedGun.ammoRemaining == 0)
             {
                 reloading = true;
@@ -126,16 +133,18 @@ public class Shoot : MonoBehaviour
 
     public IEnumerator Reload()
     {
-        //set new objects of the gun to be reloaded
+        //set new objects of the gun to be reloaded, saves reference even if selected gun changes
         GameObject reloadingBulletUI = activeBulletUI.gameObject;
         Gun reloadingGun = selectedGun;
+        int ramainingAmmoToReload = reloadingGun.ammoRemaining;
+
         reloadingBulletUI.GetComponent<CanvasGroup>().alpha = 0.3f;
 
         for (float reload = 0; (reload < reloadingGun.reloadTime) ; reload += Time.deltaTime)
         {
             if (!reloading)
             {
-                StopReloading(reloadingBulletUI, reloadingGun);
+                StopReloading(reloadingBulletUI, reloadingGun, ramainingAmmoToReload);
                 yield break;
             }
             //Radially fill cursor.
@@ -153,20 +162,22 @@ public class Shoot : MonoBehaviour
         reloading = false;
     }
 
-    public void StopReloading(GameObject GunToReloadBulletUI, Gun GunToReload)
+    public void StopReloading(GameObject GunToReloadBulletUI, Gun GunToReload, int NumBulletsToReset)
     {
         GunCursor.value = 1;
-        foreach (Transform bullet in GunToReloadBulletUI.transform)
+        GunToReload.ammoRemaining = NumBulletsToReset;
+        GunToReloadBulletUI.GetComponent<CanvasGroup>().alpha = 1f;
+        for (int bulletNumber = GunToReload.maxAmmo; bulletNumber > NumBulletsToReset; bulletNumber--)
         {
-            bullet.gameObject.SetActive(false);
+            GunToReloadBulletUI.transform.GetChild(bulletNumber-1).gameObject.SetActive(false);
         }
-        GunToReload.ammoRemaining = 0;
     }
 
     public void SwitchGun(Guns gun)
     {
         reloading = false;
-            switch (gun)
+        selectedGuns = gun;
+        switch (gun)
             {
                 case Guns.Pistol:
                     selectedGun = pistol;

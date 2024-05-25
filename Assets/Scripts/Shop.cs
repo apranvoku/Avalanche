@@ -95,7 +95,7 @@ public class Shop : MonoBehaviour
 
     public void Update()
     {
-        if(secondaryGun != Guns.None) //Don't allow a swap when no gun is selected or when reloading.
+        if(secondaryGun != Guns.None) //Don't allow a swap when no gun is selected.
         {
             if (Mouse.current.scroll.ReadValue() != Vector2.zero)
             {
@@ -114,17 +114,17 @@ public class Shop : MonoBehaviour
                 InvalidateShop();
 
             }
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            if (Keyboard.current.digit1Key.wasPressedThisFrame && shootScript.selectedGuns != primaryGun)
             {
-                Debug.Log("Swapping to primary!");
+                //Debug.Log("Swapping to primary!");
                 shootScript.SwitchGun(primaryGun);
                 primaryGunBG.GetComponent<Image>().color = Color.green;
                 secondaryGunBG.GetComponent<Image>().color = Color.white;
                 InvalidateShop();
             }
-            if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            if (Keyboard.current.digit2Key.wasPressedThisFrame && shootScript.selectedGuns != secondaryGun)
             {
-                Debug.Log("Swapping to secondary!");
+                //Debug.Log("Swapping to secondary!");
                 shootScript.SwitchGun(secondaryGun);
                 primaryGunBG.GetComponent<Image>().color = Color.white;
                 secondaryGunBG.GetComponent<Image>().color = Color.green;
