@@ -25,6 +25,8 @@ public class Shoot : MonoBehaviour
 
     private GameObject activeBulletUI;
 
+    public GameObject machinegunProjectile;
+    public GameObject shotgunProjectile;
     public GameObject rocketProjectile;
     public GameObject defaultProjectile;
 
@@ -230,7 +232,7 @@ public class Shoot : MonoBehaviour
 
                 case Guns.Machinegun:
                     selectedGun = machinegun;
-                    projectile = defaultProjectile;
+                    projectile = machinegunProjectile;
                     activeBulletUI.SetActive(false);
                     MachineGunBullets.SetActive(true);
                     activeBulletUI = MachineGunBullets;
@@ -239,7 +241,7 @@ public class Shoot : MonoBehaviour
 
                 case Guns.Shotgun:
                     selectedGun = shotgun;
-                    projectile = defaultProjectile;
+                    projectile = shotgunProjectile;
                     activeBulletUI.SetActive(false);
                     ShotgunBullets.SetActive(true);
                     activeBulletUI = ShotgunBullets;

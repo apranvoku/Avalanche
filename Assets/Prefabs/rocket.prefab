@@ -4934,7 +4934,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1212501101
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -61929491, guid: b5db869b11f84b84dbbbf6ab382fbac1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4995,11 +4995,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletFrag: {fileID: 5266228030191771837, guid: ccfb2bdd237ff934c9bd7823066caaed, type: 3}
   bulletSpeed: 300
-  ar: {fileID: 0}
-  velocityVector: {x: 0, y: 0, z: 0}
-  JitterOffset: {x: 0, y: 0, z: 0}
-  Jitter: 0
+  Jitter: 0.05
   rocketBullet: 0
+  range: 2
   bulletTimeStamp: 0
 --- !u!58 &2678377315573011179
 CircleCollider2D:

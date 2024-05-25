@@ -5189,7 +5189,7 @@ MonoBehaviour:
   - {fileID: 7322891469467274923, guid: c2a0da11930603d48ada2a9aaf6d350b, type: 3}
   - {fileID: 7322891469467274923, guid: fd46d6607f870c74f8729fecf13b8336, type: 3}
   - {fileID: 7322891469467274923, guid: 64709f53c54e65d4f82e8ee7bb801509, type: 3}
-  toSpawn: 050000000000000000000000000000000000000005000000
+  toSpawn: 050000000000000000000000000000000000000000000000
   exit: {fileID: 2233241044596234567, guid: a8134daf1d447604aa78989d5b767774, type: 3}
   enemiesOnScreenCap: 10
 --- !u!4 &246493879
@@ -10028,6 +10028,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 8944945834777411613, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: shotgunProjectile
+      value: 
+      objectReference: {fileID: 7877430575380500638, guid: 82ce3bb1bee92534eb86889ab4e2f6a1, type: 3}
+    - target: {fileID: 8944945834777411613, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: machinegunProjectile
+      value: 
+      objectReference: {fileID: 7877430575380500638, guid: f2755170d7c1d824c9edcd92a5d9f4d1, type: 3}
     - target: {fileID: 9182606095449975052, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: m_AutoBraking
       value: 1

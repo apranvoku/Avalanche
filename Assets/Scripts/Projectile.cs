@@ -8,23 +8,23 @@ public class Projectile : MonoBehaviour
     public GameObject bulletFrag;
     public float bulletSpeed;
     private int PenetrationsLeft;//Based on penetration upgrade level
-    public AgentRotate ar;
-    public Vector3 velocityVector;
-    public Vector3 JitterOffset;
+    private AgentRotate ar;
+    private Vector3 velocityVector;
+    private Vector3 JitterOffset;
     public float Jitter;
     public bool rocketBullet;
     private Gun firedGun;
+    public float range;
 
     public float bulletTimeStamp;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, range);
 
         ar = GameObject.Find("Character").GetComponent<AgentRotate>();
         transform.position += ar.PlayerToMouse.normalized * 6f; //Set the projectile to spawn a bit in front of the player.
         transform.rotation = Quaternion.LookRotation(Vector3.forward, ar.PlayerToMouse); // Set Initial rotation;
-        Jitter = 0.1f;
         JitterOffset = new Vector3(Random.Range(-Jitter, Jitter), Random.Range(-Jitter, Jitter), 0f);
         velocityVector = ar.PlayerToMouse.normalized + JitterOffset;
         firedGun = AgentMovement.Instance.GetComponentInChildren<Shoot>().selectedGun;
