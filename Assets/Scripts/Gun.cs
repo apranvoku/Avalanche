@@ -77,6 +77,7 @@ public class Pistol : Gun
         damageUpgradeLevel = 0;
         reloadUpgradeLevel = 0;
         penetrationUpgradeLevel = 0;
+        _ammoRemaining = maxAmmo;
     }
 }
 
@@ -134,6 +135,7 @@ public class Machinegun : Gun
         damageUpgradeLevel = 0;
         reloadUpgradeLevel = 0;
         penetrationUpgradeLevel = 0;
+        _ammoRemaining = maxAmmo;
     }
 }
 
@@ -191,6 +193,7 @@ public class Shotgun : Gun
         damageUpgradeLevel = 0;
         reloadUpgradeLevel = 0;
         penetrationUpgradeLevel = 0;
+        _ammoRemaining = maxAmmo;
     }
 }
 
@@ -247,5 +250,6 @@ public class Rocketlauncher : Gun
         damageUpgradeLevel = 0;
         reloadUpgradeLevel = 0;
         penetrationUpgradeLevel = 0;
+        _ammoRemaining = maxAmmo;
     }
 }

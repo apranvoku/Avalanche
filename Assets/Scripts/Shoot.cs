@@ -46,6 +46,7 @@ public class Shoot : MonoBehaviour
 
     private float fireTimeStamp;
     public bool reloading;
+    private bool resetingGunUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +60,7 @@ public class Shoot : MonoBehaviour
         RocketLauncherBullets.SetActive(false);
 
         reloading = false;
+        resetingGunUI = false;
         projectile = defaultProjectile;
 
         pistol = new Pistol();
@@ -144,7 +146,14 @@ public class Shoot : MonoBehaviour
         {
             if (!reloading)
             {
-                StopReloading(reloadingBulletUI, reloadingGun, ramainingAmmoToReload);
+                if (!resetingGunUI)
+                {
+                    StopReloading(reloadingBulletUI, reloadingGun, ramainingAmmoToReload);
+                }
+                else
+                {
+                    resetingGunUI = false;
+                }
                 yield break;
             }
             //Radially fill cursor.
@@ -171,6 +180,28 @@ public class Shoot : MonoBehaviour
         {
             GunToReloadBulletUI.transform.GetChild(bulletNumber-1).gameObject.SetActive(false);
         }
+    }
+
+    public void ResetAmmoUI()
+    {
+        Guns equipedGunWhilereseting = selectedGuns;
+        reloading = false;
+        resetingGunUI = true;
+        foreach (Guns gunValue in System.Enum.GetValues(typeof(Guns)))
+        {
+            if (gunValue != Guns.None)
+            {
+                SwitchGun(gunValue);
+                GunCursor.value = 1;
+                activeBulletUI.GetComponent<CanvasGroup>().alpha = 1f;
+                foreach (Transform bullet in activeBulletUI.transform)
+                {
+                    bullet.gameObject.SetActive(true);
+                }
+                selectedGun.ammoRemaining = selectedGun.maxAmmo;
+            }
+        }
+        SwitchGun(equipedGunWhilereseting);
     }
 
     public void SwitchGun(Guns gun)

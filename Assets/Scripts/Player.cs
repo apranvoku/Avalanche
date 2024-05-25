@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float flashDuration;
     private float invincibilityLength;
     public bool devMode;
+    private Shoot shootScript;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         flashDuration = 0.2f;
         invincibilityLength = .75f;
+        shootScript = GameObject.Find("Character").GetComponent<Shoot>();
     }
 
     // Update is called once per frame
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
         AgentMovement.Instance.transform.position = Vector3.zero;
         AgentMovement.Instance.enabled = true;
         AgentMovement.Instance.OnEnable();
+        shootScript.ResetAmmoUI();
     }
 
     public void UpdateHearts(int heartsRemaining)
