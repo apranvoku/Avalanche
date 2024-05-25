@@ -329,6 +329,7 @@ public class Shop : MonoBehaviour
 
         primaryGun = Guns.Machinegun;
         shootScript.SwitchGun(primaryGun);
+        SelectPrimaryGunInUI();
     }
 
     public void BuyShotGun(int cost)
@@ -347,6 +348,7 @@ public class Shop : MonoBehaviour
         }
         primaryGun = Guns.Shotgun;
         shootScript.SwitchGun(primaryGun);
+        SelectPrimaryGunInUI();
 
     }
 
@@ -365,6 +367,7 @@ public class Shop : MonoBehaviour
         }
         primaryGun = Guns.Rocketlauncher;
         shootScript.SwitchGun(primaryGun);
+        SelectPrimaryGunInUI();
     }
 
     public void BuyPistol() //this just swaps.
@@ -377,6 +380,13 @@ public class Shop : MonoBehaviour
         }
         primaryGun = Guns.Pistol;
         shootScript.SwitchGun(primaryGun);
+        SelectPrimaryGunInUI();
+    }
+
+    public void SelectPrimaryGunInUI()
+    {
+        primaryGunBG.GetComponent<Image>().color = Color.green;
+        secondaryGunBG.GetComponent<Image>().color = Color.white;
     }
 
     public void ResetPurchases()
@@ -397,8 +407,7 @@ public class Shop : MonoBehaviour
         shootScript.selectedGun.ResetStats();
         InvalidateShop();
         secondaryGun = Guns.None;
-        primaryGunBG.GetComponent<Image>().color = Color.green;
-        secondaryGunBG.GetComponent<Image>().color = Color.white;
+        SelectPrimaryGunInUI();
         secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
 
     }

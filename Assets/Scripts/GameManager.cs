@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     private static int m_referenceCount = 0;
     public static int loop = 0;
     public static GameManager instance;
+    public static bool winState = false;
 
     // Start is called before the first frame update
     void Awake()

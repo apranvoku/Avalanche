@@ -56,6 +56,12 @@ public class Player : MonoBehaviour
                     UpdateHearts((int)hp);
                 }
             }
+            else if (entity.GetComponentInChildren<SpriteRenderer>().sortingLayerName == "Parachute")
+            {
+                GameManager.winState = true;
+                ResetAllStats();
+                GameObject.Find("NewCanvas").GetComponent<GameOverScreen>().BackToTitleScreen();
+            }
 
             Destroy(entity);
         }
@@ -95,6 +101,7 @@ public class Player : MonoBehaviour
 
     public void ResetAllStats()
     {
+        AgentMovement.Instance.DisableNavAgent();
         hp = max_hp;
         UpdateHearts((int)hp);
 

@@ -121,6 +121,11 @@ public class AgentMovement : MonoBehaviour
 
     }
 
+    public void DisableNavAgent()
+    {
+        agent.enabled = false;
+    }
+
     public void OnEnable()
     {
         transform.rotation = Quaternion.identity;

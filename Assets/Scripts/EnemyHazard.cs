@@ -26,11 +26,6 @@ public class EnemyHazard : MonoBehaviour
         StartCoroutine(MoveParabolic(projectileSprite.transform, originalPosition, playerSnapshot, arcHeight, bulletSpeed));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     IEnumerator MoveParabolic(Transform obj, Vector3 start, Vector3 end, float arcHeight, float speed)
     {
         // Calculate the total distance and duration
