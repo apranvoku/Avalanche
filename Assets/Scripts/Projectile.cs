@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
             Instantiate(bulletFrag, new Vector3(collision.GetContact(0).point.x, collision.GetContact(0).point.y, 0f), Quaternion.AngleAxis(180f, Vector3.up));
             if (rocketBullet)
             {
-                Debug.Log("RocketBullet!");
+                //Debug.Log("RocketBullet!");
                 //int CircleCast(Vector2 origin, float radius, Vector2 direction, ContactFilter2D contactFilter, List<RaycastHit2D> results, float distance = Mathf.Infinity); 
                 List<RaycastHit2D> hitResults = new List<RaycastHit2D>();
                 ContactFilter2D filter = new ContactFilter2D();
@@ -67,8 +67,8 @@ public class Projectile : MonoBehaviour
 
                 foreach (RaycastHit2D hitResult in hitResults)
                 {
-                    Debug.Log(hitResult.transform.position);
-                    Debug.Log(hitResult.transform.transform.name);
+                    //Debug.Log(hitResult.transform.position);
+                    //Debug.Log(hitResult.transform.transform.name);
                     if (hitResult.transform.GetComponentInChildren<Enemy>() != null)
                     {
                         hitResult.transform.GetComponentInChildren<Enemy>().TakeDamage(firedGun.damage);
@@ -82,7 +82,7 @@ public class Projectile : MonoBehaviour
                     enemy.transform.GetComponentInChildren<Enemy>().TakeDamage(firedGun.damage);
                 }
             }
-            Debug.Log(firedGun.damage);
+            //Debug.Log(firedGun.damage);
             PenetrationsLeft -= 1;
             if(PenetrationsLeft <= 0)
             {

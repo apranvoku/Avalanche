@@ -25,7 +25,7 @@ public abstract class Gun
 }
 public class Pistol : Gun
 {
-    public override float damage => 8f + damageUpgradeLevel * 4f; //50% per level
+    public override float damage => 8f + damageUpgradeLevel * .8f; //10% per level
     public override float fireRate => 3f; //bullets per second?
     public override float reloadTime => 1f - (0.1f * reloadUpgradeLevel); //10% per level
     public override int penetration => 1 + penetrationUpgradeLevel;
@@ -83,7 +83,7 @@ public class Pistol : Gun
 
 public class Machinegun : Gun
 {
-    public override float damage => 6f + damageUpgradeLevel * 3f;
+    public override float damage => 6f + damageUpgradeLevel * 0.6f;
     public override float fireRate => 8f;
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 1 + penetrationUpgradeLevel;
@@ -141,7 +141,7 @@ public class Machinegun : Gun
 
 public class Shotgun : Gun
 {
-    public override float damage => 8f + 2f * damageUpgradeLevel; //Low damage cause multiple bullets
+    public override float damage => 8f + 0.8f * damageUpgradeLevel; //Low damage cause multiple bullets
     public override float fireRate => 1.5f;
     public override float reloadTime => 3f - (0.3f * reloadUpgradeLevel);
     public override int penetration => 2 + penetrationUpgradeLevel;
@@ -199,7 +199,7 @@ public class Shotgun : Gun
 
 public class Rocketlauncher : Gun
 {
-    public override float damage => 20f + 10f * damageUpgradeLevel; //Should do "aoe"
+    public override float damage => 20f + 2f * damageUpgradeLevel; //Should do "aoe"
     public override float fireRate => 1f;
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 1;

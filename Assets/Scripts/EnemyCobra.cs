@@ -201,7 +201,8 @@ public class EnemyCobra : Enemy
 
     public IEnumerator AttackDelay()
     {
-        yield return new WaitForSeconds(attackDelay);
+        float delay = Random.Range(-3, 3 + 1);
+        yield return new WaitForSeconds(attackDelay + delay);
         if(hp > 0)
         {
             canAttack = true;

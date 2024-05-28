@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poisonBullet: {fileID: 4785919997761992006, guid: ec26293e15f8db24dae42f586912084d, type: 3}
   enemyProjectileOrigin: {fileID: 8138517220027278579}
-  hp: 50
+  hp: 35
   fireDelay: 0.5
   attackDelay: 6
   attackRange: 70
@@ -356,7 +356,7 @@ MonoBehaviour:
   - drop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
     dropRate: 100
   - drop: {fileID: 7877430575380500638, guid: 8044c98d18c78b24f827f9e6138d73f6, type: 3}
-    dropRate: 5
+    dropRate: 3
 --- !u!50 &4944163353856491241
 Rigidbody2D:
   serializedVersion: 4

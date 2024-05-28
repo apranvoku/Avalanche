@@ -179,9 +179,9 @@ public class Shop : MonoBehaviour
         int reloadPipCounter = shootScript.selectedGun.reloadUpgradeLevel;
         int damagePipCounter = shootScript.selectedGun.damageUpgradeLevel;
         //Maybe pistol gets 50% off prices?
-        PenUpgradePrice.text =    (50 + shootScript.selectedGun.penetrationUpgradeLevel * 25).ToString(); //Price scaling, open to change.
-        ReloadUpgradePrice.text = (50 + shootScript.selectedGun.reloadUpgradeLevel * 25).ToString(); //Price scaling, open to change.
-        DamageUpgradePrice.text = (50 + shootScript.selectedGun.damageUpgradeLevel * 25).ToString(); //Price scaling, open to change.
+        PenUpgradePrice.text =    (100 + shootScript.selectedGun.penetrationUpgradeLevel * 50).ToString(); //Price scaling, open to change.
+        ReloadUpgradePrice.text = (100 + shootScript.selectedGun.reloadUpgradeLevel * 50).ToString(); //Price scaling, open to change.
+        DamageUpgradePrice.text = (100 + shootScript.selectedGun.damageUpgradeLevel * 50).ToString(); //Price scaling, open to change.
 
 
         foreach (Transform pip in PenPips.transform) //
@@ -285,7 +285,7 @@ public class Shop : MonoBehaviour
 
     public void UpgradePenetration()
     {
-        int cost = 50 + shootScript.selectedGun.penetrationUpgradeLevel * 25;
+        int cost = 100 + shootScript.selectedGun.penetrationUpgradeLevel * 50;
         if(SpendMoney(cost))
         {
             shootScript.selectedGun.upgradePenetration();
@@ -295,7 +295,7 @@ public class Shop : MonoBehaviour
 
     public void UpgradeDamage()
     {
-        int cost = 50 + shootScript.selectedGun.damageUpgradeLevel * 25;
+        int cost = 100 + shootScript.selectedGun.damageUpgradeLevel * 50;
         if (SpendMoney(cost))
         {
             shootScript.selectedGun.upgradeDamage();
@@ -305,7 +305,7 @@ public class Shop : MonoBehaviour
 
     public void UpgradeReload()
     {
-        int cost = 50 + shootScript.selectedGun.reloadUpgradeLevel * 25;
+        int cost = 100 + shootScript.selectedGun.reloadUpgradeLevel * 50;
         if (SpendMoney(cost))
         {
             shootScript.selectedGun.upgradeReload();

@@ -32,7 +32,6 @@ public class EnemyViper : Enemy
     // Start is called before the first frame update
     void Awake()
     {
-        hp = 40;
         total_hp = hp;
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();

@@ -29,7 +29,6 @@ public class EnemyBurrowingSnake : Enemy
     // Start is called before the first frame update
     void Awake()
     {
-        hp = 35;
         total_hp = hp;
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
@@ -168,7 +167,8 @@ public class EnemyBurrowingSnake : Enemy
 
     public IEnumerator DigDelay()
     {
-        yield return new WaitForSecondsRealtime(digDelay);
+        float delay = Random.Range(-3, 3 + 1);
+        yield return new WaitForSecondsRealtime(digDelay + delay);
         if (hp > 0)
         {
             canDig = true;
