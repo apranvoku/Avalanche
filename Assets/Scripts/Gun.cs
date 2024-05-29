@@ -89,9 +89,9 @@ public class Pistol : Gun
 
 public class Machinegun : Gun
 {
-    public override float damage => 6f + damageUpgradeLevel * 0.6f;
+    public override float damage => 6f + damageUpgradeLevel * 0.4f;
     public override float fireRate => 8f;
-    public override float reloadTime => 2f - (0.15f * reloadUpgradeLevel);
+    public override float reloadTime => 2f - (0.1f * reloadUpgradeLevel);
     public override int penetration => 1 + penetrationUpgradeLevel;
     public override int maxAmmo => 24;
     private int _damageUpgradeLevel;
@@ -150,9 +150,9 @@ public class Machinegun : Gun
 
 public class Shotgun : Gun
 {
-    public override float damage => 8f + 0.8f * damageUpgradeLevel; //Low damage cause multiple bullets
+    public override float damage => 6f + 0.4f * damageUpgradeLevel; //Low damage cause multiple bullets
     public override float fireRate => 2f;
-    public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
+    public override float reloadTime => 2f - (0.1f * reloadUpgradeLevel);
     public override int penetration => 2 + penetrationUpgradeLevel;
     public override int maxAmmo => 4;
     private int _damageUpgradeLevel;

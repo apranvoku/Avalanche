@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5384377, g: 0.83188146, b: 0.93797654, a: 1}
+  m_IndirectSpecularColor: {r: 0.5541223, g: 0.8366573, b: 0.9312504, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2049,7 +2049,7 @@ MonoBehaviour:
   - {fileID: 7322891469467274923, guid: fd46d6607f870c74f8729fecf13b8336, type: 3}
   - {fileID: 7322891469467274923, guid: 2e7f269d9da924b48903e13ad69f1b1d, type: 3}
   - {fileID: 7322891469467274923, guid: c2a0da11930603d48ada2a9aaf6d350b, type: 3}
-  toSpawn: 0a00000005000000020000000f0000000400000005000000040000000f000000030000000600000003000000
+  toSpawn: 0a00000003000000010000000f0000000400000003000000040000000f000000020000000500000006000000
   exit: {fileID: 2233241044596234567, guid: a8134daf1d447604aa78989d5b767774, type: 3}
   enemiesOnScreenCap: 50
 --- !u!4 &61287687

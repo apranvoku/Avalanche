@@ -183,7 +183,7 @@ public class Shop : MonoBehaviour
 
         if (shootScript.selectedGun.penetrationUpgradeLevel < shootScript.selectedGun.maxPenetrationUpgradeLevel)
         {
-            PenUpgradePrice.text = (300 + shootScript.selectedGun.penetrationUpgradeLevel * 300).ToString(); //Price scaling, open to change.
+            PenUpgradePrice.text = (400 + shootScript.selectedGun.penetrationUpgradeLevel * 700).ToString(); //Price scaling, open to change.
         }
         else
         {
@@ -191,7 +191,7 @@ public class Shop : MonoBehaviour
         }
         if (shootScript.selectedGun.reloadUpgradeLevel < shootScript.selectedGun.maxReloadUpgradeLevel)
         {
-            ReloadUpgradePrice.text = (100 + shootScript.selectedGun.reloadUpgradeLevel * 150).ToString(); //Price scaling, open to change.
+            ReloadUpgradePrice.text = (100 + shootScript.selectedGun.reloadUpgradeLevel * 200).ToString(); //Price scaling, open to change.
         }
         else
         {
@@ -199,7 +199,7 @@ public class Shop : MonoBehaviour
         }
         if (shootScript.selectedGun.damageUpgradeLevel < shootScript.selectedGun.maxDamageUpgradeLevel)
         {
-            DamageUpgradePrice.text = (100 + shootScript.selectedGun.damageUpgradeLevel * 150).ToString(); //Price scaling, open to change.
+            DamageUpgradePrice.text = (100 + shootScript.selectedGun.damageUpgradeLevel * 200).ToString(); //Price scaling, open to change.
         }
         else
         {
@@ -308,7 +308,7 @@ public class Shop : MonoBehaviour
     public void UpgradePenetration()
     {
         if (shootScript.selectedGun.penetrationUpgradeLevel < shootScript.selectedGun.maxPenetrationUpgradeLevel) {
-            int cost = 300 + shootScript.selectedGun.penetrationUpgradeLevel * 300;
+            int cost = 400 + shootScript.selectedGun.penetrationUpgradeLevel * 700;
             if (SpendMoney(cost))
             {
                 shootScript.selectedGun.upgradePenetration();
@@ -321,7 +321,7 @@ public class Shop : MonoBehaviour
     {
         if (shootScript.selectedGun.damageUpgradeLevel < shootScript.selectedGun.maxDamageUpgradeLevel)
         {
-            int cost = 100 + shootScript.selectedGun.damageUpgradeLevel * 150;
+            int cost = 100 + shootScript.selectedGun.damageUpgradeLevel * 200;
             if (SpendMoney(cost))
             {
                 shootScript.selectedGun.upgradeDamage();
@@ -334,7 +334,7 @@ public class Shop : MonoBehaviour
     {
         if (shootScript.selectedGun.reloadUpgradeLevel < shootScript.selectedGun.maxReloadUpgradeLevel)
         {
-            int cost = 100 + shootScript.selectedGun.reloadUpgradeLevel * 150;
+            int cost = 100 + shootScript.selectedGun.reloadUpgradeLevel * 200;
             if (SpendMoney(cost))
             {
                 shootScript.selectedGun.upgradeReload();
@@ -345,59 +345,53 @@ public class Shop : MonoBehaviour
 
     public void BuyMachineGun(int cost)
     {
-        if(machinegunBought == false)
+        if(!machinegunBought && SpendMoney(cost))
         {
             machinegunBought = true;
-            SpendMoney(cost);
         }
-        if(primaryGun != Guns.Machinegun) 
+        if((primaryGun != Guns.Machinegun) && machinegunBought) 
         {
             secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
             primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = machineGunSprite;
             secondaryGun = primaryGun;
+            primaryGun = Guns.Machinegun;
+            shootScript.SwitchGun(primaryGun);
+            SelectPrimaryGunInUI();
         }
-
-        primaryGun = Guns.Machinegun;
-        shootScript.SwitchGun(primaryGun);
-        SelectPrimaryGunInUI();
     }
 
     public void BuyShotGun(int cost)
     {
-        if (shotgunBought == false)
+        if (!shotgunBought && SpendMoney(cost))
         {
             shotgunBought = true;
-            SpendMoney(cost);
         }
-        if (primaryGun != Guns.Shotgun)
+        if ((primaryGun != Guns.Shotgun) && shotgunBought)
         {
             secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
             primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = shotGunSprite;
             secondaryGun = primaryGun;
-
+            primaryGun = Guns.Shotgun;
+            shootScript.SwitchGun(primaryGun);
+            SelectPrimaryGunInUI();
         }
-        primaryGun = Guns.Shotgun;
-        shootScript.SwitchGun(primaryGun);
-        SelectPrimaryGunInUI();
-
     }
 
     public void BuyRocketLauncher(int cost)
     {
-        if (rocketLauncherBought == false)
+        if (!rocketLauncherBought && SpendMoney(cost))
         {
             rocketLauncherBought = true;
-            SpendMoney(cost);
         }
-        if (primaryGun != Guns.Rocketlauncher)
+        if ((primaryGun != Guns.Rocketlauncher) && rocketLauncherBought)
         {
             secondaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite;
             primaryGunBG.transform.GetChild(0).GetComponentInChildren<Image>().sprite = rocketLauncherSprite;
             secondaryGun = primaryGun;
+            primaryGun = Guns.Rocketlauncher;
+            shootScript.SwitchGun(primaryGun);
+            SelectPrimaryGunInUI();
         }
-        primaryGun = Guns.Rocketlauncher;
-        shootScript.SwitchGun(primaryGun);
-        SelectPrimaryGunInUI();
     }
 
     public void BuyPistol() //this just swaps.
