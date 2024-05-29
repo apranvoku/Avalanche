@@ -86,7 +86,7 @@ public class Shop : MonoBehaviour
 
         money = 0;
         //temp for testing.
-        money = 900;
+        money = 90000;
         //UpdateMoney();
         //temp for testing.
         //OpenShop();
@@ -178,11 +178,33 @@ public class Shop : MonoBehaviour
         int penPipCounter = shootScript.selectedGun.penetrationUpgradeLevel;
         int reloadPipCounter = shootScript.selectedGun.reloadUpgradeLevel;
         int damagePipCounter = shootScript.selectedGun.damageUpgradeLevel;
-        //Maybe pistol gets 50% off prices?
-        PenUpgradePrice.text =    (100 + shootScript.selectedGun.penetrationUpgradeLevel * 50).ToString(); //Price scaling, open to change.
-        ReloadUpgradePrice.text = (100 + shootScript.selectedGun.reloadUpgradeLevel * 50).ToString(); //Price scaling, open to change.
-        DamageUpgradePrice.text = (100 + shootScript.selectedGun.damageUpgradeLevel * 50).ToString(); //Price scaling, open to change.
 
+        //Maybe pistol gets 50% off prices?
+
+        if (shootScript.selectedGun.penetrationUpgradeLevel < shootScript.selectedGun.maxPenetrationUpgradeLevel)
+        {
+            PenUpgradePrice.text = (300 + shootScript.selectedGun.penetrationUpgradeLevel * 300).ToString(); //Price scaling, open to change.
+        }
+        else
+        {
+            PenUpgradePrice.text = "MAX";
+        }
+        if (shootScript.selectedGun.reloadUpgradeLevel < shootScript.selectedGun.maxReloadUpgradeLevel)
+        {
+            ReloadUpgradePrice.text = (100 + shootScript.selectedGun.reloadUpgradeLevel * 150).ToString(); //Price scaling, open to change.
+        }
+        else
+        {
+            ReloadUpgradePrice.text = "MAX";
+        }
+        if (shootScript.selectedGun.damageUpgradeLevel < shootScript.selectedGun.maxDamageUpgradeLevel)
+        {
+            DamageUpgradePrice.text = (100 + shootScript.selectedGun.damageUpgradeLevel * 150).ToString(); //Price scaling, open to change.
+        }
+        else
+        {
+            DamageUpgradePrice.text = "MAX";
+        }
 
         foreach (Transform pip in PenPips.transform) //
         {
@@ -285,31 +307,39 @@ public class Shop : MonoBehaviour
 
     public void UpgradePenetration()
     {
-        int cost = 100 + shootScript.selectedGun.penetrationUpgradeLevel * 50;
-        if(SpendMoney(cost))
-        {
-            shootScript.selectedGun.upgradePenetration();
-            InvalidateShop();
+        if (shootScript.selectedGun.penetrationUpgradeLevel < shootScript.selectedGun.maxPenetrationUpgradeLevel) {
+            int cost = 300 + shootScript.selectedGun.penetrationUpgradeLevel * 300;
+            if (SpendMoney(cost))
+            {
+                shootScript.selectedGun.upgradePenetration();
+                InvalidateShop();
+            }
         }
     }
 
     public void UpgradeDamage()
     {
-        int cost = 100 + shootScript.selectedGun.damageUpgradeLevel * 50;
-        if (SpendMoney(cost))
+        if (shootScript.selectedGun.damageUpgradeLevel < shootScript.selectedGun.maxDamageUpgradeLevel)
         {
-            shootScript.selectedGun.upgradeDamage();
-            InvalidateShop();
+            int cost = 100 + shootScript.selectedGun.damageUpgradeLevel * 150;
+            if (SpendMoney(cost))
+            {
+                shootScript.selectedGun.upgradeDamage();
+                InvalidateShop();
+            }
         }
     }
 
     public void UpgradeReload()
     {
-        int cost = 100 + shootScript.selectedGun.reloadUpgradeLevel * 50;
-        if (SpendMoney(cost))
+        if (shootScript.selectedGun.reloadUpgradeLevel < shootScript.selectedGun.maxReloadUpgradeLevel)
         {
-            shootScript.selectedGun.upgradeReload();
-            InvalidateShop();
+            int cost = 100 + shootScript.selectedGun.reloadUpgradeLevel * 150;
+            if (SpendMoney(cost))
+            {
+                shootScript.selectedGun.upgradeReload();
+                InvalidateShop();
+            }
         }
     }
 

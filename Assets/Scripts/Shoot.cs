@@ -74,13 +74,13 @@ public class Shoot : MonoBehaviour
         rocketlauncher = new Rocketlauncher();
         rocketlauncher.ammoRemaining = rocketlauncher.maxAmmo;
 
-        pistol.upgradeDamage();
-        pistol.upgradeDamage();
-        pistol.upgradeDamage();
-        pistol.upgradeDamage();
-        pistol.upgradeDamage();
-        pistol.upgradeDamage();
-        pistol.upgradeDamage();
+        //pistol.upgradeDamage();
+        //pistol.upgradeDamage();
+        //pistol.upgradeDamage();
+        //pistol.upgradeDamage();
+        //pistol.upgradeDamage();
+        //pistol.upgradeDamage();
+        //pistol.upgradeDamage();
 
         selectedGun = pistol;
         selectedGuns = Guns.Pistol;

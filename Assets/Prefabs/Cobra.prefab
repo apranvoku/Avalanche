@@ -350,7 +350,7 @@ MonoBehaviour:
   enemyProjectileOrigin: {fileID: 8138517220027278579}
   hp: 30
   fireDelay: 0.1
-  attackDelay: 5
+  attackDelay: 10
   attackRange: 100
   ItemDropList:
   - drop: {fileID: 7877430575380500638, guid: a49a7dd761906c7488a6a034b890bc7e, type: 3}
