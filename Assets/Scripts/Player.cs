@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        transform.parent.GetComponent<AgentMovement>().OnDisable();
         transform.parent.GetComponent<AgentMovement>().enabled = false;
         StartCoroutine(FlashRed());
         animator.Play("Base Layer.Hitstun", 0);

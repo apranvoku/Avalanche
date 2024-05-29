@@ -46,6 +46,7 @@ public class GameOverScreen : MonoBehaviour
     {
         SetLevel();
         SetTimer();
+        GameObject.Find("Agent").GetComponent<AgentMovement>().OnDisable();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = false;
         myGroup.alpha = 1f;
         StartCoroutine(GameOverAnimationText(.01f));
