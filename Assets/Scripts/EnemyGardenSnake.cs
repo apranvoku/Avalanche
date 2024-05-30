@@ -18,6 +18,8 @@ public class EnemyGardenSnake : Enemy
     
     public List<Item> ItemDropList;
 
+    private int enemyIndex;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,26 +33,36 @@ public class EnemyGardenSnake : Enemy
         slider = GetComponentInChildren<Slider>();
         animator = GetComponentInChildren<Animator>();
         base.dead = false;
+
+        enemyIndex = SpawnManager.enemyIndex % 20;
+        //Debug.Log(enemyIndex);
+        SpawnManager.enemyIndex++;
+        agent.avoidancePriority = SpawnManager.enemyseed;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = player.transform.position;
-        distToPlayer = player.transform.position - transform.position;
-        if (distToPlayer.x > 0)
+        enemyIndex++;
+        if (enemyIndex >= 20) 
         {
-            if (transform.localScale.x < 0)
+            enemyIndex = 0;
+            agent.destination = player.transform.position;
+            distToPlayer = player.transform.position - transform.position;
+            if (distToPlayer.x > 0)
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                if (transform.localScale.x < 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                }
             }
-        }
-        else if (distToPlayer.x < 0)
-        {
-            if (transform.localScale.x > 0)
+            else if (distToPlayer.x < 0)
             {
-                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                if (transform.localScale.x > 0)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                }
             }
         }
     }

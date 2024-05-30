@@ -13,30 +13,33 @@ public class SpawnManager : MonoBehaviour
     public int enemiesOnScreenCap;
     private int currentEnemyCount;
 
+    public static int enemyIndex = 0;
+    public static int enemyseed = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         currentEnemyCount = 0;
-        
-        StartCoroutine(SpawnSnakes());
-    }
-
-    public IEnumerator SpawnSnakes()
-    {
         foreach (int spawnNumber in toSpawn)
         {
             maxEnemiesCount += spawnNumber;
         }
         maxEnemiesCount = maxEnemiesCount * (GameManager.loop + 1);
 
+        StartCoroutine(SpawnSnakes());
+    }
+
+    public IEnumerator SpawnSnakes()
+    {
         for (int i = 0; i < enemies.Count; i++)
         {
             for (int j = toSpawn[i] * (GameManager.loop + 1); j > 0; j += 0)
             {
                 foreach (Transform portal in transform)
                 {
-                    if ((!portal.GetComponent<Renderer>().isVisible) &&(currentEnemyCount < enemiesOnScreenCap))
+                    if ((!portal.GetComponent<Renderer>().isVisible) && (currentEnemyCount < enemiesOnScreenCap))
                     {
+                        enemyseed = Random.Range(30, 60);
                         Instantiate(enemies[i], portal.position, Quaternion.identity, portal);
                         currentEnemyCount++;
                         j -= 1;
@@ -45,9 +48,9 @@ public class SpawnManager : MonoBehaviour
                             break;
                         }
                     }
+                    yield return null;
                 }
-
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(.1f);
             }
         }
     }

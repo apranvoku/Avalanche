@@ -21,6 +21,13 @@ public class AgentMovement : MonoBehaviour
 
     private static int m_referenceCount = 0;
 
+    public bool devAgentDisplay;
+    public GameObject targObj;
+    public GameObject ag;
+
+    private NavMeshPath path;
+    private NavMeshHit hit;
+
     public static AgentMovement Instance
     {
         get { return instance; }
@@ -48,6 +55,16 @@ public class AgentMovement : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         enableInputs = true;
+
+
+        path = new NavMeshPath();
+        hit = new NavMeshHit();
+
+        if (devAgentDisplay)
+        {
+            targObj.SetActive(true);
+            ag.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -57,10 +74,6 @@ public class AgentMovement : MonoBehaviour
         {
             SetTargetPosition();
             SetAgentPosition();
-            if ((target - transform.position).magnitude > 0.5f)
-            {
-                target = transform.position + (target - transform.position).normalized * 0.5f;
-            }
         }
     }
 
@@ -90,23 +103,48 @@ public class AgentMovement : MonoBehaviour
         }
         if (moving)
         {
-            target = target + (targetDelta.normalized * Time.deltaTime * agentTargetSpeed);
-            agent.velocity = agent.desiredVelocity;
+            target = transform.position +  (targetDelta * Time.deltaTime * agentTargetSpeed).normalized;
             animator.Play("Base Layer.Walk", 0);
         }
         else
         {
+            //target = transform.position;
             animator.Play("Base Layer.Idle", 0);
         }
 
-        
+        agent.velocity = agent.desiredVelocity;
+        if (devAgentDisplay)
+        {
+            targObj.transform.position = target;
+        }
     }
 
     private void SetAgentPosition()
     {
-        //target.z = 0f;
-        agent.SetDestination(new Vector3(target.x, target.y, target.z));
-        //Debug.Log(target);
+        if (!UnityEngine.AI.NavMesh.CalculatePath(transform.position, new Vector3(target.x, target.y, target.z), NavMesh.AllAreas, path))
+        {
+            NavMesh.SamplePosition(target, out hit, 1.5f, NavMesh.AllAreas);
+            if (!UnityEngine.AI.NavMesh.CalculatePath(transform.position, hit.position, NavMesh.AllAreas, path))
+            {
+                agent.SetDestination(new Vector3(target.x, target.y, target.z));
+            }
+            else
+            {
+                agent.SetPath(path);
+            }
+        }
+        else 
+        {
+            agent.SetPath(path);
+        }
+        //if (agent.SetPath(path))
+        //{
+        //    agent.SetDestination(new Vector3(target.x, target.y, target.z));
+        //}
+        if (devAgentDisplay)
+        {
+            ag.transform.position = agent.transform.position;
+        }
     }
 
     public void OnDisable()
@@ -114,6 +152,7 @@ public class AgentMovement : MonoBehaviour
         if (!isDestroying)
         {
             enableInputs = false;
+            path.ClearCorners();
             agent.enabled = false;
             GetComponentInChildren<AgentRotate>().enabled = false;
             GetComponentInChildren<Shoot>().enabled = false;
@@ -132,6 +171,9 @@ public class AgentMovement : MonoBehaviour
         transform.localScale = Vector3.one;
         enableInputs = true;
         agent.enabled = true;
+        target = transform.position;
+        SetTargetPosition();
+        SetAgentPosition();
         GetComponentInChildren<AgentRotate>().enabled = true;
         GetComponentInChildren<Shoot>().enabled = true;
         //PauseScreen.canPause = true;
