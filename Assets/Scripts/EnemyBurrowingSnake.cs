@@ -42,7 +42,7 @@ public class EnemyBurrowingSnake : Enemy
         speed = 10f;
         dashSpeed = 70f;
         digRange = 50f;
-        surfaceRange = 30f;
+        surfaceRange = 15f;
         canDig = true;
         digDelay = 1f;
 
@@ -126,6 +126,7 @@ public class EnemyBurrowingSnake : Enemy
 
     public override void StopMoving()
     {
+        agent.velocity = Vector3.zero;
         agent.isStopped = true;
     }
 

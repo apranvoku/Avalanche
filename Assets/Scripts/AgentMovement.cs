@@ -123,14 +123,20 @@ public class AgentMovement : MonoBehaviour
     {
         if (!UnityEngine.AI.NavMesh.CalculatePath(transform.position, new Vector3(target.x, target.y, target.z), NavMesh.AllAreas, path))
         {
-            NavMesh.SamplePosition(target, out hit, 1.5f, NavMesh.AllAreas);
-            if (!UnityEngine.AI.NavMesh.CalculatePath(transform.position, hit.position, NavMesh.AllAreas, path))
+            if (NavMesh.SamplePosition(target, out hit, 1.5f, NavMesh.AllAreas))
             {
-                agent.SetDestination(new Vector3(target.x, target.y, target.z));
+                if (!UnityEngine.AI.NavMesh.CalculatePath(transform.position, hit.position, NavMesh.AllAreas, path))
+                {
+                    agent.SetDestination(new Vector3(target.x, target.y, target.z));
+                }
+                else
+                {
+                    agent.SetPath(path);
+                }
             }
             else
             {
-                agent.SetPath(path);
+                agent.SetDestination(new Vector3(target.x, target.y, target.z));
             }
         }
         else 

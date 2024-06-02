@@ -86,7 +86,7 @@ public class Shop : MonoBehaviour
 
         money = 0;
         //temp for testing.
-        money = 90000;
+        //money = 90000;
         //UpdateMoney();
         //temp for testing.
         //OpenShop();

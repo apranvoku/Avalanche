@@ -89,9 +89,9 @@ public class Pistol : Gun
 
 public class Machinegun : Gun
 {
-    public override float damage => 6f + damageUpgradeLevel * 0.4f;
-    public override float fireRate => 8f;
-    public override float reloadTime => 2f - (0.1f * reloadUpgradeLevel);
+    public override float damage => 5f + damageUpgradeLevel * 0.5f;
+    public override float fireRate => 9f;
+    public override float reloadTime => 3f - (0.12f * reloadUpgradeLevel);
     public override int penetration => 1 + penetrationUpgradeLevel;
     public override int maxAmmo => 24;
     private int _damageUpgradeLevel;
@@ -211,7 +211,7 @@ public class Shotgun : Gun
 
 public class Rocketlauncher : Gun
 {
-    public override float damage => 20f + 5f * damageUpgradeLevel; //Should do "aoe"
+    public override float damage => 7f + 5f * damageUpgradeLevel; //Should do "aoe"
     public override float fireRate => 1f;
     public override float reloadTime => 2f - (0.2f * reloadUpgradeLevel);
     public override int penetration => 15 + penetrationUpgradeLevel;
