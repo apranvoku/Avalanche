@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7479804343489851271}
   - component: {fileID: 1372021350245341111}
   m_Layer: 8
-  m_Name: hydraPoisonBall
+  m_Name: hydraPoisonShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81acc597530a434c8d91d37785f80e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
+  bulletSpeed: 30
   player: {fileID: 0}
   velocityVector: {x: 0, y: 0, z: 0}
   JitterOffset: {x: 0, y: 0, z: 0}
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 1212501101
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8aa7ffe8a8552d049b4883a5e3bf8074, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bbd4cab0eea53a94da13ed9459276cf0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

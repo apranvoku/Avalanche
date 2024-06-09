@@ -13,15 +13,21 @@ public class EnemyHydra : Enemy
     public GameObject Head4;
     public GameObject Head5;
 
+    public GameObject OuroborousStatue;
+    public Transform HydraCenter;
 
     public GameObject HydraBullet1;
     public GameObject HydraBullet2;
-    public GameObject HydraBullet3;
 
-    private bool phase1;
-    private bool phase2;
-    private bool phase3;
-    private bool phase4;
+    public bool phase1;
+    public bool phase2;
+    public bool phase3;
+    public bool phase4;
+
+    public bool phase2started;
+    public bool phase3started;
+    public bool phase4started;
+    public bool hydraDead;
 
     public GameObject player;
     public Player playerScript;
@@ -31,7 +37,6 @@ public class EnemyHydra : Enemy
     private float total_hp;
     public GameObject coinDropParent;
     private Animator animator;
-    private Vector3 distToPlayer;
 
     public List<Item> ItemDropList;
 
@@ -41,18 +46,24 @@ public class EnemyHydra : Enemy
     void Awake()
     {
         phase1 = true;
-        phase2 = false; 
+        phase2 = false;
         phase3 = false;
         phase4 = false;
 
+        phase2started = false;
+        phase3started = false;
+        phase4started = false;
+        hydraDead = false;
+
         total_hp = hp;
+        //hp = 1f * hp; //Phase test
         player = GameObject.Find("Agent");
         playerScript = player.GetComponentInChildren<Player>();
         coinDropParent = GameObject.Find("coinDropParent");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        slider = GetComponentInChildren<Slider>();
+        slider = GameObject.Find("BossHP").GetComponent<Slider>();
         animator = GetComponentInChildren<Animator>();
         base.dead = false;
 
@@ -60,49 +71,114 @@ public class EnemyHydra : Enemy
         //Debug.Log(enemyIndex);
         SpawnManager.enemyIndex++;
         agent.avoidancePriority = SpawnManager.enemyseed;
-        StartCoroutine(PhaseOneShoot());
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if(phase1)
+        if (phase1)
         {
-
+            StartCoroutine(RoutineA());
+            phase1 = false;
         }
-        else if(phase2)
+        else if (phase2)
         {
-
+            StartCoroutine(RoutineB());
+            phase2 = false;
         }
-        else if(phase3)
+        else if (phase3)
         {
-
+            StartCoroutine(BeginPhaseC());
+            StartCoroutine(RoutineC());
+            phase3 = false;
         }
         else if (phase4)
         {
-
+            StartCoroutine(RoutineD());
+            phase4 = false;
         }
     }
-
-    public IEnumerator PhaseOneShoot()
+    public IEnumerator RoutineA()
     {
-        while(phase1)
+        while (!phase2started)
         {
-            for(int i = 0; i  < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
-                GameObject bullet = Instantiate(HydraBullet1, Head1.transform.GetChild(0).position, Head1.transform.GetChild(0).rotation, Head1.transform.GetChild(0));
-                bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                GameObject bullet = Instantiate(HydraBullet1, transform.GetChild(i + 1).GetChild(0).position, transform.GetChild(i + 1).GetChild(0).rotation, transform.GetChild(i + 1).GetChild(0));
                 bullet.GetComponent<HydraProjectile>().Jitter = 0;
                 bullet.GetComponent<HydraProjectile>().bulletSpeed = 30;
                 bullet.transform.parent = bullet.transform.parent.parent; //Move parent so bullets keeps its trajectory.
-                Head1.transform.GetChild(0).transform.Rotate(0f, 0f, 120f);
+                transform.GetChild(i + 1).transform.GetChild(0).transform.Rotate(0f, 0f, 120f);
             }
             Head1.transform.GetChild(0).transform.Rotate(0f, 0f, 5f);
+            Head2.transform.GetChild(0).transform.Rotate(0f, 0f, 5f);
+            Head3.transform.GetChild(0).transform.Rotate(0f, 0f, 5f);
             yield return new WaitForSecondsRealtime(0.15f);
         }
-
+        yield return null;
     }
+
+    public IEnumerator RoutineB()
+    {
+        int i = 0;
+        while (!phase3started)
+        {
+            //transform GetChild(1) is head, transfrom.GetChild(1).GetChild(0) is empty head rotation
+            GameObject bullet = Instantiate(HydraBullet2, transform.GetChild(i % 5 + 1).position, transform.GetChild(1).GetChild(0).rotation, transform.GetChild(1).GetChild(0));
+            bullet.transform.parent = bullet.transform.parent.parent; //Move parent so bullets keeps its trajectory.
+            transform.GetChild(1).transform.GetChild(0).transform.Rotate(0f, 0f, 10f); //Rotate parent object for next bullets
+            yield return new WaitForSecondsRealtime(0.15f);
+            i++;
+        }
+        yield return null;
+    }
+
+    public IEnumerator RoutineC()
+    {
+        while (!phase4started)
+        {
+            HydraCenter.Rotate(0f, 0f, Time.deltaTime * 60f);
+            yield return null;
+        }
+        yield return null;
+    }
+
+    public IEnumerator RoutineD()
+    {
+        while (!hydraDead)
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                //transform GetChild(1) is head, transfrom.GetChild(1).GetChild(0) is empty head rotation
+                GameObject bullet = Instantiate(HydraBullet1, transform.GetChild(1).GetChild(0).position, transform.GetChild(1).GetChild(0).rotation, transform.GetChild(1).GetChild(0));
+                bullet.GetComponent<HydraProjectile>().Jitter = 0;
+                bullet.GetComponent<HydraProjectile>().bulletSpeed = 30;
+                bullet.transform.parent = bullet.transform.parent.parent; //Move parent so bullets keeps its trajectory.
+                transform.GetChild(1).transform.GetChild(0).transform.Rotate(0f, 0f, 10f); //Rotate parent object for next bullets
+            }
+            transform.GetChild(1).transform.GetChild(0).transform.Rotate(0f, 0f, 5f); //Rotate parent object for next bullets
+            yield return new WaitForSecondsRealtime(1f);
+        }
+        yield return null;
+    }
+
+    public IEnumerator BeginPhaseC()
+    {
+        GameObject Statue1 = GameObject.Instantiate(OuroborousStatue, HydraCenter.position, Quaternion.identity, HydraCenter);
+        GameObject Statue2 = GameObject.Instantiate(OuroborousStatue, HydraCenter.position, Quaternion.identity, HydraCenter);
+        GameObject Statue3 = GameObject.Instantiate(OuroborousStatue, HydraCenter.position, Quaternion.identity, HydraCenter);
+        GameObject Statue4 = GameObject.Instantiate(OuroborousStatue, HydraCenter.position, Quaternion.identity, HydraCenter);
+        for (float distance = 0; distance < 150f; distance += Time.deltaTime * 150f)
+        {
+            Statue1.transform.position += new Vector3(Time.deltaTime * 150f, 0f, 0f);
+            Statue2.transform.position += new Vector3(-Time.deltaTime * 150f, 0f, 0f);
+            Statue3.transform.position += new Vector3(0, Time.deltaTime * 150f, 0f);
+            Statue4.transform.position += new Vector3(0, -Time.deltaTime * 150f, 0f);
+            yield return null;
+        }
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -116,7 +192,8 @@ public class EnemyHydra : Enemy
     {
         //animator.Play("Base Layer.Hitstun", 0);
         hp -= damage;
-        slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
+        slider.value = hp / total_hp; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
+        //slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
             GetComponent<CircleCollider2D>().enabled = false;
@@ -127,6 +204,21 @@ public class EnemyHydra : Enemy
             }
             base.dead = true;
             //We can use the coindrop GO to set coin values.
+        }
+        else if (hp / total_hp <= 0.25f && !phase4started)
+        {
+            phase4started = true;
+            phase4 = true;
+        }
+        else if (hp / total_hp <= 0.5f && !phase3started)
+        {
+            phase3started = true;
+            phase3 = true;
+        }
+        else if (hp / total_hp <= 0.75f && !phase2started)
+        {
+            phase2started = true;
+            phase2 = true;
         }
     }
     public void DropItem()

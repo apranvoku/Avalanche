@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
         flashDuration = 0.2f;
         invincibilityLength = .75f;
         shootScript = GameObject.Find("Character").GetComponent<Shoot>();
+        heartContainer = GameObject.Find("Health").transform;
+        redVignette = GameObject.Find("Vignette").transform;
     }
 
     // Update is called once per frame
