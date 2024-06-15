@@ -59,6 +59,7 @@ public class GameOverScreen : MonoBehaviour
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
         StartCoroutine(FadeOut());
+        Shop.Instance.ResetMoneyToSnapshot();
         PauseScreen.canPause = true;
     }
 

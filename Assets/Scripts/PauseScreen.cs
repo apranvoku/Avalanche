@@ -75,5 +75,6 @@ public class PauseScreen : MonoBehaviour
         TogglePause();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = false;
         GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
+        Shop.Instance.ResetMoneyToSnapshot();
     }
 }

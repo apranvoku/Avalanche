@@ -44,7 +44,7 @@ public class EnemyBurrowingSnake : Enemy
         digRange = 50f;
         surfaceRange = 15f;
         canDig = true;
-        digDelay = 1f;
+        digDelay = 5f;
 
         base.dead = false;
     }

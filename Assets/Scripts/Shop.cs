@@ -33,6 +33,7 @@ public class Shop : MonoBehaviour
     private static Shop instance;
     public Shoot shootScript;
     public int money;
+    private int moneySnapshot;
 
     public List<string> levels;
     public int currentLevel;
@@ -84,6 +85,7 @@ public class Shop : MonoBehaviour
         rocketLauncherBought = false;
         myGroup.interactable = false;
 
+        moneySnapshot = 0;
         money = 0;
         //temp for testing.
         //money = 90000;
@@ -251,6 +253,7 @@ public class Shop : MonoBehaviour
         StartCoroutine(FadeToWhite(1f));
         //I do some weird stuff to make the Looping work
         currentLevel++;
+        moneySnapshot = money;
         if (currentLevel >= levels.Count)
         {
             currentLevel = 1;
@@ -264,6 +267,12 @@ public class Shop : MonoBehaviour
         PauseScreen.canPause = true;
     }
 
+    public void ResetMoneyToSnapshot()
+    {
+        money = moneySnapshot;
+        UpdateMoney();
+    }
+
     public string GetLevel()
     {
         return currentLevel.ToString();
@@ -274,6 +283,7 @@ public class Shop : MonoBehaviour
         currentLevel = 1;
         ResetPurchases();
         money = 0;
+        moneySnapshot = 0;
         UpdateMoney();
     }
 
