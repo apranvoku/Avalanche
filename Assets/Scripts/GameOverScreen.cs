@@ -55,11 +55,12 @@ public class GameOverScreen : MonoBehaviour
 
     public void RetryLevel()
     {
+        GameObject.Find("EnemySpawns").GetComponentInChildren<SpawnManager>().ClearEnemies();
         loadingManager.LoadScene(SceneManager.GetActiveScene().name);
-        GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
-        GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
         StartCoroutine(FadeOut());
         Shop.Instance.ResetMoneyToSnapshot();
+        GameObject.Find("Agent").GetComponentInChildren<Player>().ResetAllStats();
+        GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = true;
         PauseScreen.canPause = true;
     }
 

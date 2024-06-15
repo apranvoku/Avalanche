@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private float flashDuration;
     private float invincibilityLength;
+    private bool invincibilityActive;
     public bool devMode;
     private Shoot shootScript;
 
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
         shootScript = GameObject.Find("Character").GetComponent<Shoot>();
         heartContainer = GameObject.Find("Health").transform;
         redVignette = GameObject.Find("Vignette").transform;
+        invincibilityActive = false;
     }
 
     // Update is called once per frame
@@ -80,21 +82,25 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        transform.parent.GetComponent<AgentMovement>().OnDisable();
-        transform.parent.GetComponent<AgentMovement>().enabled = false;
-        StartCoroutine(FlashRed());
-        animator.Play("Base Layer.Hitstun", 0);
-        hp -= damage;
-        UpdateHearts((int)hp);
-        if(hp <= 0)
+        if (!invincibilityActive)
         {
-            GetComponent<CircleCollider2D>().enabled = false;
-            animator.Play("Base Layer.Death", 0);
-            //Die();
-        }
-        else
-        {
-            StartCoroutine(InvincibilityTimer());
+            invincibilityActive = true;
+            transform.parent.GetComponent<AgentMovement>().OnDisable();
+            transform.parent.GetComponent<AgentMovement>().enabled = false;
+            StartCoroutine(FlashRed());
+            animator.Play("Base Layer.Hitstun", 0);
+            hp -= damage;
+            UpdateHearts((int)hp);
+            if (hp <= 0)
+            {
+                GetComponent<CircleCollider2D>().enabled = false;
+                animator.Play("Base Layer.Death", 0);
+                //Die();
+            }
+            else
+            {
+                StartCoroutine(InvincibilityTimer());
+            }
         }
     }
 
@@ -107,15 +113,15 @@ public class Player : MonoBehaviour
     public void ResetAllStats()
     {
         AgentMovement.Instance.DisableNavAgent();
-        hp = max_hp;
-        UpdateHearts((int)hp);
-
         animator.Play("Base Layer.Idle", 0);
         GetComponent<CircleCollider2D>().enabled = true;
         AgentMovement.Instance.transform.position = Vector3.zero;
         AgentMovement.Instance.enabled = true;
         AgentMovement.Instance.OnEnable();
         shootScript.ResetAmmoUI();
+        hp = max_hp;
+        UpdateHearts((int)hp);
+        invincibilityActive = false;
     }
 
     public void UpdateHearts(int heartsRemaining)
@@ -173,6 +179,7 @@ public class Player : MonoBehaviour
         if (hp > 0)
         {
             GetComponent<CircleCollider2D>().enabled = true;
+            invincibilityActive = false;
         }
     }
 }

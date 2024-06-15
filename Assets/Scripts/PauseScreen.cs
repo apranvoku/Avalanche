@@ -71,6 +71,7 @@ public class PauseScreen : MonoBehaviour
 
     public void RetryLevel()
     {
+        GameObject.Find("EnemySpawns").GetComponentInChildren<SpawnManager>().ClearEnemies();
         loadingManager.LoadScene(SceneManager.GetActiveScene().name);
         TogglePause();
         GameObject.Find("Agent").GetComponent<AgentMovement>().enabled = false;

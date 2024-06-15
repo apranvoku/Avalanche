@@ -55,6 +55,17 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void ClearEnemies()
+    {
+        foreach (Transform portal in transform)
+        {
+            foreach (Transform enemy in portal)
+            {
+                Destroy(enemy.gameObject);
+            }
+        }
+    }
+
     public void EnemyDestroyed(Vector3 pos)
     {
         maxEnemiesCount--;
