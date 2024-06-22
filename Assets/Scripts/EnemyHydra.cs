@@ -196,14 +196,14 @@ public class EnemyHydra : Enemy
         //slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<PolygonCollider2D>().enabled = false;
             //animator.Play("Base Layer.Death", 0);
             if (!base.dead)
             {
                 DropItem();
             }
             base.dead = true;
-            //We can use the coindrop GO to set coin values.
+            //Need hydra death anim.
         }
         else if (hp / total_hp <= 0.25f && !phase4started)
         {

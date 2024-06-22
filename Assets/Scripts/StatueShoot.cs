@@ -13,11 +13,20 @@ public class StatueShoot : MonoBehaviour
         hydra = GetComponentInParent<EnemyHydra>();
     }
 
+    public void Update()
+    {
+        if (!hydra.phase4started)
+        {
+            transform.parent.Rotate(0f, 0f, -Time.deltaTime * 60f);
+        }
+    }
+
     public IEnumerator ShootPattern()
     {
         yield return new WaitForSeconds(2f);
         while(!hydra.phase4started)
         {
+            //transform.parent.Rotate(0f, 0f, -Time.deltaTime * 60f);
             GameObject BulletA = GameObject.Instantiate(Projectile, transform.position, Quaternion.identity, transform);
             GameObject BulletB = GameObject.Instantiate(Projectile, transform.position, Quaternion.identity, transform);
             BulletB.transform.Rotate(0f, 0f, 180f); ;
