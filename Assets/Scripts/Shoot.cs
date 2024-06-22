@@ -18,6 +18,8 @@ public enum Guns
 
 public class Shoot : MonoBehaviour
 {
+    public bool GODMODE;
+
     public GameObject PistolBullets;
     public GameObject MachineGunBullets;
     public GameObject ShotgunBullets;
@@ -74,13 +76,17 @@ public class Shoot : MonoBehaviour
         rocketlauncher = new Rocketlauncher();
         rocketlauncher.ammoRemaining = rocketlauncher.maxAmmo;
 
-        //pistol.upgradeDamage();
-        //pistol.upgradeDamage();
-        //pistol.upgradeDamage();
-        //pistol.upgradeDamage();
-        //pistol.upgradeDamage();
-        //pistol.upgradeDamage();
-        //pistol.upgradeDamage();
+        if(GODMODE)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                pistol.upgradeDamage();
+                pistol.upgradeDamage();
+                pistol.upgradePenetration();
+                pistol.upgradeReload();
+            }
+        }
+
 
         selectedGun = pistol;
         selectedGuns = Guns.Pistol;

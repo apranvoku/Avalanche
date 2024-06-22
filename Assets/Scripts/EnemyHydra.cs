@@ -31,7 +31,7 @@ public class EnemyHydra : Enemy
 
     public GameObject player;
     public Player playerScript;
-    Slider slider;
+    Transform bossPips;
     NavMeshAgent agent;
     public float hp;
     private float total_hp;
@@ -63,7 +63,7 @@ public class EnemyHydra : Enemy
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        slider = GameObject.Find("BossHP").GetComponent<Slider>();
+        bossPips = GameObject.Find("BossHP").transform.GetChild(1);
         animator = GetComponentInChildren<Animator>();
         base.dead = false;
 
@@ -192,7 +192,18 @@ public class EnemyHydra : Enemy
     {
         //animator.Play("Base Layer.Hitstun", 0);
         hp -= damage;
-        slider.value = hp / total_hp; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
+        float hp_fraction = hp / total_hp;
+        for (float i = bossPips.childCount-1; i >= 0; i--)
+        {
+
+            if(i/(bossPips.childCount-1) > hp_fraction)
+            {
+                if(bossPips.GetChild((int)i).gameObject.activeSelf)
+                {
+                    bossPips.GetChild((int)i).gameObject.SetActive(false);
+                }
+            }
+        }
         //slider.value = (hp / total_hp) * 0.8f + 0.2f; //Bound slider from 0.3f to 1f, slider looks ugly when going below 0.3f;
         if (hp <= 0)
         {
@@ -203,6 +214,8 @@ public class EnemyHydra : Enemy
                 DropItem();
             }
             base.dead = true;
+            hydraDead = true;
+            Destroy(gameObject);
             //Need hydra death anim.
         }
         else if (hp / total_hp <= 0.25f && !phase4started)

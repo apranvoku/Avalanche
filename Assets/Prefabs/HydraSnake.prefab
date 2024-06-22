@@ -819,7 +819,9 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   hp: 300
   coinDropParent: {fileID: 0}
-  ItemDropList: []
+  ItemDropList:
+  - drop: {fileID: 7877430575380500638, guid: 70dfd5e41879c6e41b1077163d0adae9, type: 3}
+    dropRate: 100
 --- !u!60 &4906179800611222670
 PolygonCollider2D:
   m_ObjectHideFlags: 0
