@@ -817,7 +817,7 @@ MonoBehaviour:
   hydraDead: 0
   player: {fileID: 0}
   playerScript: {fileID: 0}
-  hp: 300
+  hp: 1500
   coinDropParent: {fileID: 0}
   ItemDropList:
   - drop: {fileID: 7877430575380500638, guid: 70dfd5e41879c6e41b1077163d0adae9, type: 3}
