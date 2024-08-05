@@ -9701,6 +9701,10 @@ PrefabInstance:
       propertyPath: heartContainer
       value: 
       objectReference: {fileID: 769726531}
+    - target: {fileID: 6930178489024314645, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
+      propertyPath: devAgentDisplay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7724385975281193383, guid: e20dc841faa4e7b4180787020c6c76b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

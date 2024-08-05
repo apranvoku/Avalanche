@@ -23,13 +23,8 @@ public class EnemyOuroborosStatue : Enemy
         base.dead = false;
         animator = GetComponentInChildren<Animator>();
         coinDropParent = GameObject.Find("coinDropParent");
+        PositionOverride(); //Hacky method to make the statue not spawn on the boss
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public override void TakeDamage(float damage)
@@ -59,6 +54,16 @@ public class EnemyOuroborosStatue : Enemy
         }
     }
 
+    /*
+     * Hacky Method to make the statue not spawn on te final boss
+     */
+    private void PositionOverride()
+    {
+        if (transform.position.x == 0)
+        {
+            transform.position = new Vector3(100,260, transform.position.z);
+        }
+    }
 
 
     public override void SelfDestroy()

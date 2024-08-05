@@ -215,7 +215,7 @@ public class EnemyHydra : Enemy
             }
             base.dead = true;
             hydraDead = true;
-            Destroy(gameObject);
+            SelfDestroy();
             //Need hydra death anim.
         }
         else if (hp / total_hp <= 0.25f && !phase4started)
@@ -247,7 +247,7 @@ public class EnemyHydra : Enemy
 
     public override void SelfDestroy()
     {
-        GetComponentInParent<SpawnManager>().EnemyDestroyed(transform.position);
+        GetComponentInParent<SpawnManager>().EnemyDestroyed(new Vector3(0,2900,0));
         Destroy(transform.gameObject);
     }
 
