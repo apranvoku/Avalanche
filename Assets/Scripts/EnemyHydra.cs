@@ -247,7 +247,7 @@ public class EnemyHydra : Enemy
 
     public override void SelfDestroy()
     {
-        GetComponentInParent<SpawnManager>().EnemyDestroyed(new Vector3(0,2900,0));
+        GetComponentInParent<SpawnManager>().EnemyDestroyed(new Vector3(0,290,0));
         Destroy(transform.gameObject);
     }
 
